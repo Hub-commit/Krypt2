@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mentor Profile - Kryppt</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "surface-dark": "#1C252E",
+                        "border-dark": "#233648",
+                        "text-secondary": "#92adc9"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #101922; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #233648; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #324d67; 
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-white antialiased min-h-screen flex flex-col">
+<!-- Top Navigation -->
+<div class="w-full border-b border-solid border-gray-200 dark:border-border-dark bg-white dark:bg-background-dark sticky top-0 z-50">
+<header class="flex items-center justify-between whitespace-nowrap px-4 lg:px-10 py-3 max-w-7xl mx-auto w-full">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 dark:text-white">
+<div class="size-8 text-primary">
+<span class="material-symbols-outlined text-3xl">token</span>
+</div>
+<h2 class="dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Kryppt</h2>
+</div>
+<div class="hidden lg:flex items-center gap-9">
+<a class="dark:text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Mentors</a>
+<a class="dark:text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Jobs</a>
+<a class="dark:text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Community</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex w-full max-w-xs items-stretch rounded-lg h-10">
+<div class="text-text-secondary flex border-none bg-gray-100 dark:bg-border-dark items-center justify-center pl-3 rounded-l-lg">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-lg dark:text-white focus:outline-0 focus:ring-0 border-none bg-gray-100 dark:bg-border-dark h-full placeholder:text-text-secondary px-3 text-sm font-normal leading-normal" placeholder="Search mentors..."/>
+</div>
+<button class="hidden sm:flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold hover:bg-blue-600 transition-colors">
+<span>Log In</span>
+</button>
+</div>
+</header>
+</div>
+<!-- Main Layout Container -->
+<main class="flex-1 layout-container flex flex-col max-w-7xl mx-auto w-full px-4 lg:px-8 py-6">
+<!-- Breadcrumbs -->
+<div class="flex flex-wrap gap-2 pb-6">
+<a class="text-text-secondary hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Home</a>
+<span class="text-text-secondary text-sm font-medium leading-normal">/</span>
+<a class="text-text-secondary hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Mentors</a>
+<span class="text-text-secondary text-sm font-medium leading-normal">/</span>
+<span class="dark:text-white text-sm font-medium leading-normal">Engineering</span>
+<span class="text-text-secondary text-sm font-medium leading-normal">/</span>
+<span class="text-primary text-sm font-medium leading-normal">Sarah Jenkins</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Sidebar (Sticky) -->
+<aside class="lg:col-span-4 xl:col-span-3 flex flex-col gap-6 lg:sticky lg:top-24">
+<!-- Profile Card -->
+<div class="bg-white dark:bg-surface-dark rounded-xl p-6 border border-gray-200 dark:border-border-dark shadow-sm flex flex-col items-center text-center">
+<div class="relative w-40 h-40 mb-4 group">
+<div class="w-full h-full rounded-full overflow-hidden border-4 border-gray-100 dark:border-[#2a3847]">
+<img alt="Professional headshot of a woman in business attire smiling" class="w-full h-full object-cover" data-alt="Professional headshot of a woman in business attire smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD41X1xrjawabuIXzEduWrVYm_p8_MQFy0D2wLOn2M_JXai7A7APN119Tz3_AJlJDmgGihPJsgY7gG0Wt1yIeDukbhigmdESeDyZK5MmMGiiKvOcaJ8CyOmfsqOagZsc9oAfivw1Z7RI8EkAD42mydkOGmTAEkzGmK6A6vQ-D5AM7huySWQjY8OkExP09LDrl1J-c9QIJV6inoITudoiRDGTrCgH2XfM5EiQCLDVCSOf7-ouRRYJoIW_RSnEzAptpgPiwoPY5eRZruU"/>
+</div>
+<div class="absolute bottom-2 right-2 size-6 bg-green-500 rounded-full border-4 border-white dark:border-surface-dark" title="Online"></div>
+</div>
+<h1 class="text-xl font-bold dark:text-white mb-1 flex items-center gap-2 justify-center">
+                        Sarah Jenkins
+                        <span class="material-symbols-outlined text-primary text-[20px] fill-current" title="Verified Mentor">verified</span>
+</h1>
+<p class="text-text-secondary text-sm mb-6">Senior Frontend Engineer at Google</p>
+<div class="w-full border-t border-gray-200 dark:border-border-dark my-4"></div>
+<div class="flex flex-col gap-1 mb-6">
+<span class="text-text-secondary text-sm">Hourly Rate</span>
+<div class="flex items-baseline justify-center gap-1">
+<span class="text-3xl font-bold dark:text-white">$120</span>
+<span class="text-text-secondary text-sm font-medium">/ hour</span>
+</div>
+</div>
+<button class="w-full flex items-center justify-center gap-2 rounded-lg h-12 px-6 bg-primary text-white text-sm font-bold hover:bg-blue-600 transition-all shadow-lg shadow-primary/20 mb-3">
+<span class="material-symbols-outlined text-[20px]">send</span>
+                        Request Mentorship
+                    </button>
+<button class="w-full flex items-center justify-center gap-2 rounded-lg h-10 px-6 bg-transparent border border-gray-300 dark:border-border-dark dark:text-white text-sm font-semibold hover:bg-gray-50 dark:hover:bg-border-dark transition-all">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+                        Save to Favorites
+                    </button>
+<div class="mt-4 flex items-center gap-2 text-xs text-text-secondary bg-primary/10 px-3 py-1.5 rounded-full">
+<span class="material-symbols-outlined text-[14px] text-primary">bolt</span>
+<span class="text-primary font-medium">High Demand: 3 spots left</span>
+</div>
+</div>
+<!-- Quick Stats Card -->
+<div class="bg-white dark:bg-surface-dark rounded-xl p-5 border border-gray-200 dark:border-border-dark shadow-sm">
+<h3 class="text-sm font-bold uppercase tracking-wider text-text-secondary mb-4">Stats</h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-1">
+<span class="text-xl font-bold dark:text-white">124</span>
+<span class="text-xs text-text-secondary">Sessions</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-xl font-bold dark:text-white">100%</span>
+<span class="text-xs text-text-secondary">Response Rate</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-xl font-bold dark:text-white">4.9</span>
+<div class="flex text-amber-400 text-[10px]">
+<span class="material-symbols-outlined text-[14px] fill-1">star</span>
+<span class="material-symbols-outlined text-[14px] fill-1">star</span>
+<span class="material-symbols-outlined text-[14px] fill-1">star</span>
+<span class="material-symbols-outlined text-[14px] fill-1">star</span>
+<span class="material-symbols-outlined text-[14px] fill-1">star</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-xl font-bold dark:text-white">5yr</span>
+<span class="text-xs text-text-secondary">Experience</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<div class="lg:col-span-8 xl:col-span-9 flex flex-col gap-8">
+<!-- Header Info -->
+<div class="flex flex-col gap-4">
+<div class="flex flex-wrap gap-3">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold">
+<span class="material-symbols-outlined text-[16px]">code</span> Engineering
+                        </span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gray-100 dark:bg-border-dark text-text-secondary text-xs font-semibold">
+<span class="material-symbols-outlined text-[16px]">location_on</span> San Francisco, CA (Remote)
+                        </span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gray-100 dark:bg-border-dark text-text-secondary text-xs font-semibold">
+<span class="material-symbols-outlined text-[16px]">language</span> English, Spanish
+                        </span>
+</div>
+<h2 class="text-3xl md:text-4xl font-bold dark:text-white leading-tight">
+                        Helping engineers scale from Junior to Senior. Expert in React, System Design, and Career Growth.
+                    </h2>
+</div>
+<!-- Tabs -->
+<div class="border-b border-gray-200 dark:border-border-dark">
+<nav aria-label="Tabs" class="-mb-px flex gap-8">
+<a aria-current="page" class="border-b-2 border-primary py-4 px-1 text-sm font-medium text-primary" href="#">
+                            Overview
+                        </a>
+<a class="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-text-secondary hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-300" href="#">
+                            Reviews (124)
+                        </a>
+<a class="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-text-secondary hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-300" href="#">
+                            Availability
+                        </a>
+</nav>
+</div>
+<!-- About Section -->
+<section class="flex flex-col gap-4">
+<h3 class="text-lg font-bold dark:text-white">About Me</h3>
+<div class="dark:text-gray-300 text-gray-600 leading-relaxed space-y-4">
+<p>
+                            Hi! I'm Sarah. I've been building web applications for over 8 years, with a focus on scalable frontend architectures. Currently, I lead a team of 10 engineers at Google, working on internal developer tools.
+                        </p>
+<p>
+                            My mentorship style is hands-on and goal-oriented. Whether you're looking to crack your first FAANG interview, refactor a messy codebase, or navigate a promotion to Senior Engineer, I can help you build a roadmap and stick to it. I believe in writing code that is not just functional, but clean, maintainable, and beautiful.
+                        </p>
+</div>
+</section>
+<!-- Skills -->
+<section class="flex flex-col gap-4">
+<h3 class="text-lg font-bold dark:text-white">Skills &amp; Expertise</h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-4 py-2 rounded-lg bg-gray-100 dark:bg-border-dark dark:text-gray-200 text-sm font-medium border border-transparent hover:border-primary/50 transition-colors cursor-default">React.js</span>
+<span class="px-4 py-2 rounded-lg bg-gray-100 dark:bg-border-dark dark:text-gray-200 text-sm font-medium border border-transparent hover:border-primary/50 transition-colors cursor-default">TypeScript</span>
+<span class="px-4 py-2 rounded-lg bg-gray-100 dark:bg-border-dark dark:text-gray-200 text-sm font-medium border border-transparent hover:border-primary/50 transition-colors cursor-default">System Design</span>
+<span class="px-4 py-2 rounded-lg bg-gray-100 dark:bg-border-dark dark:text-gray-200 text-sm font-medium border border-transparent hover:border-primary/50 transition-colors cursor-default">GraphQL</span>
+<span class="px-4 py-2 rounded-lg bg-gray-100 dark:bg-border-dark dark:text-gray-200 text-sm font-medium border border-transparent hover:border-primary/50 transition-colors cursor-default">Next.js</span>
+<span class="px-4 py-2 rounded-lg bg-gray-100 dark:bg-border-dark dark:text-gray-200 text-sm font-medium border border-transparent hover:border-primary/50 transition-colors cursor-default">Career Advice</span>
+<span class="px-4 py-2 rounded-lg bg-gray-100 dark:bg-border-dark dark:text-gray-200 text-sm font-medium border border-transparent hover:border-primary/50 transition-colors cursor-default">Interview Prep</span>
+<span class="px-4 py-2 rounded-lg bg-gray-100 dark:bg-border-dark dark:text-gray-200 text-sm font-medium border border-transparent hover:border-primary/50 transition-colors cursor-default">Team Leadership</span>
+</div>
+</section>
+<!-- Experience Timeline -->
+<section class="flex flex-col gap-4">
+<h3 class="text-lg font-bold dark:text-white">Experience</h3>
+<div class="relative pl-4 border-l-2 border-gray-200 dark:border-border-dark space-y-8">
+<div class="relative">
+<div class="absolute -left-[21px] top-1.5 size-3 rounded-full bg-primary border-2 border-white dark:border-background-dark"></div>
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1">
+<h4 class="text-base font-bold dark:text-white">Senior Frontend Engineer</h4>
+<span class="text-sm text-text-secondary">2021 - Present</span>
+</div>
+<p class="text-sm font-medium text-primary mb-2">Google</p>
+<p class="text-sm dark:text-gray-400 text-gray-600">Leading the internal tools team. Migrated legacy Angular apps to React. Improved build times by 40%.</p>
+</div>
+<div class="relative">
+<div class="absolute -left-[21px] top-1.5 size-3 rounded-full bg-gray-300 dark:bg-gray-600 border-2 border-white dark:border-background-dark"></div>
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1">
+<h4 class="text-base font-bold dark:text-white">Software Engineer II</h4>
+<span class="text-sm text-text-secondary">2018 - 2021</span>
+</div>
+<p class="text-sm font-medium text-text-secondary mb-2">Uber</p>
+<p class="text-sm dark:text-gray-400 text-gray-600">Worked on the driver onboarding experience. Implemented real-time document verification features.</p>
+</div>
+<div class="relative">
+<div class="absolute -left-[21px] top-1.5 size-3 rounded-full bg-gray-300 dark:bg-gray-600 border-2 border-white dark:border-background-dark"></div>
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1">
+<h4 class="text-base font-bold dark:text-white">Frontend Developer</h4>
+<span class="text-sm text-text-secondary">2016 - 2018</span>
+</div>
+<p class="text-sm font-medium text-text-secondary mb-2">StartUp Inc.</p>
+<p class="text-sm dark:text-gray-400 text-gray-600">Early employee. Built the MVP from scratch using React and Redux.</p>
+</div>
+</div>
+</section>
+<!-- What's Included / Pricing Detail -->
+<section class="grid md:grid-cols-2 gap-6">
+<div class="bg-white dark:bg-surface-dark rounded-xl p-6 border border-gray-200 dark:border-border-dark shadow-sm">
+<h3 class="text-lg font-bold dark:text-white mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">video_call</span>
+                            1:1 Mentorship
+                        </h3>
+<p class="text-sm dark:text-gray-400 text-gray-600 mb-4">
+                            Direct access to me for career guidance, mock interviews, or pair programming.
+                        </p>
+<ul class="space-y-2">
+<li class="flex items-start gap-2 text-sm dark:text-gray-300">
+<span class="material-symbols-outlined text-green-500 text-[18px]">check</span>
+<span>60-minute video call</span>
+</li>
+<li class="flex items-start gap-2 text-sm dark:text-gray-300">
+<span class="material-symbols-outlined text-green-500 text-[18px]">check</span>
+<span>Recording of our session</span>
+</li>
+<li class="flex items-start gap-2 text-sm dark:text-gray-300">
+<span class="material-symbols-outlined text-green-500 text-[18px]">check</span>
+<span>Follow-up action items</span>
+</li>
+</ul>
+</div>
+<div class="bg-white dark:bg-surface-dark rounded-xl p-6 border border-gray-200 dark:border-border-dark shadow-sm">
+<h3 class="text-lg font-bold dark:text-white mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">rate_review</span>
+                            Async Code Review
+                        </h3>
+<p class="text-sm dark:text-gray-400 text-gray-600 mb-4">
+                            Detailed feedback on your PRs or side projects to improve code quality.
+                        </p>
+<ul class="space-y-2">
+<li class="flex items-start gap-2 text-sm dark:text-gray-300">
+<span class="material-symbols-outlined text-green-500 text-[18px]">check</span>
+<span>Line-by-line feedback</span>
+</li>
+<li class="flex items-start gap-2 text-sm dark:text-gray-300">
+<span class="material-symbols-outlined text-green-500 text-[18px]">check</span>
+<span>Architecture suggestions</span>
+</li>
+<li class="flex items-start gap-2 text-sm dark:text-gray-300">
+<span class="material-symbols-outlined text-green-500 text-[18px]">check</span>
+<span>Best practices resources</span>
+</li>
+</ul>
+</div>
+</section>
+<!-- Reviews Section -->
+<section class="flex flex-col gap-6 pt-4">
+<div class="flex items-center justify-between">
+<h3 class="text-lg font-bold dark:text-white">Reviews</h3>
+<a class="text-primary text-sm font-medium hover:underline" href="#">View all 124 reviews</a>
+</div>
+<!-- Rating Summary Component -->
+<div class="bg-white dark:bg-surface-dark rounded-xl p-6 border border-gray-200 dark:border-border-dark shadow-sm">
+<div class="flex flex-wrap gap-x-12 gap-y-6">
+<div class="flex flex-col gap-1 items-center justify-center min-w-[120px]">
+<p class="text-gray-900 dark:text-white text-5xl font-black leading-tight tracking-[-0.033em]">4.9</p>
+<div class="flex gap-0.5 text-amber-400">
+<span class="material-symbols-outlined text-[20px] fill-current">star</span>
+<span class="material-symbols-outlined text-[20px] fill-current">star</span>
+<span class="material-symbols-outlined text-[20px] fill-current">star</span>
+<span class="material-symbols-outlined text-[20px] fill-current">star</span>
+<span class="material-symbols-outlined text-[20px] fill-current">star_half</span>
+</div>
+<p class="dark:text-text-secondary text-gray-500 text-sm font-normal leading-normal mt-1">124 reviews</p>
+</div>
+<div class="grid min-w-[240px] flex-1 grid-cols-[20px_1fr_40px] items-center gap-y-2 gap-x-3">
+<p class="dark:text-white text-gray-700 text-sm font-medium">5</p>
+<div class="flex h-2 flex-1 overflow-hidden rounded-full bg-gray-100 dark:bg-border-dark"><div class="rounded-full bg-primary" style="width: 78%;"></div></div>
+<p class="text-text-secondary text-sm font-normal text-right">78%</p>
+<p class="dark:text-white text-gray-700 text-sm font-medium">4</p>
+<div class="flex h-2 flex-1 overflow-hidden rounded-full bg-gray-100 dark:bg-border-dark"><div class="rounded-full bg-primary" style="width: 15%;"></div></div>
+<p class="text-text-secondary text-sm font-normal text-right">15%</p>
+<p class="dark:text-white text-gray-700 text-sm font-medium">3</p>
+<div class="flex h-2 flex-1 overflow-hidden rounded-full bg-gray-100 dark:bg-border-dark"><div class="rounded-full bg-primary" style="width: 5%;"></div></div>
+<p class="text-text-secondary text-sm font-normal text-right">5%</p>
+<p class="dark:text-white text-gray-700 text-sm font-medium">2</p>
+<div class="flex h-2 flex-1 overflow-hidden rounded-full bg-gray-100 dark:bg-border-dark"><div class="rounded-full bg-primary" style="width: 2%;"></div></div>
+<p class="text-text-secondary text-sm font-normal text-right">2%</p>
+<p class="dark:text-white text-gray-700 text-sm font-medium">1</p>
+<div class="flex h-2 flex-1 overflow-hidden rounded-full bg-gray-100 dark:bg-border-dark"><div class="rounded-full bg-primary" style="width: 0%;"></div></div>
+<p class="text-text-secondary text-sm font-normal text-right">0%</p>
+</div>
+</div>
+</div>
+<!-- Individual Review Cards -->
+<div class="grid gap-4">
+<!-- Review 1 -->
+<div class="bg-white dark:bg-surface-dark p-6 rounded-xl border border-gray-200 dark:border-border-dark">
+<div class="flex justify-between items-start mb-4">
+<div class="flex gap-3">
+<div class="size-10 rounded-full bg-gradient-to-br from-purple-500 to-indigo-500 overflow-hidden flex items-center justify-center text-white font-bold text-sm">
+                                        JM
+                                    </div>
+<div>
+<h4 class="text-sm font-bold dark:text-white">James Miller</h4>
+<p class="text-xs text-text-secondary">Junior Developer • March 2023</p>
+</div>
+</div>
+<div class="flex text-amber-400">
+<span class="material-symbols-outlined text-[18px] fill-current">star</span>
+<span class="material-symbols-outlined text-[18px] fill-current">star</span>
+<span class="material-symbols-outlined text-[18px] fill-current">star</span>
+<span class="material-symbols-outlined text-[18px] fill-current">star</span>
+<span class="material-symbols-outlined text-[18px] fill-current">star</span>
+</div>
+</div>
+<p class="text-sm dark:text-gray-300 text-gray-600 leading-relaxed">
+                                "Sarah is incredible. She helped me understand React Hooks in a way that finally clicked. Her code review feedback was actionable and kind. Highly recommend if you want to level up fast."
+                            </p>
+</div>
+<!-- Review 2 -->
+<div class="bg-white dark:bg-surface-dark p-6 rounded-xl border border-gray-200 dark:border-border-dark">
+<div class="flex justify-between items-start mb-4">
+<div class="flex gap-3">
+<div class="size-10 rounded-full overflow-hidden bg-gray-200">
+<img alt="Portrait of Alex Chen" class="w-full h-full object-cover" data-alt="Portrait of Alex Chen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAua3rasRDDCRUrVp0merxHrTyCAPK_wjIhmtDHNnGRn44DQVl6L2usQhoVOfJ83HUDE-iOo6bX9zZT4l54qDH1Ge-EMfakSInWQZUG7uZTGoV1AHk42ZR3Hrmm3bG1PtYNo467GgTRVky9YWusCpmX2P_U4TAnqECVRxQeGRVx4p1YXSOIayVPPRtepVrtDP3evszAD1BC9WSm305Jhjw2weenjgCyCeH7cYhh6wguXNPsriZCQT2KxCvgi9XRf5Rt9bESbFIleWDp"/>
+</div>
+<div>
+<h4 class="text-sm font-bold dark:text-white">Alex Chen</h4>
+<p class="text-xs text-text-secondary">Mid-level Engineer • February 2023</p>
+</div>
+</div>
+<div class="flex text-amber-400">
+<span class="material-symbols-outlined text-[18px] fill-current">star</span>
+<span class="material-symbols-outlined text-[18px] fill-current">star</span>
+<span class="material-symbols-outlined text-[18px] fill-current">star</span>
+<span class="material-symbols-outlined text-[18px] fill-current">star</span>
+<span class="material-symbols-outlined text-[18px] fill-current">star</span>
+</div>
+</div>
+<p class="text-sm dark:text-gray-300 text-gray-600 leading-relaxed">
+                                "I booked a session for system design interview prep. Sarah walked me through designing a scalable notification system. I felt much more confident going into my onsite."
+                            </p>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="mt-12 py-8 border-t border-gray-200 dark:border-border-dark bg-white dark:bg-background-dark">
+<div class="max-w-7xl mx-auto px-4 lg:px-8 text-center text-text-secondary text-sm">
+<p>© 2023 Kryppt. All rights reserved.</p>
+</div>
+</footer>
+</body></html>

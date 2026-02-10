@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Vetting Oversight Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2632",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for table container */
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 8px;
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white transition-colors duration-200">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 flex items-center justify-between border-b border-slate-200 dark:border-slate-800 bg-surface-light dark:bg-surface-dark px-6 py-3 shadow-sm">
+<div class="flex items-center gap-4">
+<div class="flex items-center justify-center size-8 rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-tight">Kryppt Admin</h2>
+</div>
+<div class="flex items-center gap-6">
+<button class="relative p-2 text-slate-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1 right-1 h-2 w-2 rounded-full bg-red-500"></span>
+</button>
+<div class="h-6 w-px bg-slate-200 dark:bg-slate-700"></div>
+<div class="flex items-center gap-3">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-bold leading-none">Alex Morgan</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Lead Overseer</p>
+</div>
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-10 border-2 border-slate-100 dark:border-slate-700 cursor-pointer hover:border-primary transition-colors" data-alt="User profile avatar showing a professional person" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDNVSZzKo5u37IOfeAeaOqr4FxfVUYDmQ682xZFHxgD2fYogaZzmoq3PMSgmBBEI0i8RFDZoFx9UZej05TYgJvL7FSrsWQgbgDnS1An_V97Tilck0e0DmhQ0V09ogJ_2Uo0rChgdMCQbdqVI51s6r_4iSPt9XKaGuw5DkahKahubkpWRPfeacYLwNFtN2EUKufIAwv3GnM31VGGUBDHG9DMYkjtGx4xTpanGcTj8aB2gTPELc_Q-BJ_mg3iSRejNjyfVEYJpZGWfK6j");'>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 px-4 sm:px-8 py-8 w-full max-w-[1440px] mx-auto">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+<div class="flex flex-col gap-2">
+<h1 class="text-3xl sm:text-4xl font-black tracking-tight text-slate-900 dark:text-white">AI Oversight Console</h1>
+<p class="text-slate-500 dark:text-slate-400 text-base max-w-2xl">
+                        Monitor automated vetting decisions, review flagged candidates, and manage global AI system availability.
+                    </p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center justify-center gap-2 h-10 px-4 rounded-lg bg-surface-light dark:bg-surface-dark border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-sm font-bold transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[20px]">download</span>
+<span>Export Logs</span>
+</button>
+<button class="flex items-center justify-center gap-2 h-10 px-4 rounded-lg bg-surface-light dark:bg-surface-dark border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-sm font-bold transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span>Config</span>
+</button>
+</div>
+</div>
+<!-- Dashboard Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Left Column: Metrics & Controls (Full width on mobile, 4 cols on large) -->
+<div class="lg:col-span-4 flex flex-col gap-6">
+<!-- Global Control Panel -->
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-slate-700 p-5 shadow-sm">
+<div class="flex items-start justify-between gap-4 mb-4">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-primary">psychology</span>
+<h3 class="text-base font-bold">AI Mentor Availability</h3>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400">Global system status. When active, new applications are processed automatically.</p>
+</div>
+<label class="relative flex h-7 w-12 cursor-pointer items-center rounded-full border-none bg-slate-200 dark:bg-slate-700 p-1 has-[:checked]:justify-end has-[:checked]:bg-primary transition-colors duration-200">
+<input checked="" class="peer sr-only" type="checkbox"/>
+<div class="h-5 w-5 rounded-full bg-white shadow-sm transition-all duration-200"></div>
+</label>
+</div>
+<div class="flex items-center gap-2 text-xs font-medium text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 dark:text-emerald-400 px-3 py-1.5 rounded-full w-fit">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+</span>
+                            System Active: Processing Requests
+                        </div>
+</div>
+<!-- Metrics Stack -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+<!-- Card 1 -->
+<div class="flex flex-col gap-3 rounded-xl p-5 border border-slate-200 dark:border-slate-700 bg-surface-light dark:bg-surface-dark shadow-sm hover:border-primary/50 transition-colors cursor-pointer group">
+<div class="flex justify-between items-start">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Pending Review</p>
+<span class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors">hourglass_empty</span>
+</div>
+<div class="flex items-baseline gap-2">
+<p class="text-3xl font-bold tracking-tight">74</p>
+<span class="text-emerald-600 text-sm font-medium flex items-center">
+<span class="material-symbols-outlined text-[16px]">arrow_upward</span> 5%
+                                </span>
+</div>
+<div class="h-1.5 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-orange-500 w-[45%] rounded-full"></div>
+</div>
+<p class="text-xs text-slate-400 mt-1">45 awaiting manual approval</p>
+</div>
+<!-- Card 2 -->
+<div class="flex flex-col gap-3 rounded-xl p-5 border border-slate-200 dark:border-slate-700 bg-surface-light dark:bg-surface-dark shadow-sm hover:border-primary/50 transition-colors cursor-pointer group">
+<div class="flex justify-between items-start">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Avg. Confidence Score</p>
+<span class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors">analytics</span>
+</div>
+<div class="flex items-baseline gap-2">
+<p class="text-3xl font-bold tracking-tight">92%</p>
+<span class="text-rose-600 text-sm font-medium flex items-center">
+<span class="material-symbols-outlined text-[16px]">arrow_downward</span> 1%
+                                </span>
+</div>
+<div class="h-1.5 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[92%] rounded-full"></div>
+</div>
+<p class="text-xs text-slate-400 mt-1">Based on last 30 days</p>
+</div>
+<!-- Card 3 -->
+<div class="flex flex-col gap-3 rounded-xl p-5 border border-slate-200 dark:border-slate-700 bg-surface-light dark:bg-surface-dark shadow-sm hover:border-primary/50 transition-colors cursor-pointer group">
+<div class="flex justify-between items-start">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Auto-Rejected</p>
+<span class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors">block</span>
+</div>
+<div class="flex items-baseline gap-2">
+<p class="text-3xl font-bold tracking-tight">12</p>
+<span class="text-emerald-600 text-sm font-medium flex items-center">
+<span class="material-symbols-outlined text-[16px]">arrow_upward</span> 2%
+                                </span>
+</div>
+<div class="h-1.5 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-rose-500 w-[12%] rounded-full"></div>
+</div>
+<p class="text-xs text-slate-400 mt-1">Due to safety flags</p>
+</div>
+</div>
+</div>
+<!-- Right Column: Vetting Queue Table (8 cols) -->
+<div class="lg:col-span-8 flex flex-col h-full">
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col h-full overflow-hidden">
+<!-- Table Toolbar -->
+<div class="p-5 border-b border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<h3 class="text-lg font-bold">Vetting Queue</h3>
+<div class="flex items-center gap-3">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-slate-400 group-focus-within:text-primary">search</span>
+<input class="h-10 pl-10 pr-4 rounded-lg bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-sm w-full sm:w-64 focus:ring-2 focus:ring-primary/20 focus:border-primary" placeholder="Search candidates..." type="text"/>
+</div>
+<button class="h-10 w-10 flex items-center justify-center rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-500">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</div>
+</div>
+<!-- Table Area -->
+<div class="flex-1 overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead class="bg-slate-50 dark:bg-slate-800 sticky top-0 z-10 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+<tr>
+<th class="px-6 py-4 border-b border-slate-200 dark:border-slate-700">Candidate</th>
+<th class="px-6 py-4 border-b border-slate-200 dark:border-slate-700">Role &amp; Date</th>
+<th class="px-6 py-4 border-b border-slate-200 dark:border-slate-700">AI Verdict</th>
+<th class="px-6 py-4 border-b border-slate-200 dark:border-slate-700 w-1/4">Confidence</th>
+<th class="px-6 py-4 border-b border-slate-200 dark:border-slate-700 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-200 dark:divide-slate-700 text-sm">
+<!-- Row 1: High Confidence -->
+<tr class="group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-cover bg-center" data-alt="Profile picture of Sarah Jenkins" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDCho_-t4Lhx8IIggH9ku68Finb-3f6EipoEZFOlUKAA2lYkcFHILsGkmw2KOuGf4U6czHNIBwRKBjfv7qbEe7ZtwS8D9rRLEtuACyPeWXSS4XrwPUHFwcijOau358aoZIdQzsh9aa1_scskUGDsM1IJV4xnlUCpvZa6vUJYZ0UrYkqqEtmd4452ulyx9hfR2TKtcNOj5EckTdEhb4Z4JdGHec3yAFsMFWVFAsvj73an0AKOt6wrSFuIbOPekU1VH_3B-o8qAqZUtpc");'></div>
+<div>
+<p class="font-bold text-slate-900 dark:text-white">Sarah Jenkins</p>
+<p class="text-xs text-slate-500">sarah.j@example.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="font-medium text-slate-700 dark:text-slate-300">UX Design</p>
+<p class="text-xs text-slate-500">Oct 24, 2023</p>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                                                Recommended
+                                            </span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center justify-between mb-1">
+<span class="text-xs font-bold text-slate-700 dark:text-slate-300">94%</span>
+<span class="text-xs text-emerald-600 font-medium">High</span>
+</div>
+<div class="h-2 w-full bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+<div class="h-full bg-emerald-500 rounded-full" style="width: 94%"></div>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-primary hover:text-primary/80 font-bold text-sm px-3 py-1.5 rounded bg-primary/10 hover:bg-primary/20 transition-colors">
+                                                Review
+                                            </button>
+</td>
+</tr>
+<!-- Row 2: Flagged/Low Confidence -->
+<tr class="group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors bg-amber-50/30 dark:bg-amber-900/10">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-cover bg-center" data-alt="Profile picture of Michael Chen" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC6kU1eykUzoksxMR4VZQSnTBRfOMDUfts3oBMIzYxkNQdwwnQdhFp_WrWw6jkbsfVqieUc6FbAfybSpzrH3m7E0XMCtmtoZ7jzyTlV3PJs-IIWNjf-UMtaon0OaBgXO4CmfMmJPLizbP0tsGNBYya1Ryt8kHaTFAuDYaSqMw84ySO3tPZmtLKQhWP9kYL-900NjNk6zlODt2LNwVMZqbetB7zuEHCbsl2pgW7MyWNXx_wPFfHtWrWOTvC9FBXN4yTTA1wTumucwPAt");'></div>
+<div>
+<p class="font-bold text-slate-900 dark:text-white">Michael Chen</p>
+<p class="text-xs text-slate-500">m.chen@example.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="font-medium text-slate-700 dark:text-slate-300">React Dev</p>
+<p class="text-xs text-slate-500">Oct 23, 2023</p>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400 border border-amber-200 dark:border-amber-800">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+                                                Flagged
+                                            </span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center justify-between mb-1">
+<span class="text-xs font-bold text-slate-700 dark:text-slate-300">68%</span>
+<span class="text-xs text-amber-600 font-medium">Uncertain</span>
+</div>
+<div class="h-2 w-full bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+<div class="h-full bg-amber-500 rounded-full" style="width: 68%"></div>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-amber-700 dark:text-amber-400 hover:text-amber-800 font-bold text-sm px-3 py-1.5 rounded bg-amber-100 dark:bg-amber-900/30 hover:bg-amber-200 transition-colors">
+                                                Investigate
+                                            </button>
+</td>
+</tr>
+<!-- Row 3: Medium Confidence -->
+<tr class="group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-cover bg-center" data-alt="Profile picture of Amara Okafor" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCs5_borg6KEXqhQDurVXzcOIVe8g8rRP1HqCQc2myWSNpvg6z4xpmUyWM9aLmcmyZw36BXDNXvYnPONuE8LCLhYQLfVADPUt7AjfrQh2fdN1rdGYo0ph7nMJ0_-LcFas_G0mCJlqQLYsujsKRI3NvI-kDWD7tUX6koEvW6XiombqR4bFFr7eIoyHJrZrWGrGxrmeKvKwLY52clBBVynNZUPqqOsowYuuxDqNZ8xZ1yZwnbVlmGrMaaDwIXrL8WcZIyAy71tCHa0eme");'></div>
+<div>
+<p class="font-bold text-slate-900 dark:text-white">Amara Okafor</p>
+<p class="text-xs text-slate-500">amara.o@example.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="font-medium text-slate-700 dark:text-slate-300">Product Mgmt</p>
+<p class="text-xs text-slate-500">Oct 23, 2023</p>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                                                Recommended
+                                            </span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center justify-between mb-1">
+<span class="text-xs font-bold text-slate-700 dark:text-slate-300">88%</span>
+<span class="text-xs text-lime-600 font-medium">Good</span>
+</div>
+<div class="h-2 w-full bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+<div class="h-full bg-lime-500 rounded-full" style="width: 88%"></div>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-primary hover:text-primary/80 font-bold text-sm px-3 py-1.5 rounded bg-primary/10 hover:bg-primary/20 transition-colors">
+                                                Review
+                                            </button>
+</td>
+</tr>
+<!-- Row 4: High Confidence -->
+<tr class="group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-cover bg-center" data-alt="Profile picture of David Smith" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDaJs_7B_xDy-AIEL0y4bMy0rTCYyVi7fxV2NXSsAzwBv31PPq5mAOKl1IwaqGRw9MrC1lAeE-psSpo6uss2J7_QwuEUuFiO1YvnrkDMqNxP-8gGi36m9iP5pTrSa8D5BxtwA32V23jyQAN2UILkfcPb-3bcg2fQ7Scm2hP5I4KVkqm-XNoh4O_mOOGUcXvuKhKishk-TvwkWxj17QsBFAS3K_nMlJM-gJmbB7RkAi_cdWl1wWt5E_miFSswWhsenMGvxDanKckkRZ6");'></div>
+<div>
+<p class="font-bold text-slate-900 dark:text-white">David Smith</p>
+<p class="text-xs text-slate-500">d.smith@example.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="font-medium text-slate-700 dark:text-slate-300">Data Science</p>
+<p class="text-xs text-slate-500">Oct 22, 2023</p>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                                                Recommended
+                                            </span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center justify-between mb-1">
+<span class="text-xs font-bold text-slate-700 dark:text-slate-300">91%</span>
+<span class="text-xs text-emerald-600 font-medium">High</span>
+</div>
+<div class="h-2 w-full bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+<div class="h-full bg-emerald-500 rounded-full" style="width: 91%"></div>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-primary hover:text-primary/80 font-bold text-sm px-3 py-1.5 rounded bg-primary/10 hover:bg-primary/20 transition-colors">
+                                                Review
+                                            </button>
+</td>
+</tr>
+<!-- Row 5: Auto Rejected (Visual difference) -->
+<tr class="group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors opacity-75">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-cover bg-center grayscale" data-alt="Profile picture of Elena Rodriguez" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC3SmitGFnY0Hf2guFyHHs7yNSQUTT7f2DC3Ie-F9PIYLeuM5bAATg_7dXVIU4laRNt0ZKa5jiPIjOC318ckhnP25vxG3JwNg_8Lkb1AgKulfdjevCZacXA4Ilsw-TRRZWRtYHqvh5ak4BKcuWw5wAH8HUYGTnQDUKJvnzHsS-Q241bOd1nXhSTXOGCjJB4NMCi6ALlHu9jW31gl_igm8VNqoXioya_POfvtXkeFncAQpD_orfUAwJSLPHMcldpFrd7uQFt_kB5F84w");'></div>
+<div>
+<p class="font-bold text-slate-500 dark:text-slate-400">Elena Rodriguez</p>
+<p class="text-xs text-slate-400">elena.r@example.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="font-medium text-slate-500 dark:text-slate-400">Marketing</p>
+<p class="text-xs text-slate-400">Oct 21, 2023</p>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-rose-100 text-rose-800 dark:bg-rose-900/30 dark:text-rose-400 border border-rose-200 dark:border-rose-800">
+<span class="material-symbols-outlined text-[14px]">block</span>
+                                                Auto-Rejected
+                                            </span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center justify-between mb-1">
+<span class="text-xs font-bold text-slate-500 dark:text-slate-400">32%</span>
+<span class="text-xs text-rose-600 font-medium">Low</span>
+</div>
+<div class="h-2 w-full bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+<div class="h-full bg-rose-500 rounded-full" style="width: 32%"></div>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-slate-400 hover:text-slate-600 font-bold text-sm px-3 py-1.5 rounded bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 transition-colors">
+                                                Log
+                                            </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Footer / Pagination -->
+<div class="p-4 border-t border-slate-200 dark:border-slate-700 flex items-center justify-between bg-slate-50 dark:bg-slate-800/50">
+<p class="text-sm text-slate-500">Showing <span class="font-bold text-slate-900 dark:text-white">1-5</span> of <span class="font-bold text-slate-900 dark:text-white">74</span> candidates</p>
+<div class="flex gap-2">
+<button class="p-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-surface-dark text-slate-400 cursor-not-allowed">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="p-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-surface-dark text-slate-600 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Detail View Simulation (Below grid, representing selected item context) -->
+<div class="mt-6 bg-surface-light dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-slate-700 p-6 shadow-lg relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-amber-400"></div>
+<div class="flex flex-col md:flex-row gap-6">
+<div class="flex-1">
+<div class="flex items-center gap-2 text-amber-600 dark:text-amber-500 mb-2">
+<span class="material-symbols-outlined text-sm">visibility</span>
+<span class="text-xs font-bold uppercase tracking-wider">Active Selection Context</span>
+</div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Michael Chen - Application Review</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm mb-4">AI Flagged due to inconsistency in years of experience vs. skill test results.</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-lg border border-slate-200 dark:border-slate-700">
+<h4 class="font-bold text-sm text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-500 text-lg">thumb_up</span>
+                                    Key Strengths
+                                </h4>
+<ul class="text-sm text-slate-600 dark:text-slate-400 space-y-1 list-disc list-inside">
+<li>Top 5% in React Assessment</li>
+<li>Strong community contribution history</li>
+<li>Excellent communication score (9.2/10)</li>
+</ul>
+</div>
+<div class="bg-rose-50 dark:bg-rose-900/10 p-4 rounded-lg border border-rose-100 dark:border-rose-900/20">
+<h4 class="font-bold text-sm text-rose-900 dark:text-rose-100 mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-rose-500 text-lg">flag</span>
+                                    Potential Red Flags
+                                </h4>
+<ul class="text-sm text-rose-800 dark:text-rose-300 space-y-1 list-disc list-inside">
+<li>Resume timeline gap (2019-2020)</li>
+<li>Mismatch in stated vs verified tenure</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="flex md:flex-col items-center justify-center md:justify-end gap-3 border-t md:border-t-0 md:border-l border-slate-200 dark:border-slate-700 pt-4 md:pt-0 md:pl-6 min-w-[200px]">
+<button class="w-full h-11 bg-primary text-white font-bold rounded-lg shadow-md hover:bg-blue-600 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">check_circle</span>
+                            Final Approve
+                        </button>
+<button class="w-full h-11 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 font-bold rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">cancel</span>
+                             Reject
+                        </button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

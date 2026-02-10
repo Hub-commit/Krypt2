@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Synapse AI Chat &amp; Sandbox</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;700&amp;family=Fira+Code:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#067ff9",
+                        "primary-glow": "#067ff9",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0f1923",
+                        "surface-dark": "#16222f",
+                        "border-dark": "#21364a",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                        "mono": ["Fira Code", "monospace"],
+                    },
+                    boxShadow: {
+                        'neon': '0 0 10px rgba(6, 127, 249, 0.5), 0 0 20px rgba(6, 127, 249, 0.3)',
+                        'neon-sm': '0 0 5px rgba(6, 127, 249, 0.5)',
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white h-screen flex flex-col overflow-hidden">
+<!-- Top Navigation -->
+<header class="flex-none flex items-center justify-between whitespace-nowrap border-b border-solid border-border-dark px-6 py-3 bg-[#101a23]">
+<div class="flex items-center gap-4 text-white">
+<div class="size-8 rounded-full bg-primary flex items-center justify-center text-white shadow-neon-sm">
+<span class="material-symbols-outlined text-[20px]">neurology</span>
+</div>
+<h2 class="text-white text-xl font-bold leading-tight tracking-[-0.015em]">Kryppt</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8 items-center">
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-white/70 hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Dashboard</a>
+<a class="text-white/70 hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Mentorship</a>
+<a class="text-white/70 hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Jobs</a>
+<a class="text-white text-sm font-bold leading-normal border-b-2 border-primary pb-0.5" href="#">Synapse AI</a>
+</nav>
+<div class="flex gap-3 items-center">
+<button class="hidden lg:flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 bg-surface-dark hover:bg-[#2a3f55] border border-border-dark text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-3 transition-colors">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-9 border-2 border-border-dark" data-alt="User profile avatar showing a stylized robot face" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAbC7cpvd1nPRbzU-UIb6pa7grOYgfNOBOX5GKDndL_V7K7dvKGFKkjfLQumlCjjSzN8YNn1Wtf37ohv2JzLY-p2Vb8n7Ejxh58TaAC_LOAi0-B0HqYcWDbXDI5pNPjO8A8_dDeA8-ERaAeLuk_W0gfMT0PVPFdD29hrW2szzL2q3_BtLYN-Gy6wDo7ZXmVeWsO6y0hhU8Gr1E7pWZBFjrEK0XNVjGZdPRC0j-CATgxHK8Oyg3U1E6BUfwkBK6126SL-S3eXCQafxQ3");'></div>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex flex-1 overflow-hidden relative">
+<!-- Left Pane: Chat Interface -->
+<section class="w-full md:w-[450px] lg:w-[500px] flex flex-col border-r border-border-dark bg-[#101a23] z-10 shadow-xl flex-shrink-0">
+<!-- Chat Header -->
+<div class="px-6 py-4 border-b border-border-dark flex justify-between items-center backdrop-blur-md bg-[#101a23]/90 sticky top-0 z-20">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-xs font-medium text-slate-400">
+<span>Projects</span>
+<span class="material-symbols-outlined text-[10px]">arrow_forward_ios</span>
+<span class="text-primary">Alpha Protocol</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="size-2 rounded-full bg-green-500 shadow-[0_0_5px_#22c55e]"></div>
+<h2 class="text-white text-lg font-bold">Synapse AI</h2>
+</div>
+</div>
+<button class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-3 bg-red-500/10 hover:bg-red-500/20 border border-red-500/50 text-red-400 gap-2 text-xs font-bold leading-normal tracking-[0.015em] transition-all">
+<span class="material-symbols-outlined text-[16px]">support_agent</span>
+<span class="truncate hidden sm:inline">Escalate</span>
+</button>
+</div>
+<!-- Chat History -->
+<div class="flex-1 overflow-y-auto p-6 space-y-6 scrollbar-thin scrollbar-thumb-border-dark scrollbar-track-transparent">
+<!-- System Message -->
+<div class="flex justify-center my-4">
+<span class="text-[11px] font-mono text-slate-500 bg-surface-dark px-3 py-1 rounded-full border border-border-dark">
+                        Synapse v2.4 initialized. Context loaded.
+                    </span>
+</div>
+<!-- AI Message 1 -->
+<div class="flex items-start gap-3">
+<div class="bg-center bg-no-repeat bg-cover rounded-lg size-8 shrink-0 shadow-neon-sm border border-primary/30" data-alt="Abstract AI avatar with blue neural network pattern" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBpO5c8EIwL3hWzL987Rimz4GzXokaol-TVXfnVt3eZKAiOCqs0ELV8-P8jjnHkPnUrCFO587WzmgBgDusWYWQFw8pgKkHqCdxZKJ4bnmPPTyW9dEa82foAUfw-TzGZKGQutHgQGow0bbX1aPelNPhIvgNjDjX3de3fw0p0ABG5YrMqMXnMotCBOpj3FhBeYV-aG_d6dAVvYmBjSEBvTPT0iHjtw1YhphiEGtom6qI1pvlDyDU-C16FWJbvwuVVR7lqlPWgLDNqz6ws");'></div>
+<div class="flex flex-col gap-1 max-w-[85%]">
+<span class="text-primary text-xs font-bold">Synapse</span>
+<div class="bg-surface-dark border border-border-dark p-4 rounded-r-xl rounded-bl-xl text-sm leading-relaxed text-slate-200 shadow-sm">
+<p>Hello! I've analyzed your sorting algorithm in <code class="bg-[#0b1219] px-1 py-0.5 rounded text-primary-300 font-mono text-xs">script.py</code>. It looks like the recursion depth is exceeding standard limits for large datasets.</p>
+</div>
+</div>
+</div>
+<!-- User Message -->
+<div class="flex items-start justify-end gap-3">
+<div class="flex flex-col gap-1 items-end max-w-[85%]">
+<div class="bg-primary/20 border border-primary/30 p-4 rounded-l-xl rounded-br-xl text-sm leading-relaxed text-white shadow-sm">
+<p>Yeah, I noticed that too. Can you help me optimize the merge sort function to handle the larger payload?</p>
+</div>
+</div>
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-8 shrink-0 border border-border-dark" data-alt="User profile photo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAtgpZrhpr3LhOWHgIJAzNxBtEBOTfRpMZp_B6CViZE3oq6CXPIi2jDe9KVC3aMKi7qKiCo8d7GZ8aHLxkxV5DPr5ktx0TTqSSP7j7iiGaCtJiBjirZvSV4X6C9GrbJhiQ58fqaHbX_ysiHGzEHLg_xKjHXvV5uqlGTcri4loC1PNGSamp1R5HU-jJsuAURMEz6J2KFNH1TuSKzGmB17otMSlOhEbLnfYzZLXf-wwshnY9zjnKzU1LE8sB0zTqRRYT_rDhRdnjhpQha");'></div>
+</div>
+<!-- AI Message 2 -->
+<div class="flex items-start gap-3">
+<div class="bg-center bg-no-repeat bg-cover rounded-lg size-8 shrink-0 shadow-neon-sm border border-primary/30" data-alt="Abstract AI avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBTQoc3trTGkoYnUVAqb3jtL6NN72wUgb3AcZQpDzSYos_568hTyVdcDOL02eZOsiYgqLiWT94tQI4knd9Nkw1BbZPLirIrLFwTkJ8_hdmO-cPSL-eT39lLp6N4DkTA-aIcHmYOkXIwHWc3oWmHNEf8dF3R5NKPoRi40Y0tCVkuHgAFuIDNGGafojsUh7b4zUHnaHLXEuO37lZGi2oiLLb56TJjj4pml3iH3n6UTwIGOeJsk16mLfFdzFBgsvBp1MbKCJtzSBVHrjTZ");'></div>
+<div class="flex flex-col gap-1 max-w-[90%]">
+<span class="text-primary text-xs font-bold">Synapse</span>
+<div class="bg-surface-dark border border-border-dark p-4 rounded-r-xl rounded-bl-xl text-sm leading-relaxed text-slate-200 shadow-sm">
+<p class="mb-3">Certainly. Switching to an iterative approach or optimizing the tail recursion would help. I've drafted an optimized version in the sandbox.</p>
+<div class="flex gap-2 mt-2">
+<button class="text-xs bg-[#0b1219] hover:bg-black border border-border-dark rounded px-2 py-1.5 flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[14px]">code</span>
+                                    Apply Diff
+                                </button>
+<button class="text-xs bg-[#0b1219] hover:bg-black border border-border-dark rounded px-2 py-1.5 flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[14px]">bug_report</span>
+                                    Debug Info
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Loading State -->
+<div class="flex items-center gap-2 pl-12 opacity-50">
+<span class="size-1.5 rounded-full bg-primary animate-bounce"></span>
+<span class="size-1.5 rounded-full bg-primary animate-bounce delay-100"></span>
+<span class="size-1.5 rounded-full bg-primary animate-bounce delay-200"></span>
+</div>
+</div>
+<!-- Input Area -->
+<div class="p-4 border-t border-border-dark bg-[#101a23]">
+<!-- Suggestion Chips -->
+<div class="flex gap-2 mb-3 overflow-x-auto pb-1 scrollbar-none">
+<button class="whitespace-nowrap px-3 py-1.5 rounded-full bg-surface-dark border border-border-dark hover:border-primary/50 hover:bg-surface-dark/80 text-xs text-slate-300 transition-all">Explain code</button>
+<button class="whitespace-nowrap px-3 py-1.5 rounded-full bg-surface-dark border border-border-dark hover:border-primary/50 hover:bg-surface-dark/80 text-xs text-slate-300 transition-all">Generate tests</button>
+<button class="whitespace-nowrap px-3 py-1.5 rounded-full bg-surface-dark border border-border-dark hover:border-primary/50 hover:bg-surface-dark/80 text-xs text-slate-300 transition-all">Add comments</button>
+</div>
+<div class="relative group">
+<textarea class="w-full bg-surface-dark border border-border-dark rounded-xl px-4 py-3 pr-12 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 resize-none h-14 scrollbar-none" placeholder="Ask Synapse about your code..."></textarea>
+<button class="absolute right-2 top-2 size-10 flex items-center justify-center bg-primary text-white rounded-lg shadow-neon hover:scale-105 transition-transform">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Right Pane: Sandbox -->
+<section class="flex-1 flex flex-col bg-[#0b1219] min-w-[400px]">
+<!-- Sandbox Header -->
+<div class="h-12 flex items-center justify-between bg-[#15202b] border-b border-border-dark px-2">
+<div class="flex items-end h-full">
+<!-- Tab Active -->
+<div class="group relative flex items-center h-full px-4 gap-2 bg-[#0b1219] border-t-2 border-t-primary text-white text-xs font-medium cursor-pointer">
+<span class="material-symbols-outlined text-yellow-400 text-[16px]">description</span>
+                        script.py
+                        <span class="ml-2 hover:bg-white/10 rounded p-0.5 material-symbols-outlined text-[12px] opacity-0 group-hover:opacity-100 transition-opacity">close</span>
+</div>
+<!-- Tab Inactive -->
+<div class="group relative flex items-center h-full px-4 gap-2 text-slate-400 hover:text-slate-200 border-t-2 border-t-transparent hover:bg-[#1b2633] transition-colors text-xs font-medium cursor-pointer">
+<span class="material-symbols-outlined text-blue-400 text-[16px]">info</span>
+                        README.md
+                    </div>
+<!-- Add Tab -->
+<button class="size-8 flex items-center justify-center text-slate-500 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+<div class="flex items-center gap-3 pr-2">
+<div class="hidden xl:flex items-center gap-2 px-2 py-1 rounded bg-black/20 border border-white/5">
+<span class="size-2 rounded-full bg-green-500"></span>
+<span class="text-[10px] uppercase font-bold tracking-wider text-slate-400">Environment Active</span>
+</div>
+<select class="bg-surface-dark border border-border-dark rounded text-xs text-white px-2 py-1 focus:border-primary outline-none">
+<option>Python 3.10</option>
+<option>Node.js 18</option>
+<option>Rust 1.68</option>
+</select>
+<button class="flex items-center gap-2 bg-primary hover:bg-blue-600 text-white text-xs font-bold px-4 py-1.5 rounded shadow-neon-sm transition-all">
+<span class="material-symbols-outlined text-[16px]">play_arrow</span>
+                        Run
+                    </button>
+<button class="flex items-center justify-center size-8 rounded bg-surface-dark border border-border-dark text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[18px]">save</span>
+</button>
+</div>
+</div>
+<!-- Editor Container -->
+<div class="flex-1 relative flex overflow-hidden">
+<!-- Line Numbers -->
+<div class="w-12 bg-[#0b1219] flex-shrink-0 flex flex-col items-end pt-4 pr-3 text-right font-mono text-xs text-slate-600 select-none border-r border-white/5">
+<div>1</div>
+<div>2</div>
+<div>3</div>
+<div>4</div>
+<div>5</div>
+<div>6</div>
+<div>7</div>
+<div>8</div>
+<div>9</div>
+<div>10</div>
+<div>11</div>
+<div>12</div>
+<div>13</div>
+<div>14</div>
+<div>15</div>
+</div>
+<!-- Code Content -->
+<div class="flex-1 overflow-auto p-4 font-mono text-sm leading-6 text-slate-300">
+<pre><code><span class="text-pink-400">def</span> <span class="text-blue-300">optimized_merge_sort</span>(arr):
+    <span class="text-slate-500"># Check if list is empty or has one element</span>
+    <span class="text-pink-400">if</span> <span class="text-yellow-300">len</span>(arr) &lt;= <span class="text-orange-300">1</span>:
+        <span class="text-pink-400">return</span> arr
+
+    <span class="text-slate-500"># Find the middle point</span>
+    mid = <span class="text-yellow-300">len</span>(arr) // <span class="text-orange-300">2</span>
+    left_half = arr[:mid]
+    right_half = arr[mid:]
+
+    <span class="text-slate-500"># Recursive calls</span>
+    left_sorted = optimized_merge_sort(left_half)
+    right_sorted = optimized_merge_sort(right_half)
+
+    <span class="text-pink-400">return</span> merge(left_sorted, right_sorted)
+
+<span class="text-pink-400">def</span> <span class="text-blue-300">merge</span>(left, right):
+    sorted_arr = []
+    i = j = <span class="text-orange-300">0</span>
+
+    <span class="text-pink-400">while</span> i &lt; <span class="text-yellow-300">len</span>(left) <span class="text-pink-400">and</span> j &lt; <span class="text-yellow-300">len</span>(right):
+        <span class="text-pink-400">if</span> left[i] &lt; right[j]:
+            sorted_arr.append(left[i])
+            i += <span class="text-orange-300">1</span>
+        <span class="text-pink-400">else</span>:
+            sorted_arr.append(right[j])
+            j += <span class="text-orange-300">1</span>
+
+    <span class="text-slate-500"># Append remaining elements</span>
+    sorted_arr.extend(left[i:])
+    sorted_arr.extend(right[j:])
+    
+    <span class="text-pink-400">return</span> sorted_arr
+</code></pre>
+</div>
+</div>
+<!-- Console / Output -->
+<div class="h-48 border-t border-border-dark bg-[#0d141c] flex flex-col">
+<div class="flex items-center justify-between px-4 py-2 border-b border-border-dark/50">
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Console Output</span>
+</div>
+<div class="flex gap-3">
+<button class="text-slate-500 hover:text-white"><span class="material-symbols-outlined text-[16px]">delete</span></button>
+<button class="text-slate-500 hover:text-white"><span class="material-symbols-outlined text-[16px]">expand_more</span></button>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto p-4 font-mono text-xs">
+<div class="text-green-400 mb-1">&gt; Executing script.py...</div>
+<div class="text-slate-300 mb-1">Sorting 10,000 integers...</div>
+<div class="text-slate-300 mb-1">Execution Time: 0.042s</div>
+<div class="text-slate-300 mb-1">Memory Usage: 12.4MB</div>
+<div class="text-blue-400 mt-2">&gt; Process finished with exit code 0</div>
+</div>
+</div>
+</section>
+</main>
+</body></html>

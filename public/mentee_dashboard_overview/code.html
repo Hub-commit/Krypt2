@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mentee Dashboard - Kryppt</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-white overflow-hidden">
+<div class="flex h-screen w-full">
+<!-- Sidebar Navigation -->
+<aside class="w-64 flex flex-col h-full border-r border-gray-200 dark:border-gray-800 bg-white dark:bg-[#111a22] hidden lg:flex">
+<div class="flex flex-col h-full p-4 justify-between">
+<div class="flex flex-col gap-6">
+<!-- Brand -->
+<div class="flex gap-3 items-center px-2">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-10 bg-primary flex items-center justify-center text-white font-bold text-xl" data-alt="Kryppt logo abstract symbol">K</div>
+<div class="flex flex-col">
+<h1 class="text-gray-900 dark:text-white text-lg font-bold leading-normal">Kryppt</h1>
+<p class="text-gray-500 dark:text-[#92adc9] text-xs font-normal leading-normal">Mentorship Platform</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary text-white" href="#">
+<span class="material-symbols-outlined" style="font-size: 20px;">dashboard</span>
+<span class="text-sm font-medium leading-normal">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#233648] transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-size: 20px;">group</span>
+<span class="text-sm font-medium leading-normal">My Mentors</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#233648] transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-size: 20px;">work</span>
+<span class="text-sm font-medium leading-normal">Jobs</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#233648] transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-size: 20px;">chat_bubble</span>
+<span class="text-sm font-medium leading-normal">Messages</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#233648] transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-size: 20px;">settings</span>
+<span class="text-sm font-medium leading-normal">Settings</span>
+</a>
+</nav>
+</div>
+<!-- User Profile Snippet -->
+<div class="flex flex-col gap-1 border-t border-gray-200 dark:border-gray-800 pt-4">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#233648] transition-colors" href="#">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-8" data-alt="Profile picture of Alex" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC3zLcPYx_RJtXBvIB162GlZS-Nhjsm4nT7S6QinArvy09TcoB-aYVJu9pXTEOpGbP-ZKwwAQhWhNKsIww1mWCl-i3ej4ebGzSgQ88tZcxEQ2GYW6CUXQd8D_Yy2EHJjMVIcAQrJOBToDhl2m3lpmRFs0N0p6NhIoz8tAOrHVpDvQSwehiEgIr6UNqymFNw2kKl2dGibs3QEnPhkEbVuMIOjFkOKRLSoiiF31mvG5yQAqndKugsEtER_cVNY0ozFA4EdrSoQEemPqQM");'></div>
+<div class="flex flex-col">
+<p class="text-sm font-medium leading-none">Alex Morgan</p>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-1">View Profile</p>
+</div>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col h-full overflow-y-auto relative bg-background-light dark:bg-background-dark">
+<div class="flex flex-col w-full max-w-[1200px] mx-auto p-4 md:p-8 gap-8">
+<!-- Header Section with Search -->
+<header class="flex flex-col gap-6">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div class="flex flex-col gap-1">
+<h1 class="text-3xl md:text-4xl font-black tracking-tight text-gray-900 dark:text-white">Welcome back, Alex</h1>
+<p class="text-gray-500 dark:text-[#92adc9] text-base font-normal">Track your progress and connect with your next mentor.</p>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center justify-center p-2 rounded-lg bg-white dark:bg-[#233648] text-gray-500 dark:text-[#92adc9] border border-gray-200 dark:border-transparent hover:bg-gray-50 dark:hover:bg-[#2c445a] transition-colors md:hidden">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<button class="relative p-2 rounded-lg bg-white dark:bg-[#233648] text-gray-500 dark:text-[#92adc9] border border-gray-200 dark:border-transparent hover:bg-gray-50 dark:hover:bg-[#2c445a] transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-red-500 rounded-full border-2 border-[#233648]"></span>
+</button>
+</div>
+</div>
+<!-- Search Bar -->
+<div class="w-full">
+<label class="flex flex-col h-12 w-full relative">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full shadow-sm">
+<div class="text-gray-400 dark:text-[#92adc9] flex border border-r-0 border-gray-200 dark:border-transparent bg-white dark:bg-[#233648] items-center justify-center pl-4 rounded-l-lg">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border-l-0 border-gray-200 dark:border-transparent bg-white dark:bg-[#233648] h-full placeholder:text-gray-400 dark:placeholder:text-[#92adc9] px-4 pl-2 text-base font-normal leading-normal" placeholder="Search for mentors, skills, or job titles..."/>
+</div>
+</label>
+</div>
+</header>
+<!-- Profile Completeness Card -->
+<section>
+<div class="flex flex-col md:flex-row items-center md:items-stretch justify-between gap-6 rounded-xl bg-white dark:bg-[#192633] p-6 shadow-sm border border-gray-100 dark:border-gray-800">
+<div class="flex flex-[2] flex-col justify-center gap-5">
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-end">
+<h2 class="text-xl font-bold text-gray-900 dark:text-white">Complete your profile</h2>
+<span class="text-primary font-bold text-lg">70%</span>
+</div>
+<div class="w-full bg-gray-200 dark:bg-[#233648] rounded-full h-2.5">
+<div class="bg-primary h-2.5 rounded-full" style="width: 70%"></div>
+</div>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm mt-1">Add your resume and portfolio to reach 100% visibility to recruiters.</p>
+</div>
+<button class="flex items-center justify-center gap-2 rounded-lg h-10 px-6 bg-primary hover:bg-blue-600 text-white text-sm font-medium transition-colors w-fit">
+<span>Complete Profile</span>
+<span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
+</button>
+</div>
+<div class="w-full md:w-64 h-40 md:h-auto bg-center bg-no-repeat bg-cover rounded-lg flex-1 md:flex-none relative overflow-hidden" data-alt="Abstract geometric dark blue pattern representing technology" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA6LHTRoU8jRS96tG8VdUCxpTdsO5uHkCBqfVfzRc4yAKLUph5Pi1ym4tmnL5SJvl3fqHXtueO-9cVT8J6GsBWRlVb1Im4Xo4eSpSrGMo-AF6_Fb-dOcVOh4aY5EykXoQANyBEP6DLpn6v7btevWezxPFe7zih1L0AFfLIr9N0ug1RQkm6B96bSsPbvU9m6enrCMPcSbMrPPonIGYmnjGmcsQE30pic6_Wjfx5w8cEmRrxDyce_NmqW9UYIBQadF49Kn94lOG8CDFS7");'>
+<div class="absolute inset-0 bg-black/20"></div>
+</div>
+</div>
+</section>
+<!-- Stats Grid -->
+<section class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-[#233648] border border-gray-100 dark:border-transparent shadow-sm">
+<div class="flex items-center gap-3 mb-2">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined">school</span>
+</div>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-medium">Active Mentorships</p>
+</div>
+<div class="flex items-baseline gap-2">
+<p class="text-gray-900 dark:text-white text-3xl font-bold">2</p>
+<p class="text-green-500 text-sm font-medium bg-green-500/10 px-1.5 py-0.5 rounded flex items-center">
+<span class="material-symbols-outlined" style="font-size: 14px;">trending_up</span> 10%
+                            </p>
+</div>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-[#233648] border border-gray-100 dark:border-transparent shadow-sm">
+<div class="flex items-center gap-3 mb-2">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined">calendar_month</span>
+</div>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-medium">Upcoming Sessions</p>
+</div>
+<div class="flex items-baseline gap-2">
+<p class="text-gray-900 dark:text-white text-3xl font-bold">1</p>
+<p class="text-gray-400 text-sm font-medium bg-gray-500/10 px-1.5 py-0.5 rounded">
+                                 Same
+                            </p>
+</div>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-[#233648] border border-gray-100 dark:border-transparent shadow-sm">
+<div class="flex items-center gap-3 mb-2">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined">work_outline</span>
+</div>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-medium">Jobs Applied</p>
+</div>
+<div class="flex items-baseline gap-2">
+<p class="text-gray-900 dark:text-white text-3xl font-bold">5</p>
+<p class="text-green-500 text-sm font-medium bg-green-500/10 px-1.5 py-0.5 rounded flex items-center">
+<span class="material-symbols-outlined" style="font-size: 14px;">trending_up</span> 20%
+                            </p>
+</div>
+</div>
+</section>
+<!-- Layout Split: Upcoming Sessions & Recommended Mentors -->
+<section class="flex flex-col lg:flex-row gap-6 pb-10">
+<!-- Upcoming Session -->
+<div class="flex flex-col flex-1 gap-4">
+<div class="flex items-center justify-between">
+<h3 class="text-lg font-bold text-gray-900 dark:text-white">Upcoming Session</h3>
+<a class="text-sm text-primary font-medium hover:underline" href="#">View Calendar</a>
+</div>
+<div class="bg-white dark:bg-[#192633] rounded-xl p-5 border border-gray-100 dark:border-gray-800 shadow-sm flex flex-col gap-4">
+<div class="flex items-start gap-4">
+<div class="bg-primary/20 text-primary rounded-lg h-14 w-14 flex flex-col items-center justify-center shrink-0">
+<span class="text-xs font-bold uppercase">Today</span>
+<span class="text-lg font-black">24</span>
+</div>
+<div class="flex flex-col">
+<h4 class="text-base font-bold text-gray-900 dark:text-white">UX Design Portfolio Review</h4>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm">with Sarah Jenkins</p>
+<div class="flex items-center gap-2 mt-2 text-xs text-gray-500 dark:text-gray-400">
+<span class="material-symbols-outlined" style="font-size: 16px;">schedule</span>
+                                        2:00 PM - 3:00 PM (1h)
+                                    </div>
+</div>
+</div>
+<div class="flex gap-3 mt-2 border-t border-gray-100 dark:border-gray-800 pt-4">
+<button class="flex-1 py-2 rounded-lg bg-primary text-white text-sm font-medium hover:bg-blue-600 transition-colors">Join Call</button>
+<button class="flex-1 py-2 rounded-lg bg-transparent border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium hover:bg-gray-50 dark:hover:bg-[#233648] transition-colors">Reschedule</button>
+</div>
+</div>
+<!-- Empty State Placeholder (Commented out for future logic) -->
+<!-- 
+                        <div class="bg-white dark:bg-[#192633] rounded-xl p-8 border border-gray-100 dark:border-gray-800 shadow-sm flex flex-col items-center text-center gap-2">
+                            <div class="bg-gray-100 dark:bg-[#233648] p-3 rounded-full text-gray-400 dark:text-[#92adc9] mb-2">
+                                <span class="material-symbols-outlined" style="font-size: 24px;">event_busy</span>
+                            </div>
+                            <p class="text-base font-medium text-gray-900 dark:text-white">No sessions yet?</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Find a mentor to schedule your first meeting.</p>
+                            <button class="text-primary text-sm font-medium">Browse Mentors</button>
+                        </div> 
+                        -->
+</div>
+<!-- Recommended Mentors -->
+<div class="flex flex-col flex-[1.5] gap-4">
+<div class="flex items-center justify-between">
+<h3 class="text-lg font-bold text-gray-900 dark:text-white">Recommended Mentors</h3>
+<a class="text-sm text-primary font-medium hover:underline" href="#">See All</a>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Mentor Card 1 -->
+<div class="bg-white dark:bg-[#192633] rounded-xl p-4 border border-gray-100 dark:border-gray-800 shadow-sm flex items-center justify-between gap-4 transition-transform hover:scale-[1.01] cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-full bg-cover bg-center" data-alt="Portrait of Elena, Senior Product Manager" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDa-tFQLHa-D44bIotH6oPK_MlNVW5nZUdrv8hlvfbuCdcIwAP66dKV7sCG0nuG6khHmBg_Rt242atnwRyx5IHxbW7-L4Qyx88NwkfDbcHIYdH59GK5e4LZ4l4xn9UcLvJdIXh6HpYJF8M1epkWinSkarO_kM_6ZFywWwem_uC0vMcBGm5kHcSCCy7UCzBRThojZkfpLWs9LcZe0y144FxUTsm_8C-U6NbDysJDLhUg94c2wjW9V9SsDOFKWdmGS5Aakis63J9WJrAr");'></div>
+<div class="flex flex-col">
+<h4 class="text-sm font-bold text-gray-900 dark:text-white">Elena Rodriguez</h4>
+<p class="text-xs text-gray-500 dark:text-[#92adc9]">Senior PM at TechFlow</p>
+<div class="flex flex-wrap gap-1 mt-1.5">
+<span class="text-[10px] px-2 py-0.5 bg-gray-100 dark:bg-[#233648] text-gray-600 dark:text-gray-300 rounded-full">Product Strategy</span>
+<span class="text-[10px] px-2 py-0.5 bg-gray-100 dark:bg-[#233648] text-gray-600 dark:text-gray-300 rounded-full">Leadership</span>
+</div>
+</div>
+</div>
+<button class="p-2 text-primary hover:bg-primary/10 rounded-full transition-colors">
+<span class="material-symbols-outlined">add_circle</span>
+</button>
+</div>
+<!-- Mentor Card 2 -->
+<div class="bg-white dark:bg-[#192633] rounded-xl p-4 border border-gray-100 dark:border-gray-800 shadow-sm flex items-center justify-between gap-4 transition-transform hover:scale-[1.01] cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-full bg-cover bg-center" data-alt="Portrait of David, Backend Engineer" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBjL3Cu_V1nFnGoKBhnSoTDPJo-0IWZ_UdKkvfU06QjBmDQczC5_OR43Mbn_BlBfITkUZ-AvfhYuDZzd9ye8yFVVCcL_0r51cTbMgWG0mTU7Pe8tm5u81dcBSLgeP-wZOnneBwLkEXLaoGOR_Z2ge0UfABDYuVylo-BiMOFvFDPNHqMInAEHUzFWFYlZ739BRbMqhOJSDbWIrlues5Rbf9b8Q7rQdnYTsqVuitmz14LhibGe6pZ4tH5_HToAZYc9-3y4Y0op7gzVAeF");'></div>
+<div class="flex flex-col">
+<h4 class="text-sm font-bold text-gray-900 dark:text-white">David Chen</h4>
+<p class="text-xs text-gray-500 dark:text-[#92adc9]">Staff Engineer at CloudScale</p>
+<div class="flex flex-wrap gap-1 mt-1.5">
+<span class="text-[10px] px-2 py-0.5 bg-gray-100 dark:bg-[#233648] text-gray-600 dark:text-gray-300 rounded-full">System Design</span>
+<span class="text-[10px] px-2 py-0.5 bg-gray-100 dark:bg-[#233648] text-gray-600 dark:text-gray-300 rounded-full">Go</span>
+</div>
+</div>
+</div>
+<button class="p-2 text-primary hover:bg-primary/10 rounded-full transition-colors">
+<span class="material-symbols-outlined">add_circle</span>
+</button>
+</div>
+<!-- Mentor Card 3 -->
+<div class="bg-white dark:bg-[#192633] rounded-xl p-4 border border-gray-100 dark:border-gray-800 shadow-sm flex items-center justify-between gap-4 transition-transform hover:scale-[1.01] cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-full bg-cover bg-center" data-alt="Portrait of James, Data Scientist" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDRYmWO-lsbL6oX6lymUMgb_6_XrKWt6TFttAPk6r0Wa260gxGwWb6gFP5EELzCwz3HkxZjWxEC3v1a1teaaA-52eT1t97PgpcXey1brt-BECS1BGiCn6EyWqAPAdiFdm7UxcRkGRB6E48fVhB_Mr9YSgbGR5wrD3_zFAfjrThhrq5i3BGprByacA-VaM3Kv-79BKaZvQ7Goc4prcful1SjdIW4PfpCV9LnnrxC3xtLqgy5ohfdG92o3YJPFfOyFX7L165v9eyf5P3C");'></div>
+<div class="flex flex-col">
+<h4 class="text-sm font-bold text-gray-900 dark:text-white">James Wilson</h4>
+<p class="text-xs text-gray-500 dark:text-[#92adc9]">Data Lead at FinTech Co</p>
+<div class="flex flex-wrap gap-1 mt-1.5">
+<span class="text-[10px] px-2 py-0.5 bg-gray-100 dark:bg-[#233648] text-gray-600 dark:text-gray-300 rounded-full">Python</span>
+<span class="text-[10px] px-2 py-0.5 bg-gray-100 dark:bg-[#233648] text-gray-600 dark:text-gray-300 rounded-full">Machine Learning</span>
+</div>
+</div>
+</div>
+<button class="p-2 text-primary hover:bg-primary/10 rounded-full transition-colors">
+<span class="material-symbols-outlined">add_circle</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+</body></html>

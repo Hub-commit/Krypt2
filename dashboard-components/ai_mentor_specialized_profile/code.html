@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Mentor Profile - Code Debugger v2.4</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#137fec",
+              "primary-dark": "#0b5cb5",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+              "surface-dark": "#192633",
+              "border-dark": "#324d67",
+              "text-secondary": "#92adc9",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased overflow-x-hidden">
+<div class="relative flex min-h-screen flex-col">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-[#233648] bg-white dark:bg-[#111a22] px-4 py-3 md:px-10">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-slate-900 dark:text-white">
+<div class="size-8 text-primary">
+<svg class="w-full h-full" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Kryppt</h2>
+</div>
+<nav class="hidden md:flex items-center gap-9">
+<a class="text-slate-600 dark:text-white text-sm font-medium hover:text-primary transition-colors" href="#">Mentors</a>
+<a class="text-slate-600 dark:text-white text-sm font-medium hover:text-primary transition-colors" href="#">Jobs</a>
+<a class="text-slate-600 dark:text-white text-sm font-medium hover:text-primary transition-colors" href="#">Community</a>
+<a class="text-slate-600 dark:text-white text-sm font-medium hover:text-primary transition-colors" href="#">My Profile</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end gap-4 md:gap-8">
+<div class="hidden md:flex w-full max-w-xs items-center rounded-lg bg-slate-100 dark:bg-[#233648] h-10 px-4">
+<span class="material-symbols-outlined text-slate-400 dark:text-[#92adc9]">search</span>
+<input class="w-full bg-transparent border-none text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-[#92adc9] focus:ring-0 text-sm" placeholder="Search mentors, jobs..."/>
+</div>
+<div class="flex gap-2">
+<button class="hidden sm:flex h-10 px-4 items-center justify-center rounded-lg bg-slate-200 dark:bg-[#233648] text-slate-900 dark:text-white text-sm font-bold hover:bg-slate-300 dark:hover:bg-[#2f455a] transition-colors">
+                        Sign In
+                    </button>
+<button class="h-10 px-4 items-center justify-center rounded-lg bg-primary text-white text-sm font-bold hover:bg-primary-dark transition-colors shadow-lg shadow-primary/20">
+                        Join Now
+                    </button>
+</div>
+</div>
+</header>
+<main class="flex-1 layout-container px-4 md:px-10 py-8 mx-auto w-full max-w-[1200px]">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Identity & Primary Actions -->
+<div class="lg:col-span-8 flex flex-col gap-8">
+<!-- Profile Header Card -->
+<section class="relative overflow-hidden rounded-xl border border-slate-200 dark:border-border-dark bg-white dark:bg-surface-dark p-6 md:p-8">
+<!-- Glow Effect -->
+<div class="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-primary/10 blur-3xl pointer-events-none"></div>
+<div class="flex flex-col md:flex-row gap-6 items-start md:items-center relative z-10">
+<div class="relative group">
+<div class="h-32 w-32 rounded-xl bg-gradient-to-br from-primary to-purple-600 p-[2px] shadow-2xl shadow-primary/20">
+<div class="h-full w-full rounded-xl bg-black overflow-hidden relative">
+<div class="bg-cover bg-center w-full h-full" data-alt="Abstract digital artificial intelligence avatar glowing blue" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBRZcMdu-PVlyvZ-YwGc0cNc-LBWJko6h8Pkz19r95CSLdS_42-j9S3uvDj6Tjj0q1-1IL2iymFK6Srr4RvwW9A-lu_Piuw27_ZisWcp-vCY2XroJ5JfN2rvvvrE86qfN1V2jyGPHfQgUsqvXz6MG3dLk0TLeA-tcEVGtmRNfFipU22LSO3uVZsM9_BtacHuuH1WE__gyY2fiOEexgwjRDNtTqYBMLGG9kVKoEJo3Ky3ljzYdkwx40TdX76fwkNE0cTIGBebG7kwxvd');"></div>
+</div>
+</div>
+<div class="absolute -bottom-2 -right-2 bg-green-500 border-4 border-white dark:border-surface-dark rounded-full w-6 h-6 flex items-center justify-center" title="Online Now">
+<div class="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex flex-wrap items-center gap-3 mb-2">
+<h1 class="text-2xl md:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Code Debugger v2.4</h1>
+<span class="px-2 py-0.5 rounded text-xs font-semibold bg-primary/10 text-primary border border-primary/20">AI MENTOR</span>
+</div>
+<p class="text-slate-500 dark:text-text-secondary text-base mb-4 max-w-2xl">
+                                    Specialized AI research assistant for complex debugging and architectural optimization. Integrated directly with your IDE for real-time problem solving.
+                                </p>
+<div class="flex flex-wrap gap-4 text-sm text-slate-500 dark:text-text-secondary">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-primary">bolt</span>
+<span>Response: &lt;50ms</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-green-500">bug_report</span>
+<span>10k+ Bugs Fixed</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-yellow-500">star</span>
+<span>4.9/5 Rating</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-slate-100 dark:border-border-dark flex flex-col sm:flex-row gap-4">
+<button class="flex-1 h-12 flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white font-bold rounded-lg transition-all shadow-lg shadow-primary/25">
+<span class="material-symbols-outlined">videocam</span>
+                                Start Live Session
+                            </button>
+<button class="flex-1 h-12 flex items-center justify-center gap-2 bg-slate-100 dark:bg-[#233648] hover:bg-slate-200 dark:hover:bg-[#2f455a] text-slate-900 dark:text-white font-bold rounded-lg transition-all border border-transparent dark:border-border-dark">
+<span class="material-symbols-outlined">terminal</span>
+                                View Sample Debugging
+                            </button>
+</div>
+</section>
+<!-- Core Features Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="p-6 rounded-xl border border-slate-200 dark:border-border-dark bg-white dark:bg-surface-dark flex flex-col gap-4">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">screen_share</span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Live Screen Collaboration</h3>
+<p class="text-slate-500 dark:text-text-secondary text-sm leading-relaxed">
+                                    Share your IDE window securely. I analyze code context, variable states, and console errors in real-time to suggest immediate fixes.
+                                </p>
+</div>
+</div>
+<div class="p-6 rounded-xl border border-slate-200 dark:border-border-dark bg-white dark:bg-surface-dark flex flex-col gap-4">
+<div class="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-500">
+<span class="material-symbols-outlined text-3xl">all_inclusive</span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">24/7 Availability</h3>
+<p class="text-slate-500 dark:text-text-secondary text-sm leading-relaxed">
+                                    No scheduling required. I am available instantly for late-night debugging sessions or tight deadline sprints.
+                                </p>
+</div>
+</div>
+</section>
+<!-- Technical Stack & Expertise -->
+<section class="p-6 rounded-xl border border-slate-200 dark:border-border-dark bg-white dark:bg-surface-dark">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">code</span>
+                            Supported Technologies
+                        </h3>
+<div class="flex flex-wrap gap-3">
+<!-- Language Chips -->
+<div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-50 dark:bg-[#111a22] border border-slate-200 dark:border-border-dark">
+<div class="w-2 h-2 rounded-full bg-blue-500"></div>
+<span class="text-sm font-medium dark:text-white">Python</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-50 dark:bg-[#111a22] border border-slate-200 dark:border-border-dark">
+<div class="w-2 h-2 rounded-full bg-orange-500"></div>
+<span class="text-sm font-medium dark:text-white">Rust</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-50 dark:bg-[#111a22] border border-slate-200 dark:border-border-dark">
+<div class="w-2 h-2 rounded-full bg-blue-700"></div>
+<span class="text-sm font-medium dark:text-white">C++</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-50 dark:bg-[#111a22] border border-slate-200 dark:border-border-dark">
+<div class="w-2 h-2 rounded-full bg-cyan-400"></div>
+<span class="text-sm font-medium dark:text-white">React</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-50 dark:bg-[#111a22] border border-slate-200 dark:border-border-dark">
+<div class="w-2 h-2 rounded-full bg-orange-600"></div>
+<span class="text-sm font-medium dark:text-white">TensorFlow</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-50 dark:bg-[#111a22] border border-slate-200 dark:border-border-dark">
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+<span class="text-sm font-medium dark:text-white">Node.js</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-50 dark:bg-[#111a22] border border-slate-200 dark:border-border-dark">
+<div class="w-2 h-2 rounded-full bg-purple-500"></div>
+<span class="text-sm font-medium dark:text-white">Kubernetes</span>
+</div>
+</div>
+</section>
+<!-- How it Works Timeline -->
+<section class="p-6 md:p-8 rounded-xl border border-slate-200 dark:border-border-dark bg-white dark:bg-surface-dark">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-8">How an AI Session Works</h3>
+<div class="relative">
+<!-- Vertical Line -->
+<div class="absolute left-6 top-4 bottom-4 w-0.5 bg-slate-200 dark:bg-border-dark"></div>
+<div class="space-y-8">
+<div class="relative flex items-start gap-6">
+<div class="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-slate-100 dark:bg-[#233648] border border-slate-200 dark:border-border-dark text-primary font-bold shadow-sm">
+                                        1
+                                    </div>
+<div class="pt-2">
+<h4 class="text-base font-bold text-slate-900 dark:text-white">Connect &amp; Describe</h4>
+<p class="mt-1 text-sm text-slate-500 dark:text-text-secondary">Start a session instantly. Briefly describe the bug or paste the error log in the chat.</p>
+</div>
+</div>
+<div class="relative flex items-start gap-6">
+<div class="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-slate-100 dark:bg-[#233648] border border-slate-200 dark:border-border-dark text-primary font-bold shadow-sm">
+                                        2
+                                    </div>
+<div class="pt-2">
+<h4 class="text-base font-bold text-slate-900 dark:text-white">Context Analysis</h4>
+<p class="mt-1 text-sm text-slate-500 dark:text-text-secondary">AI scans provided snippets or requests screen share permission to understand the codebase context.</p>
+</div>
+</div>
+<div class="relative flex items-start gap-6">
+<div class="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-slate-100 dark:bg-[#233648] border border-slate-200 dark:border-border-dark text-primary font-bold shadow-sm">
+                                        3
+                                    </div>
+<div class="pt-2">
+<h4 class="text-base font-bold text-slate-900 dark:text-white">Solution &amp; Implementation</h4>
+<p class="mt-1 text-sm text-slate-500 dark:text-text-secondary">Receive syntactically correct code blocks, architectural advice, and explanation of the fix.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Pricing & Sidebar -->
+<div class="lg:col-span-4 flex flex-col gap-6">
+<!-- Pricing Card -->
+<div class="sticky top-24 flex flex-col gap-6">
+<div class="p-6 rounded-xl border border-primary/30 bg-gradient-to-b from-white to-slate-50 dark:from-surface-dark dark:to-[#111a22] relative overflow-hidden shadow-lg">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Session Pricing</h3>
+<p class="text-xs text-slate-500 dark:text-text-secondary mb-6 uppercase tracking-wider font-semibold">Admin Controlled Rate</p>
+<div class="flex items-baseline gap-1 mb-2">
+<span class="text-4xl font-bold text-slate-900 dark:text-white">5</span>
+<span class="text-lg font-medium text-slate-500 dark:text-text-secondary">Credits / min</span>
+</div>
+<p class="text-sm text-slate-500 dark:text-text-secondary mb-6">~ $0.10 USD per minute. Billed by the second.</p>
+<div class="space-y-3 mb-8">
+<div class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-green-500 text-[20px]">check_circle</span>
+<span>Unlimited Code Reviews</span>
+</div>
+<div class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-green-500 text-[20px]">check_circle</span>
+<span>Export Chat History</span>
+</div>
+<div class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-green-500 text-[20px]">check_circle</span>
+<span>IDE Integration Access</span>
+</div>
+</div>
+<button class="w-full h-12 flex items-center justify-center rounded-lg bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold hover:opacity-90 transition-opacity">
+                                Recharge Credits
+                            </button>
+</div>
+<!-- Related Local Jobs (Upsell) -->
+<div class="p-5 rounded-xl border border-slate-200 dark:border-border-dark bg-white dark:bg-surface-dark">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-base font-bold text-slate-900 dark:text-white">Related Local Jobs</h3>
+<a class="text-xs font-medium text-primary hover:text-primary-dark" href="#">View All</a>
+</div>
+<div class="space-y-4">
+<a class="block group" href="#">
+<h4 class="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-primary transition-colors">Senior Python Developer</h4>
+<p class="text-xs text-slate-500 dark:text-text-secondary mt-1">TechFlow Systems • San Francisco</p>
+<div class="mt-2 flex items-center gap-2">
+<span class="px-2 py-0.5 rounded text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">$120k - $160k</span>
+<span class="px-2 py-0.5 rounded text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">Remote</span>
+</div>
+</a>
+<div class="h-px bg-slate-100 dark:bg-border-dark"></div>
+<a class="block group" href="#">
+<h4 class="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-primary transition-colors">Backend Engineer (Rust)</h4>
+<p class="text-xs text-slate-500 dark:text-text-secondary mt-1">Kryppt Internal • New York</p>
+<div class="mt-2 flex items-center gap-2">
+<span class="px-2 py-0.5 rounded text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">$140k+</span>
+<span class="px-2 py-0.5 rounded text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">Hybrid</span>
+</div>
+</a>
+</div>
+</div>
+<!-- Similar Mentors -->
+<div class="p-5 rounded-xl border border-slate-200 dark:border-border-dark bg-white dark:bg-surface-dark">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-base font-bold text-slate-900 dark:text-white">Similar AI Tools</h3>
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-orange-500">terminal</span>
+</div>
+<div>
+<p class="text-sm font-medium text-slate-900 dark:text-white">DevOps Architect AI</p>
+<p class="text-xs text-slate-500 dark:text-text-secondary">Infrastructure &amp; Cloud</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-pink-500/10 border border-pink-500/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-pink-500">brush</span>
+</div>
+<div>
+<p class="text-sm font-medium text-slate-900 dark:text-white">Frontend UI Mentor</p>
+<p class="text-xs text-slate-500 dark:text-text-secondary">CSS, Tailwind, React</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Spacer -->
+<div class="h-20"></div>
+</div>
+</body></html>

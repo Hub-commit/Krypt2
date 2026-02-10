@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kryppt Platform - Server Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white min-h-screen">
+    <div class="max-w-6xl mx-auto px-4 py-12">
+        <!-- Header -->
+        <div class="mb-12">
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center text-xl font-bold">K</div>
+                <h1 class="text-4xl font-black">Kryppt Platform</h1>
+            </div>
+            <p class="text-gray-400 text-lg">AI-Powered Mentorship & Job Discovery with Gemini API</p>
+        </div>
+
+        <!-- Status -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
+            <div class="bg-green-900/30 border border-green-500/50 rounded-lg p-6">
+                <div class="flex items-center gap-2 mb-2">
+                    <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                    <span class="text-green-400 font-semibold">Server Status</span>
+                </div>
+                <p class="text-2xl font-bold">Running</p>
+                <p class="text-sm text-gray-400 mt-1">Port 5000</p>
+            </div>
+
+            <div class="bg-blue-900/30 border border-blue-500/50 rounded-lg p-6">
+                <div class="flex items-center gap-2 mb-2">
+                    <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                    <span class="text-blue-400 font-semibold">Gemini AI</span>
+                </div>
+                <p class="text-2xl font-bold">Integrated</p>
+                <p class="text-sm text-gray-400 mt-1">8+ AI Features</p>
+            </div>
+
+            <div class="bg-purple-900/30 border border-purple-500/50 rounded-lg p-6">
+                <div class="flex items-center gap-2 mb-2">
+                    <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                    <span class="text-purple-400 font-semibold">Database</span>
+                </div>
+                <p class="text-2xl font-bold">Ready</p>
+                <p class="text-sm text-gray-400 mt-1">MongoDB</p>
+            </div>
+        </div>
+
+        <!-- Quick Start -->
+        <div class="bg-slate-800/50 border border-slate-700 rounded-lg p-8 mb-12">
+            <h2 class="text-2xl font-bold mb-6">⚡ Quick Start (5 Minutes)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                        <span class="bg-blue-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm">1</span>
+                        Get Gemini API Key
+                    </h3>
+                    <ol class="space-y-2 text-gray-300 text-sm">
+                        <li>1. Visit: <a href="https://aistudio.google.com/app/apikey" target="_blank" class="text-blue-400 hover:underline">aistudio.google.com/app/apikey</a></li>
+                        <li>2. Click "Create API Key"</li>
+                        <li>3. Copy the key</li>
+                        <li class="text-gray-500 italic">Takes 2 minutes, no credit card needed</li>
+                    </ol>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                        <span class="bg-blue-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm">2</span>
+                        Update Configuration
+                    </h3>
+                    <div class="bg-slate-900 border border-slate-700 rounded p-4 font-mono text-sm overflow-x-auto">
+                        <p>Edit <span class="text-green-400">.env</span> file:</p>
+                        <p class="mt-2">GEMINI_API_KEY=<span class="text-yellow-400">your_key</span></p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                        <span class="bg-blue-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm">3</span>
+                        Install Dependencies
+                    </h3>
+                    <div class="bg-slate-900 border border-slate-700 rounded p-4 font-mono text-sm">
+                        npm install
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                        <span class="bg-blue-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm">4</span>
+                        Start Server
+                    </h3>
+                    <div class="bg-slate-900 border border-slate-700 rounded p-4 font-mono text-sm">
+                        npm run dev
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Available Dashboards -->
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold mb-6">📊 Dashboard Pages</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a href="/public/kryppt_platform_landing_page/" class="bg-slate-800/50 border border-slate-700 rounded-lg p-4 hover:border-blue-500 transition group">
+                    <h3 class="font-semibold mb-1 group-hover:text-blue-400">🏠 Landing Page</h3>
+                    <p class="text-sm text-gray-400">Platform overview & sign up</p>
+                </a>
+                <a href="/public/mentee_dashboard_overview/" class="bg-slate-800/50 border border-slate-700 rounded-lg p-4 hover:border-blue-500 transition group">
+                    <h3 class="font-semibold mb-1 group-hover:text-blue-400">📈 Mentee Dashboard</h3>
+                    <p class="text-sm text-gray-400">User dashboard & progress</p>
+                </a>
+                <a href="/public/synapse_ai_chat_&_sandbox/" class="bg-slate-800/50 border border-slate-700 rounded-lg p-4 hover:border-blue-500 transition group">
+                    <h3 class="font-semibold mb-1 group-hover:text-blue-400">🤖 Synapse AI Chat</h3>
+                    <p class="text-sm text-gray-400">AI powered conversations</p>
+                </a>
+                <a href="/public/mentor_discovery_&_search/" class="bg-slate-800/50 border border-slate-700 rounded-lg p-4 hover:border-blue-500 transition group">
+                    <h3 class="font-semibold mb-1 group-hover:text-blue-400">🔍 Find Mentors</h3>
+                    <p class="text-sm text-gray-400">Discover & connect with mentors</p>
+                </a>
+                <a href="/public/real-time_messaging_center/" class="bg-slate-800/50 border border-slate-700 rounded-lg p-4 hover:border-blue-500 transition group">
+                    <h3 class="font-semibold mb-1 group-hover:text-blue-400">💬 Messaging</h3>
+                    <p class="text-sm text-gray-400">Real-time chat with mentors</p>
+                </a>
+                <a href="/public/local_jobs_&_services_map/" class="bg-slate-800/50 border border-slate-700 rounded-lg p-4 hover:border-blue-500 transition group">
+                    <h3 class="font-semibold mb-1 group-hover:text-blue-400">💼 Jobs Map</h3>
+                    <p class="text-sm text-gray-400">Local job opportunities</p>
+                </a>
+                <a href="/public/ai_dynamic_learning_pathways/" class="bg-slate-800/50 border border-slate-700 rounded-lg p-4 hover:border-blue-500 transition group">
+                    <h3 class="font-semibold mb-1 group-hover:text-blue-400">🎓 Learning Paths</h3>
+                    <p class="text-sm text-gray-400">AI-generated learning plans</p>
+                </a>
+                <a href="/public/mentee_goal-based_signup/" class="bg-slate-800/50 border border-slate-700 rounded-lg p-4 hover:border-blue-500 transition group">
+                    <h3 class="font-semibold mb-1 group-hover:text-blue-400">🎯 Set Goals</h3>
+                    <p class="text-sm text-gray-400">Define your career goals</p>
+                </a>
+                <a href="/public/global_admin_control_center/" class="bg-slate-800/50 border border-slate-700 rounded-lg p-4 hover:border-blue-500 transition group">
+                    <h3 class="font-semibold mb-1 group-hover:text-blue-400">⚙️ Admin Center</h3>
+                    <p class="text-sm text-gray-400">User management & analytics</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- Documentation -->
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold mb-6">📚 Documentation</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <a href="/BUILD_SUMMARY.md" class="bg-red-900/20 border border-red-500/50 rounded-lg p-4 hover:border-red-400 transition">
+                    <h3 class="font-semibold text-red-400 mb-1">⭐ BUILD SUMMARY</h3>
+                    <p class="text-sm text-gray-300">Start here! Complete overview of what was built</p>
+                </a>
+                <a href="/QUICK_START.md" class="bg-green-900/20 border border-green-500/50 rounded-lg p-4 hover:border-green-400 transition">
+                    <h3 class="font-semibold text-green-400 mb-1">⚡ QUICK START</h3>
+                    <p class="text-sm text-gray-300">5-minute setup guide with basic commands</p>
+                </a>
+                <a href="/GEMINI_API_SETUP.md" class="bg-blue-900/20 border border-blue-500/50 rounded-lg p-4 hover:border-blue-400 transition">
+                    <h3 class="font-semibold text-blue-400 mb-1">🤖 GEMINI API SETUP</h3>
+                    <p class="text-sm text-gray-300">How to get and configure your Gemini API key</p>
+                </a>
+                <a href="/SETUP_GUIDE.md" class="bg-purple-900/20 border border-purple-500/50 rounded-lg p-4 hover:border-purple-400 transition">
+                    <h3 class="font-semibold text-purple-400 mb-1">📖 COMPLETE SETUP GUIDE</h3>
+                    <p class="text-sm text-gray-300">Full installation, API reference, and deployment</p>
+                </a>
+                <a href="/README.md" class="bg-yellow-900/20 border border-yellow-500/50 rounded-lg p-4 hover:border-yellow-400 transition">
+                    <h3 class="font-semibold text-yellow-400 mb-1">📝 README</h3>
+                    <p class="text-sm text-gray-300">Project overview, features, and tech stack</p>
+                </a>
+                <a href="/SETUP_CHECKLIST.md" class="bg-indigo-900/20 border border-indigo-500/50 rounded-lg p-4 hover:border-indigo-400 transition">
+                    <h3 class="font-semibold text-indigo-400 mb-1">✅ SETUP CHECKLIST</h3>
+                    <p class="text-sm text-gray-300">Verify everything is configured correctly</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- API Reference -->
+        <div class="bg-slate-800/50 border border-slate-700 rounded-lg p-8 mb-12">
+            <h2 class="text-2xl font-bold mb-6">🔌 API Endpoints</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="text-lg font-semibold text-blue-400 mb-3">🤖 AI Features</h3>
+                    <ul class="space-y-2 text-sm text-gray-300 font-mono">
+                        <li>POST /api/ai/chat</li>
+                        <li>POST /api/ai/chat/:id/message</li>
+                        <li>POST /api/ai/learning-pathway</li>
+                        <li>POST /api/ai/mentor-match</li>
+                        <li>POST /api/ai/job-recommendations</li>
+                        <li>POST /api/ai/career-advice</li>
+                        <li>POST /api/ai/resume-review</li>
+                        <li>POST /api/ai/interview-prep</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-green-400 mb-3">👥 User Features</h3>
+                    <ul class="space-y-2 text-sm text-gray-300 font-mono">
+                        <li>POST /api/auth/signup</li>
+                        <li>POST /api/auth/login</li>
+                        <li>GET /api/mentors</li>
+                        <li>GET /api/jobs</li>
+                        <li>POST /api/goals</li>
+                        <li>POST /api/messaging/send</li>
+                        <li>PUT /api/admin/users/:id</li>
+                        <li>+ More in docs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features -->
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold mb-6">✨ Features Included</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="flex gap-3">
+                    <span class="text-green-400 font-bold">✓</span>
+                    <div>
+                        <h3 class="font-semibold">AI-Powered Chat</h3>
+                        <p class="text-sm text-gray-400">Real-time conversations with Gemini AI</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <span class="text-green-400 font-bold">✓</span>
+                    <div>
+                        <h3 class="font-semibold">Smart Job Matching</h3>
+                        <p class="text-sm text-gray-400">AI-powered job recommendations</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <span class="text-green-400 font-bold">✓</span>
+                    <div>
+                        <h3 class="font-semibold">Mentor Matching</h3>
+                        <p class="text-sm text-gray-400">AI compatibility scoring</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <span class="text-green-400 font-bold">✓</span>
+                    <div>
+                        <h3 class="font-semibold">Learning Pathways</h3>
+                        <p class="text-sm text-gray-400">Personalized learning plans</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <span class="text-green-400 font-bold">✓</span>
+                    <div>
+                        <h3 class="font-semibold">Real-time Messaging</h3>
+                        <p class="text-sm text-gray-400">Socket.IO powered chat</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <span class="text-green-400 font-bold">✓</span>
+                    <div>
+                        <h3 class="font-semibold">Secure Auth</h3>
+                        <p class="text-sm text-gray-400">JWT + bcryptjs password hashing</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <span class="text-green-400 font-bold">✓</span>
+                    <div>
+                        <h3 class="font-semibold">Admin Dashboard</h3>
+                        <p class="text-sm text-gray-400">User management & oversight</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <span class="text-green-400 font-bold">✓</span>
+                    <div>
+                        <h3 class="font-semibold">Responsive Design</h3>
+                        <p class="text-sm text-gray-400">Mobile, tablet, desktop</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center text-gray-400 text-sm">
+            <p>Kryppt Platform | Powered by Google Gemini AI</p>
+            <p class="mt-2">Ready to launch! 🚀</p>
+        </div>
+    </div>
+</body>
+</html>

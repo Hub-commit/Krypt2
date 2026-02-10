@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kryppt Messaging Center</title>
+<!-- Fonts and Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922", // Deep charcoal from prompt
+                        "surface-dark": "#1e293b", // Sidebar slate
+                        "surface-darker": "#0f172a", // Chat background
+                        "surface-light": "#233648", // Inputs/elements
+                        "text-secondary": "#92adc9",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem", 
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for webkit to match the dark theme */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111a22; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #233648; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155; 
+        }
+    </style>
+</head>
+<body class="bg-background-dark text-white font-display h-screen w-full flex overflow-hidden selection:bg-primary/30">
+<!-- 1. Global Navigation (Slim Vertical Strip) -->
+<nav class="flex flex-col items-center justify-between w-20 py-6 border-r border-white/5 bg-[#111a22] shrink-0 z-20">
+<div class="flex flex-col items-center gap-8">
+<!-- Brand Logo -->
+<div class="size-10 rounded-xl bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center shadow-lg shadow-primary/20 cursor-pointer">
+<span class="material-symbols-outlined text-white text-2xl">bolt</span>
+</div>
+<!-- Nav Items -->
+<div class="flex flex-col gap-6">
+<button class="p-3 text-text-secondary hover:text-white hover:bg-white/5 rounded-xl transition-colors group relative" title="Home">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 300;">home</span>
+</button>
+<button class="p-3 text-text-secondary hover:text-white hover:bg-white/5 rounded-xl transition-colors" title="Jobs">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 300;">briefcase_meal</span>
+</button>
+<button class="p-3 text-text-secondary hover:text-white hover:bg-white/5 rounded-xl transition-colors" title="Mentorship">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 300;">group</span>
+</button>
+<!-- Active Item: Messages -->
+<button class="p-3 text-white bg-primary rounded-xl shadow-lg shadow-primary/20 transition-all" title="Messages">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1, 'wght' 400;">chat_bubble</span>
+</button>
+</div>
+</div>
+<!-- Bottom Actions -->
+<div class="flex flex-col items-center gap-6">
+<button class="p-3 text-text-secondary hover:text-white hover:bg-white/5 rounded-xl transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="size-10 rounded-full bg-cover bg-center border-2 border-surface-light cursor-pointer" data-alt="User profile picture of a woman" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAar7CieCDDFKXp7_6NMu9i5M1fL03yx9NmhlLFOWkUrxF0J4YG2RW9JuiQt8n3OBqu8DlcdZSUFuvlIzJsQYEHE3qw4F-VoDJu0t_2ijTlHQMuzm_8RNQFHqQQ-5GFqWymesx4tiPVHOMB49y7EmJpTW5xZkD096cMD-aPLAf-n9TjE4JgNsx_mghirTR373Nmk7BFO8vKjONhJYyQgkHfPVqsMDKHS9rYDQK2Hvot3xR__ZWzgX-_Cc9ZWSlb87ufjwcqcJHovIaA')"></div>
+</div>
+</nav>
+<!-- 2. Conversation Inbox (Left Panel) -->
+<aside class="w-[380px] flex flex-col bg-surface-dark border-r border-white/5 shrink-0">
+<!-- Inbox Header -->
+<div class="p-5 pb-2">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-xl font-semibold">Messages</h2>
+<button class="size-8 flex items-center justify-center rounded-lg bg-white/5 hover:bg-white/10 text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">edit_square</span>
+</button>
+</div>
+<!-- Search Bar -->
+<div class="relative w-full mb-4">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-text-secondary">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="w-full h-10 pl-10 pr-4 bg-surface-light border-none rounded-lg text-sm text-white placeholder-text-secondary focus:ring-1 focus:ring-primary focus:bg-[#2a4055] transition-colors" placeholder="Search contacts..." type="text"/>
+</div>
+<!-- Filter Chips -->
+<div class="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+<button class="px-3 py-1.5 rounded-lg bg-white/10 text-white text-xs font-medium hover:bg-white/20 transition-colors whitespace-nowrap">All</button>
+<button class="px-3 py-1.5 rounded-lg bg-transparent border border-white/10 text-text-secondary text-xs font-medium hover:text-white hover:border-white/20 transition-colors whitespace-nowrap">Mentors</button>
+<button class="px-3 py-1.5 rounded-lg bg-transparent border border-white/10 text-text-secondary text-xs font-medium hover:text-white hover:border-white/20 transition-colors whitespace-nowrap">Recruiters</button>
+<button class="px-3 py-1.5 rounded-lg bg-transparent border border-white/10 text-text-secondary text-xs font-medium hover:text-white hover:border-white/20 transition-colors whitespace-nowrap">Unread</button>
+</div>
+</div>
+<!-- Conversation List -->
+<div class="flex-1 overflow-y-auto">
+<!-- Active Item: AI Assistant -->
+<div class="relative group cursor-pointer">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div> <!-- Active Indicator -->
+<div class="flex items-start gap-3 p-4 bg-white/5 hover:bg-white/10 transition-colors">
+<div class="relative shrink-0">
+<!-- AI Avatar -->
+<div class="size-12 rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center border-2 border-surface-dark text-white" data-alt="Abstract gradient avatar representing AI">
+<span class="material-symbols-outlined text-[24px]">smart_toy</span>
+</div>
+<div class="absolute bottom-0 right-0 size-3 rounded-full bg-green-500 border-2 border-surface-dark"></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-0.5">
+<h3 class="text-sm font-semibold text-white truncate">Kryppt AI Assistant</h3>
+<span class="text-xs text-text-secondary">Now</span>
+</div>
+<p class="text-sm text-white font-medium truncate">Here are 3 local job matches based on your...</p>
+</div>
+</div>
+</div>
+<!-- Item 2: Mentor -->
+<div class="group cursor-pointer hover:bg-white/5 transition-colors">
+<div class="flex items-start gap-3 p-4">
+<div class="relative shrink-0">
+<div class="size-12 rounded-full bg-cover bg-center border-2 border-transparent group-hover:border-surface-light" data-alt="Portrait of Dr. Sarah Jenkins" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC6UPjkJg_2a-IdkOaI9-eaSUXqL0xcHSAOFlyDtCXHcvPw5MFlIVc6V6-Gwm3SKJef7vtCzEyw1fQ4wWZhTP68BO19hatYgPUuTPXA9fzZ_ILbI0qQTuTnKgCh1awjYHabQXDQORkdoxVbQl7-Lz6o3CRokBXXZZ8p3FiqQFssUp4Oq1HoZFal2SUORigUec_d_p35RIbHbgxgtd9ail0vW1iqu2hRWN3H_Dpafg7DRfPh6Pm5xczfTU4Hk4yQnm5nDPG3JMyeyfm0')"></div>
+<div class="absolute bottom-0 right-0 size-3 rounded-full bg-green-500 border-2 border-surface-dark"></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-0.5">
+<h3 class="text-sm font-semibold text-white/90 truncate">Dr. Sarah Jenkins</h3>
+<span class="text-xs text-text-secondary">2m</span>
+</div>
+<p class="text-sm text-text-secondary truncate">Can we review your resume?</p>
+</div>
+<!-- Unread Badge -->
+<div class="shrink-0 self-center">
+<div class="size-2 rounded-full bg-primary"></div>
+</div>
+</div>
+</div>
+<!-- Item 3: Recruiter -->
+<div class="group cursor-pointer hover:bg-white/5 transition-colors">
+<div class="flex items-start gap-3 p-4">
+<div class="relative shrink-0">
+<div class="size-12 rounded-full bg-slate-700 flex items-center justify-center text-white font-bold text-lg border-2 border-transparent group-hover:border-surface-light" data-alt="Initials TC for TechCorp">
+                            TC
+                        </div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-0.5">
+<h3 class="text-sm font-semibold text-white/90 truncate">TechCorp Recruiter</h3>
+<span class="text-xs text-text-secondary">1d</span>
+</div>
+<p class="text-sm text-text-secondary truncate">Interview confirmed for Friday.</p>
+</div>
+</div>
+</div>
+<!-- Item 4: Another Mentor -->
+<div class="group cursor-pointer hover:bg-white/5 transition-colors">
+<div class="flex items-start gap-3 p-4">
+<div class="relative shrink-0">
+<div class="size-12 rounded-full bg-cover bg-center border-2 border-transparent group-hover:border-surface-light" data-alt="Portrait of mentor David Chen" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuChtZxKop6xrTb2K2kNTGkhrBlPFRx1QgutlObRX_i4bs1pMkOjGWjigTl7LC5FdjACzp3w4fFMD-5hxT0oIA-slgj8R3GjQhmuq7nbuaPdGSTjRSyiAa6-fbMt7B5g12x5OJJ6EkmTmblDV1cTMLd7_QM7-n5qpRnq3LgqtBYkuAP2hqjFNNy0f3yDtbhv3UCOVfyLgIehvyp0qT_1xJ3PkkuEqBsZSU8iyWQoWce1SPFDNgpFIqizc106msoxdCDodtru0RlgZ53R')"></div>
+<div class="absolute bottom-0 right-0 size-3 rounded-full bg-gray-500 border-2 border-surface-dark"></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-0.5">
+<h3 class="text-sm font-semibold text-white/90 truncate">David Chen</h3>
+<span class="text-xs text-text-secondary">3d</span>
+</div>
+<p class="text-sm text-text-secondary truncate">Thanks for the update!</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- 3. Active Chat Console (Right Panel) -->
+<main class="flex-1 flex flex-col bg-surface-darker relative">
+<!-- Chat Header -->
+<header class="h-16 px-6 flex items-center justify-between border-b border-white/5 bg-surface-darker/95 backdrop-blur z-10">
+<div class="flex items-center gap-4">
+<div class="relative">
+<div class="size-10 rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center text-white" data-alt="Abstract gradient avatar representing AI">
+<span class="material-symbols-outlined text-lg">smart_toy</span>
+</div>
+<div class="absolute -bottom-0.5 -right-0.5 size-3 rounded-full bg-green-500 border-2 border-surface-darker"></div>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<h1 class="text-base font-bold text-white">Kryppt AI Assistant</h1>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-primary/20 text-primary border border-primary/20">BOT</span>
+</div>
+<p class="text-xs text-green-400">Online</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<!-- Primary Action for AI -->
+<button class="hidden md:flex items-center gap-2 px-4 py-2 bg-primary hover:bg-blue-600 text-white text-sm font-medium rounded-lg transition-colors shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[18px]">code_blocks</span>
+                    Start Collaboration Session
+                </button>
+<div class="h-6 w-px bg-white/10 mx-1"></div>
+<button class="p-2 text-text-secondary hover:text-white hover:bg-white/5 rounded-lg transition-colors" title="View Profile">
+<span class="material-symbols-outlined">info</span>
+</button>
+<button class="p-2 text-text-secondary hover:text-white hover:bg-white/5 rounded-lg transition-colors" title="More Options">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Message Stream -->
+<div class="flex-1 overflow-y-auto p-6 flex flex-col gap-6">
+<!-- Timestamp Separator -->
+<div class="flex justify-center">
+<span class="px-3 py-1 rounded-full bg-white/5 text-[10px] font-medium text-text-secondary uppercase tracking-wider">Today, 10:23 AM</span>
+</div>
+<!-- Message: User (Right) -->
+<div class="flex flex-col items-end gap-1 max-w-[80%] self-end">
+<div class="bg-primary text-white px-5 py-3 rounded-2xl rounded-tr-sm shadow-md">
+<p class="text-sm leading-relaxed">Can you help me find React developer roles in Seattle? I'm looking for junior to mid-level positions.</p>
+</div>
+<span class="text-[10px] text-text-secondary font-medium mr-1">10:23 AM • Read</span>
+</div>
+<!-- Message: AI (Left) -->
+<div class="flex items-end gap-3 max-w-[80%] self-start">
+<div class="size-8 rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center shrink-0 mb-4" data-alt="Small AI avatar">
+<span class="material-symbols-outlined text-xs text-white">smart_toy</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="bg-surface-light border border-white/5 text-gray-200 px-5 py-3 rounded-2xl rounded-tl-sm shadow-sm">
+<p class="text-sm leading-relaxed">I found a few matches for you. Here are the top 3 based on your profile skills:</p>
+</div>
+<!-- Interactive Card inside Chat -->
+<div class="w-full max-w-sm mt-1 bg-surface-light border border-white/5 rounded-xl overflow-hidden shadow-lg group">
+<div class="h-24 bg-gradient-to-r from-blue-900 to-slate-900 relative p-4 flex flex-col justify-end" data-alt="Abstract tech pattern background">
+<div class="absolute top-3 right-3 p-1 bg-black/30 rounded backdrop-blur">
+<span class="material-symbols-outlined text-white text-sm">bookmark</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="size-10 bg-white rounded flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-black">business</span>
+</div>
+<div>
+<h4 class="text-white text-sm font-bold">Frontend Engineer</h4>
+<p class="text-white/70 text-xs">TechFlow Inc. • Seattle, WA</p>
+</div>
+</div>
+</div>
+<div class="p-4">
+<div class="flex gap-2 mb-3">
+<span class="px-2 py-1 rounded bg-white/5 text-[10px] text-text-secondary border border-white/5">React</span>
+<span class="px-2 py-1 rounded bg-white/5 text-[10px] text-text-secondary border border-white/5">TypeScript</span>
+<span class="px-2 py-1 rounded bg-white/5 text-[10px] text-text-secondary border border-white/5">$90k - $120k</span>
+</div>
+<button class="w-full py-2 rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white text-xs font-semibold transition-all">
+                                View Job Details
+                            </button>
+</div>
+</div>
+<span class="text-[10px] text-text-secondary font-medium ml-1">10:24 AM</span>
+</div>
+</div>
+<!-- Message: User (Right) -->
+<div class="flex flex-col items-end gap-1 max-w-[80%] self-end">
+<div class="bg-primary text-white px-5 py-3 rounded-2xl rounded-tr-sm shadow-md">
+<p class="text-sm leading-relaxed">That looks promising. Could we do a mock interview focusing on React hooks?</p>
+</div>
+<span class="text-[10px] text-text-secondary font-medium mr-1">10:25 AM • Read</span>
+</div>
+<!-- System Notification -->
+<div class="flex justify-center my-2">
+<div class="flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20">
+<span class="material-symbols-outlined text-primary text-sm">bolt</span>
+<span class="text-xs font-medium text-primary">Collaboration session initialized</span>
+</div>
+</div>
+<!-- Message: AI (Left) -->
+<div class="flex items-end gap-3 max-w-[80%] self-start">
+<div class="size-8 rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center shrink-0 mb-4" data-alt="Small AI avatar">
+<span class="material-symbols-outlined text-xs text-white">smart_toy</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="bg-surface-light border border-white/5 text-gray-200 px-5 py-3 rounded-2xl rounded-tl-sm shadow-sm">
+<p class="text-sm leading-relaxed">Absolutely! I've prepared a coding environment for us. Click the button in the header or below to start.</p>
+</div>
+<span class="text-[10px] text-text-secondary font-medium ml-1">Just now</span>
+</div>
+</div>
+<!-- Spacer for scroll -->
+<div class="h-2"></div>
+</div>
+<!-- Input Area -->
+<div class="p-6 pt-2 bg-surface-darker">
+<div class="relative flex items-end gap-2 p-2 rounded-xl bg-surface-light border border-white/5 focus-within:ring-1 focus-within:ring-primary/50 transition-all shadow-lg">
+<!-- Attach Button -->
+<button class="p-2 text-text-secondary hover:text-white hover:bg-white/10 rounded-lg transition-colors shrink-0">
+<span class="material-symbols-outlined">add_circle</span>
+</button>
+<!-- Text Input -->
+<textarea class="w-full bg-transparent border-none text-white placeholder-text-secondary focus:ring-0 resize-none py-2.5 max-h-32 min-h-[44px]" placeholder="Type a message to Kryppt AI..." rows="1" style="field-sizing: content;"></textarea>
+<!-- Right Actions -->
+<div class="flex items-center gap-1 pb-1">
+<button class="p-2 text-text-secondary hover:text-white hover:bg-white/10 rounded-lg transition-colors shrink-0">
+<span class="material-symbols-outlined">sentiment_satisfied</span>
+</button>
+<button class="p-2 bg-primary hover:bg-blue-600 text-white rounded-lg transition-colors shadow-lg shadow-primary/20 shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">send</span>
+</button>
+</div>
+</div>
+<div class="text-center mt-2">
+<p class="text-[10px] text-text-secondary">AI responses may vary. Check job details independently.</p>
+</div>
+</div>
+</main>
+</body></html>

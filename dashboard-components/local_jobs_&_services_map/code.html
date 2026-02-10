@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kryppt - Local Jobs &amp; Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "primary-dark": "#0f6bd0",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "surface-dark": "#192633",
+                        "surface-dark-highlight": "#233648",
+                        "text-secondary": "#92adc9",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display flex flex-col h-screen overflow-hidden">
+<!-- Top Navigation -->
+<header class="flex-none flex items-center justify-between whitespace-nowrap border-b border-solid border-neutral-200 dark:border-[#233648] bg-white dark:bg-[#111a22] px-6 lg:px-10 py-3 z-30">
+<div class="flex items-center gap-4 text-slate-900 dark:text-white">
+<div class="size-8 flex items-center justify-center bg-primary rounded-lg text-white">
+<span class="material-symbols-outlined !text-[20px]">hub</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">Kryppt</h2>
+</div>
+<nav class="hidden md:flex flex-1 justify-center gap-8">
+<a class="text-slate-500 dark:text-[#92adc9] hover:text-primary dark:hover:text-white text-sm font-medium leading-normal transition-colors" href="#">Mentors</a>
+<a class="text-primary dark:text-white text-sm font-medium leading-normal" href="#">Jobs</a>
+<a class="text-slate-500 dark:text-[#92adc9] hover:text-primary dark:hover:text-white text-sm font-medium leading-normal transition-colors" href="#">Community</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hidden sm:flex items-center justify-center h-9 px-4 rounded-lg border border-primary text-primary hover:bg-primary/10 text-sm font-medium transition-colors">
+<span class="material-symbols-outlined mr-2 !text-[18px]">add</span>
+                Add Job
+            </button>
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-10 border-2 border-slate-200 dark:border-[#233648]" data-alt="User profile picture placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBolhZMMMcpoHLtFfMPh1NBItPprbkz-IgUBRbmA_Tx_0hM9vDfyltK3ApBRXrCcHyMALJ3otSN3hRyVKwWzE04P-GFnzr0q1t9KyIeRSMIFrDsBU2hTtucRt5LEKpxULunrWUnjWhyvrfmABtbNXCMgoWyfAZej7ET6RDPqumBmrLv_ShBIxVKxu4XnW1IvV9cg3LzTo0UFMwk4qHTwviQ7dMdYAkcWR9TbtMmkjqferbCt-0EhQUNX4LMW9uE5PC9BCTXEox7ouWI");'></div>
+</div>
+</header>
+<!-- Main Content Area -->
+<div class="flex flex-col flex-1 overflow-hidden relative">
+<!-- Filter Bar -->
+<div class="flex-none bg-white dark:bg-[#111a22] border-b border-neutral-200 dark:border-[#233648] px-6 lg:px-10 py-4 z-20 shadow-sm">
+<div class="flex flex-col xl:flex-row gap-4 xl:items-center justify-between max-w-[1600px] mx-auto w-full">
+<!-- Search -->
+<div class="w-full xl:w-96">
+<label class="flex w-full items-stretch rounded-lg h-10 border border-neutral-200 dark:border-[#233648] bg-slate-50 dark:bg-surface-dark overflow-hidden focus-within:ring-2 focus-within:ring-primary/50 transition-all">
+<div class="text-slate-400 dark:text-[#92adc9] flex items-center justify-center pl-3">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="w-full bg-transparent border-none text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-[#92adc9] px-3 focus:ring-0 text-sm" placeholder="Search keywords (e.g. React, Design)"/>
+</label>
+</div>
+<!-- Filters -->
+<div class="flex flex-wrap items-center gap-3 overflow-x-auto pb-1 xl:pb-0 scrollbar-hide">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg border border-neutral-200 dark:border-[#233648] bg-white dark:bg-surface-dark px-4 hover:bg-slate-50 dark:hover:bg-surface-dark-highlight transition-colors">
+<p class="text-slate-700 dark:text-white text-sm font-medium">Category: All</p>
+<span class="material-symbols-outlined text-slate-500 dark:text-[#92adc9] !text-[18px]">expand_more</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg border border-neutral-200 dark:border-[#233648] bg-white dark:bg-surface-dark px-4 hover:bg-slate-50 dark:hover:bg-surface-dark-highlight transition-colors">
+<p class="text-slate-700 dark:text-white text-sm font-medium">Distance: 10km</p>
+<span class="material-symbols-outlined text-slate-500 dark:text-[#92adc9] !text-[18px]">expand_more</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg border border-neutral-200 dark:border-[#233648] bg-white dark:bg-surface-dark px-4 hover:bg-slate-50 dark:hover:bg-surface-dark-highlight transition-colors">
+<p class="text-slate-700 dark:text-white text-sm font-medium">Job Type: Any</p>
+<span class="material-symbols-outlined text-slate-500 dark:text-[#92adc9] !text-[18px]">expand_more</span>
+</button>
+<div class="w-px h-8 bg-neutral-200 dark:bg-[#233648] mx-1"></div>
+<label class="flex items-center gap-2 cursor-pointer group">
+<div class="relative inline-flex h-5 w-9 items-center rounded-full bg-neutral-200 dark:bg-[#233648] transition-colors group-hover:bg-neutral-300 dark:group-hover:bg-[#324a61]">
+<span class="translate-x-1 inline-block size-3.5 transform rounded-full bg-white transition-transform"></span>
+</div>
+<span class="text-sm font-medium text-slate-700 dark:text-[#92adc9]">Mentorship Only</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Content Split -->
+<div class="flex flex-1 overflow-hidden relative">
+<!-- Map Area (Left) -->
+<div class="relative w-full lg:w-[60%] h-full bg-slate-200 dark:bg-[#0f151b] z-0">
+<!-- Map Background Placeholder -->
+<div class="absolute inset-0 w-full h-full bg-cover bg-center opacity-80 dark:opacity-60" data-alt="Stylized dark map showing city streets and blocks" data-location="San Francisco" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC3J6UPBl4oCc5YDOXD41Y_Oo0vbmTyZxcHB3o3dicnIQU0IyqdJAYUx06wlMJcCQPY4PW9X6FnduH2AGTjhAiWEsIvrhShpdA1T-zaIgRM1b3xFef7PZcaRXBVzxNqojUCIwduszMbIR32oxha14uszkgy6Q7SciPR7zU-YQ03gMk4DwnSsx1e4NVW4F0Nn5oHX65wgiWy6TQtyZf4s8kZYSegeph_u07cs9rmqeabH8ucTnK5P8Xeuh4zpeSoqfHg4mk_Hc6Vd6L2"); filter: grayscale(100%) invert(0%) brightness(0.8) contrast(1.2);'>
+</div>
+<!-- Floating Search Button -->
+<div class="absolute top-6 left-1/2 -translate-x-1/2 z-10">
+<button class="flex items-center justify-center h-10 px-5 bg-white dark:bg-surface-dark text-slate-900 dark:text-white rounded-full shadow-lg border border-neutral-200 dark:border-none hover:bg-slate-50 dark:hover:bg-surface-dark-highlight gap-2 text-sm font-bold transition-transform hover:scale-105">
+<span class="material-symbols-outlined text-primary !text-[20px]">refresh</span>
+<span>Search this area</span>
+</button>
+</div>
+<!-- Map Pins -->
+<!-- Pin 1 -->
+<div class="absolute top-[30%] left-[45%] group cursor-pointer">
+<div class="relative">
+<div class="absolute -inset-2 bg-primary/30 rounded-full animate-ping"></div>
+<div class="relative z-10 bg-primary text-white p-2 rounded-full shadow-lg transform transition-transform group-hover:-translate-y-1">
+<span class="material-symbols-outlined !text-[20px]">work</span>
+</div>
+</div>
+<!-- Tooltip -->
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-48 bg-white dark:bg-surface-dark rounded-lg shadow-xl p-3 border border-neutral-200 dark:border-[#233648] z-20">
+<p class="text-xs font-bold text-slate-900 dark:text-white">Senior UI Designer</p>
+<p class="text-xs text-primary mt-0.5">$90k - $120k</p>
+</div>
+</div>
+<!-- Pin 2 -->
+<div class="absolute top-[50%] left-[30%] group cursor-pointer">
+<div class="relative z-10 bg-surface-dark border-2 border-primary text-primary p-2 rounded-full shadow-lg transform transition-transform group-hover:-translate-y-1">
+<span class="material-symbols-outlined !text-[20px]">school</span>
+</div>
+<!-- Tooltip -->
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-48 bg-white dark:bg-surface-dark rounded-lg shadow-xl p-3 border border-neutral-200 dark:border-[#233648] z-20">
+<p class="text-xs font-bold text-slate-900 dark:text-white">React Mentorship</p>
+<p class="text-xs text-green-500 mt-0.5">Free</p>
+</div>
+</div>
+<!-- Pin 3 -->
+<div class="absolute top-[60%] left-[65%] group cursor-pointer">
+<div class="relative z-10 bg-primary text-white p-2 rounded-full shadow-lg transform transition-transform group-hover:-translate-y-1">
+<span class="material-symbols-outlined !text-[20px]">work</span>
+</div>
+</div>
+<!-- Map Controls -->
+<div class="absolute bottom-6 right-6 flex flex-col gap-2">
+<div class="flex flex-col rounded-lg overflow-hidden shadow-lg border border-neutral-200 dark:border-[#233648]">
+<button class="size-10 flex items-center justify-center bg-white dark:bg-surface-dark text-slate-700 dark:text-white hover:bg-slate-50 dark:hover:bg-surface-dark-highlight">
+<span class="material-symbols-outlined">add</span>
+</button>
+<div class="h-px bg-neutral-200 dark:bg-[#233648] w-full"></div>
+<button class="size-10 flex items-center justify-center bg-white dark:bg-surface-dark text-slate-700 dark:text-white hover:bg-slate-50 dark:hover:bg-surface-dark-highlight">
+<span class="material-symbols-outlined">remove</span>
+</button>
+</div>
+<button class="size-10 flex items-center justify-center rounded-lg bg-white dark:bg-surface-dark text-primary shadow-lg border border-neutral-200 dark:border-[#233648] hover:bg-slate-50 dark:hover:bg-surface-dark-highlight">
+<span class="material-symbols-outlined">my_location</span>
+</button>
+</div>
+</div>
+<!-- Job List Area (Right) -->
+<div class="hidden lg:flex flex-col w-[40%] h-full bg-white dark:bg-[#111a22] border-l border-neutral-200 dark:border-[#233648] overflow-hidden">
+<div class="p-5 border-b border-neutral-200 dark:border-[#233648]">
+<div class="flex items-center justify-between">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold">14 Jobs Found</h3>
+<span class="text-sm text-slate-500 dark:text-[#92adc9]">in San Francisco Area</span>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto p-5 space-y-4">
+<!-- Job Card 1 (Active/Highlighted) -->
+<div class="p-4 rounded-xl border border-primary/50 bg-primary/5 dark:bg-[#15202b] cursor-pointer transition-all hover:shadow-md relative group">
+<div class="absolute top-4 right-4">
+<span class="material-symbols-outlined text-primary">bookmark</span>
+</div>
+<div class="flex gap-4">
+<div class="size-12 rounded-lg bg-white dark:bg-white flex items-center justify-center shrink-0 p-1 shadow-sm">
+<img alt="Company Logo" class="w-full h-full object-contain" data-alt="Google logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxhQ-NEQ2qFTAr57eFAX06rC4Iv6cRX9DYuO3I7Ae_qLKg16liip2Pn49saEjsYHNLGaRGSJcw50HNbF36D9NO5chBpoaerXXD6111NbTQA52fam2SFbpWlY5U_XUswUlpi12poT7I76YKf_o3VpbXauks2OcV0Pj1Mhdt4fgwAC_ElBeVchYhjyEfUic-QFezzRIYM3uIdosMc4EyjdzgVr91gf3wr89Yl2JYg0SatSCe0EEtp8DoJ2q5u6lTGFJ6KZs8JJgzPhiM"/>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<h4 class="text-slate-900 dark:text-white font-bold text-base">Senior Product Designer</h4>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">New</span>
+</div>
+<p class="text-slate-600 dark:text-[#92adc9] text-sm mb-2">Google Inc. • Contract</p>
+<div class="flex flex-wrap items-center gap-3 text-xs text-slate-500 dark:text-slate-400 mb-4">
+<span class="flex items-center gap-1 bg-neutral-100 dark:bg-[#233648] px-2 py-1 rounded">
+<span class="material-symbols-outlined !text-[14px]">payments</span> $120k - $150k
+                                    </span>
+<span class="flex items-center gap-1 bg-neutral-100 dark:bg-[#233648] px-2 py-1 rounded">
+<span class="material-symbols-outlined !text-[14px]">location_on</span> 2.5km away
+                                    </span>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex-1 h-9 bg-primary hover:bg-primary-dark text-white rounded-lg text-sm font-medium transition-colors">Quick Apply</button>
+<button class="h-9 px-3 border border-neutral-200 dark:border-[#233648] hover:bg-neutral-50 dark:hover:bg-[#233648] text-slate-600 dark:text-[#92adc9] rounded-lg text-sm font-medium transition-colors">Details</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Job Card 2 (Mentorship) -->
+<div class="p-4 rounded-xl border border-neutral-200 dark:border-[#233648] bg-white dark:bg-surface-dark cursor-pointer transition-all hover:border-primary/50 hover:shadow-md relative">
+<div class="absolute top-0 right-0 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold px-2 py-1 rounded-bl-lg rounded-tr-lg border-b border-l border-emerald-500/20">
+                            MENTORSHIP
+                        </div>
+<div class="flex gap-4">
+<div class="size-12 rounded-lg bg-indigo-500 flex items-center justify-center shrink-0 shadow-sm text-white font-bold text-xl">
+                                K
+                            </div>
+<div class="flex-1">
+<h4 class="text-slate-900 dark:text-white font-bold text-base mb-1">Frontend Development Mentor</h4>
+<p class="text-slate-600 dark:text-[#92adc9] text-sm mb-2">Kryppt Community • Volunteer</p>
+<div class="flex flex-wrap items-center gap-3 text-xs text-slate-500 dark:text-slate-400 mb-3">
+<span class="flex items-center gap-1 bg-neutral-100 dark:bg-[#233648] px-2 py-1 rounded text-emerald-600 dark:text-emerald-400">
+<span class="material-symbols-outlined !text-[14px]">volunteer_activism</span> Free
+                                    </span>
+<span class="flex items-center gap-1 bg-neutral-100 dark:bg-[#233648] px-2 py-1 rounded">
+<span class="material-symbols-outlined !text-[14px]">schedule</span> 5hrs/week
+                                    </span>
+</div>
+<p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 mb-3">Looking for a mentee passionate about React and accessibility. I have 10 years of experience...</p>
+</div>
+</div>
+</div>
+<!-- Job Card 3 -->
+<div class="p-4 rounded-xl border border-neutral-200 dark:border-[#233648] bg-white dark:bg-surface-dark cursor-pointer transition-all hover:border-primary/50 hover:shadow-md relative">
+<div class="absolute top-4 right-4">
+<span class="material-symbols-outlined text-slate-400 dark:text-[#58738d] hover:text-primary transition-colors">bookmark_add</span>
+</div>
+<div class="flex gap-4">
+<div class="size-12 rounded-lg bg-white dark:bg-white flex items-center justify-center shrink-0 p-1 shadow-sm border border-neutral-100">
+<img alt="Airbnb Logo" class="w-full h-full object-contain" data-alt="Airbnb logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqpXXmRP-_cLDLpG0M5fAlUyDRrxnQmC1u0M2SvxGMUnl_x7eooNbVbj8qByQIq-nFDah-AcGT3KLfavd6tc1xSZ8kjPsrAZYnowzFeIrr9T30cCXZHvF8pxqpZAh6rb5Phc2QWSs-h1VtAlbclMfUS5_aEctC9iGHG7ju2TSXQjxD3EyQPdUJH53nFtbB49-CrQ-Qjo3JwsEztmMQtnNIkiJt_OnLebgXr6RB95KM4B-_XrhjYA11hS1lhgnJeQKvJjWqiW7WA7eD"/>
+</div>
+<div class="flex-1">
+<h4 class="text-slate-900 dark:text-white font-bold text-base mb-1">Marketing Specialist</h4>
+<p class="text-slate-600 dark:text-[#92adc9] text-sm mb-2">Airbnb • Full-time</p>
+<div class="flex flex-wrap items-center gap-3 text-xs text-slate-500 dark:text-slate-400">
+<span class="flex items-center gap-1 bg-neutral-100 dark:bg-[#233648] px-2 py-1 rounded">
+<span class="material-symbols-outlined !text-[14px]">payments</span> $85k - $95k
+                                    </span>
+<span class="flex items-center gap-1 bg-neutral-100 dark:bg-[#233648] px-2 py-1 rounded">
+<span class="material-symbols-outlined !text-[14px]">location_on</span> 5km away
+                                    </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Job Card 4 -->
+<div class="p-4 rounded-xl border border-neutral-200 dark:border-[#233648] bg-white dark:bg-surface-dark cursor-pointer transition-all hover:border-primary/50 hover:shadow-md relative">
+<div class="absolute top-4 right-4">
+<span class="material-symbols-outlined text-slate-400 dark:text-[#58738d] hover:text-primary transition-colors">bookmark_add</span>
+</div>
+<div class="flex gap-4">
+<div class="size-12 rounded-lg bg-orange-500 flex items-center justify-center shrink-0 shadow-sm text-white">
+<span class="material-symbols-outlined">construction</span>
+</div>
+<div class="flex-1">
+<h4 class="text-slate-900 dark:text-white font-bold text-base mb-1">Site Manager</h4>
+<p class="text-slate-600 dark:text-[#92adc9] text-sm mb-2">BuildRight Const. • On-site</p>
+<div class="flex flex-wrap items-center gap-3 text-xs text-slate-500 dark:text-slate-400">
+<span class="flex items-center gap-1 bg-neutral-100 dark:bg-[#233648] px-2 py-1 rounded">
+<span class="material-symbols-outlined !text-[14px]">payments</span> $70k - $90k
+                                    </span>
+<span class="flex items-center gap-1 bg-neutral-100 dark:bg-[#233648] px-2 py-1 rounded">
+<span class="material-symbols-outlined !text-[14px]">location_on</span> 12km away
+                                    </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination / Footer of list -->
+<div class="p-4 border-t border-neutral-200 dark:border-[#233648] flex justify-center">
+<button class="text-sm font-medium text-primary hover:text-primary-dark dark:text-white dark:hover:text-primary transition-colors flex items-center gap-1">
+                        View more results <span class="material-symbols-outlined !text-[18px]">arrow_downward</span>
+</button>
+</div>
+</div>
+<!-- Mobile Overlay for List (Hidden on desktop) -->
+<div class="lg:hidden absolute bottom-0 left-0 w-full bg-white dark:bg-surface-dark rounded-t-2xl shadow-[0_-4px_20px_rgba(0,0,0,0.2)] p-4 max-h-[40vh] overflow-y-auto">
+<div class="w-12 h-1 bg-neutral-300 dark:bg-slate-600 rounded-full mx-auto mb-4"></div>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold mb-4">14 Jobs Found</h3>
+<!-- Simplified card for mobile view -->
+<div class="space-y-3">
+<div class="p-3 rounded-lg border border-primary/50 bg-primary/5 dark:bg-[#15202b] flex items-center gap-3">
+<div class="size-10 rounded bg-white p-1 flex items-center justify-center">
+<img alt="Logo" class="w-full h-full object-contain" data-alt="Google logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_FA-2Px-yGuVQZCNhmft7d_xzUJtMz4i8f26nnWwHdL0Q7s7AJz5lnF0DD3jNhFGrITgL8zvVPyeOjw1WZoELUEkQ7dy-Jz0ZYGPvvdoA5fr_j1WfXTHszDhFaK45mrGKhOG8FvypXqp4ZcIQTHPcHbxIEzmmmBsYMDLogDVjaUYPZK7yUK6HDv0lNwtGaTO6xqL_mQgORn-gzdl48HZX4rLQ-cooEuJbCesIn0UFlLjamxInKLm09uqLcYMmTLVzripwkPwAHwFc"/>
+</div>
+<div class="flex-1">
+<h4 class="text-slate-900 dark:text-white font-bold text-sm">Senior Product Designer</h4>
+<p class="text-xs text-primary">$120k - $150k</p>
+</div>
+<button class="bg-primary text-white text-xs font-bold px-3 py-1.5 rounded">Apply</button>
+</div>
+<div class="p-3 rounded-lg border border-neutral-200 dark:border-[#233648] flex items-center gap-3">
+<div class="size-10 rounded bg-indigo-500 text-white flex items-center justify-center font-bold">K</div>
+<div class="flex-1">
+<h4 class="text-slate-900 dark:text-white font-bold text-sm">React Mentorship</h4>
+<p class="text-xs text-emerald-500">Free</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

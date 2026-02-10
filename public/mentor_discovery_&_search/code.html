@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kryppt - Mentor Discovery</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "surface-dark": "#1c2834", 
+                        "border-dark": "#233648",
+                        "text-secondary": "#92adc9"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "sans": ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #101922; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #233648; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #324d67; 
+        }
+        
+        /* Range Slider Styling */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: #137fec;
+            cursor: pointer;
+            margin-top: -6px; 
+            box-shadow: 0 0 0 2px #101922;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #233648;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-hidden flex flex-col h-screen">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-dark bg-background-dark px-6 py-3 shrink-0 z-20">
+<div class="flex items-center gap-8 w-full max-w-screen-2xl mx-auto">
+<!-- Logo -->
+<div class="flex items-center gap-3 text-white">
+<div class="size-8 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-white text-xl font-bold tracking-tight">Kryppt</h2>
+</div>
+<!-- Search Bar -->
+<div class="flex-1 max-w-md hidden md:block">
+<label class="flex w-full items-center rounded-lg bg-surface-dark border border-border-dark h-10 px-3 gap-2 focus-within:border-primary transition-colors">
+<span class="material-symbols-outlined text-text-secondary text-[20px]">search</span>
+<input class="w-full bg-transparent border-none text-white placeholder:text-text-secondary focus:ring-0 text-sm" placeholder="Search mentors, skills, or jobs..."/>
+</label>
+</div>
+<!-- Right Actions -->
+<div class="flex items-center gap-6 ml-auto">
+<nav class="hidden lg:flex items-center gap-6">
+<a class="text-white text-sm font-medium hover:text-primary transition-colors" href="#">Mentors</a>
+<a class="text-text-secondary text-sm font-medium hover:text-white transition-colors" href="#">Jobs</a>
+<a class="text-text-secondary text-sm font-medium hover:text-white transition-colors" href="#">Community</a>
+</nav>
+<div class="flex gap-3 items-center border-l border-border-dark pl-6">
+<button class="relative flex items-center justify-center size-9 rounded-lg bg-surface-dark text-white hover:bg-border-dark transition-colors">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-red-500 rounded-full border-2 border-surface-dark"></span>
+</button>
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-9 border border-border-dark cursor-pointer" data-alt="User profile picture showing a smiling professional" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB5NDhAqHb689OCY_lsFESqItSYFWR2xn1vCtx5kEKmP5fnPIBsUvTO7zeMNjwkVfLzajXHFqRg64GKMzlsVZptZCu7SQzZH0TZO-PBxl39_awiYg2jMpEw6TeSGopfF0govlH42CISWdprbUP08pyyJ4KWOi035k6KyWu6X58D1G1JFecPZP2vUb014yhXLzIhSIrBSo0JpShkFfKbrx_KP8Z02j8UslCl6HOk2y5wvPPgP0FqGFW6VEt26u9OixW1UQVa-tDjzaWC");'></div>
+</div>
+</div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden relative">
+<!-- Sidebar Filters -->
+<aside class="w-80 bg-background-dark border-r border-border-dark flex-col hidden lg:flex overflow-y-auto shrink-0 z-10">
+<div class="p-6 flex flex-col gap-8">
+<!-- Filter Header -->
+<div class="flex items-center justify-between">
+<h3 class="text-white font-bold text-lg">Filters</h3>
+<button class="text-text-secondary text-sm hover:text-white">Reset all</button>
+</div>
+<!-- Mentor Type -->
+<div class="flex flex-col gap-3">
+<h4 class="text-white text-sm font-semibold">Mentor Type</h4>
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="relative flex items-center">
+<input checked="" class="peer h-5 w-5 rounded border-border-dark bg-surface-dark text-primary focus:ring-0 focus:ring-offset-0 transition-all checked:bg-primary checked:border-primary" type="checkbox"/>
+</div>
+<span class="text-text-secondary text-sm font-medium group-hover:text-white transition-colors">Human Mentor</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="relative flex items-center">
+<input checked="" class="peer h-5 w-5 rounded border-border-dark bg-surface-dark text-primary focus:ring-0 focus:ring-offset-0 transition-all checked:bg-primary checked:border-primary" type="checkbox"/>
+</div>
+<span class="text-text-secondary text-sm font-medium group-hover:text-white transition-colors">AI Mentor</span>
+</label>
+</div>
+<!-- Distance -->
+<div class="flex flex-col gap-4">
+<div class="flex justify-between items-center">
+<h4 class="text-white text-sm font-semibold">Location Radius</h4>
+<span class="text-primary text-xs font-bold">25 km</span>
+</div>
+<div class="px-1">
+<input class="w-full" max="100" min="0" type="range" value="25"/>
+<div class="flex justify-between mt-2 text-xs text-text-secondary">
+<span>0km</span>
+<span>100km</span>
+</div>
+</div>
+</div>
+<!-- Skills -->
+<div class="flex flex-col gap-3">
+<h4 class="text-white text-sm font-semibold">Skills</h4>
+<div class="flex flex-wrap gap-2">
+<button class="px-3 py-1.5 rounded-full bg-primary text-white text-xs font-medium border border-transparent hover:bg-blue-600 transition-colors flex items-center gap-1">
+                            Python <span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+<button class="px-3 py-1.5 rounded-full bg-surface-dark text-text-secondary text-xs font-medium border border-border-dark hover:text-white hover:border-text-secondary transition-colors">
+                            React
+                        </button>
+<button class="px-3 py-1.5 rounded-full bg-surface-dark text-text-secondary text-xs font-medium border border-border-dark hover:text-white hover:border-text-secondary transition-colors">
+                            DevOps
+                        </button>
+<button class="px-3 py-1.5 rounded-full bg-surface-dark text-text-secondary text-xs font-medium border border-border-dark hover:text-white hover:border-text-secondary transition-colors">
+                            Marketing
+                        </button>
+<button class="px-3 py-1.5 rounded-full bg-surface-dark text-text-secondary text-xs font-medium border border-border-dark hover:text-white hover:border-text-secondary transition-colors">
+                            Machine Learning
+                        </button>
+</div>
+</div>
+<!-- Availability -->
+<div class="flex flex-col gap-3">
+<h4 class="text-white text-sm font-semibold">Availability</h4>
+<div class="grid grid-cols-2 gap-2">
+<button class="h-10 rounded-lg bg-surface-dark border border-border-dark text-text-secondary text-sm font-medium hover:bg-border-dark hover:text-white transition-colors">
+                            Today
+                        </button>
+<button class="h-10 rounded-lg bg-surface-dark border border-primary text-white text-sm font-medium shadow-[0_0_8px_rgba(19,127,236,0.3)]">
+                            This Week
+                        </button>
+<button class="h-10 rounded-lg bg-surface-dark border border-border-dark text-text-secondary text-sm font-medium hover:bg-border-dark hover:text-white transition-colors">
+                            Weekends
+                        </button>
+<button class="h-10 rounded-lg bg-surface-dark border border-border-dark text-text-secondary text-sm font-medium hover:bg-border-dark hover:text-white transition-colors">
+                            Custom
+                        </button>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col overflow-hidden bg-background-dark relative">
+<!-- Page Header & Controls -->
+<div class="flex flex-col gap-6 px-6 py-6 md:px-10 md:py-8 shrink-0">
+<!-- Heading -->
+<div class="flex flex-wrap justify-between items-end gap-4">
+<div class="flex flex-col gap-2 max-w-2xl">
+<h1 class="text-white text-3xl md:text-4xl font-black tracking-tight">Find Your Perfect Mentor</h1>
+<p class="text-text-secondary text-base font-normal">Connect with industry experts or AI guides to accelerate your career.</p>
+</div>
+<!-- View Toggle -->
+<div class="bg-surface-dark p-1 rounded-lg flex border border-border-dark">
+<button class="flex items-center gap-2 px-4 py-2 rounded md:min-w-[120px] justify-center text-white bg-background-dark shadow-sm text-sm font-medium transition-all">
+<span class="material-symbols-outlined text-[18px]">format_list_bulleted</span>
+                            List View
+                        </button>
+<button class="flex items-center gap-2 px-4 py-2 rounded md:min-w-[120px] justify-center text-text-secondary hover:text-white text-sm font-medium transition-all">
+<span class="material-symbols-outlined text-[18px]">map</span>
+                            Map View
+                        </button>
+</div>
+</div>
+<!-- Secondary Toolbar -->
+<div class="flex flex-wrap items-center justify-between gap-4 border-b border-border-dark pb-4">
+<p class="text-white font-medium">Showing 142 mentors</p>
+<div class="flex items-center gap-3">
+<!-- Currency Selector -->
+<div class="relative group">
+<select class="appearance-none bg-surface-dark border border-border-dark text-white text-sm rounded-lg pl-3 pr-10 py-2.5 focus:outline-none focus:border-primary cursor-pointer hover:bg-border-dark transition-colors">
+<option>USD ($)</option>
+<option>EUR (€)</option>
+<option>GBP (£)</option>
+<option>KRYPT (K)</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-text-secondary pointer-events-none text-[20px]">expand_more</span>
+</div>
+<!-- Sort By -->
+<div class="relative group">
+<select class="appearance-none bg-surface-dark border border-border-dark text-white text-sm rounded-lg pl-3 pr-10 py-2.5 focus:outline-none focus:border-primary cursor-pointer hover:bg-border-dark transition-colors">
+<option>Recommended</option>
+<option>Price: Low to High</option>
+<option>Price: High to Low</option>
+<option>Rating</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-text-secondary pointer-events-none text-[20px]">sort</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Scrollable Grid Area -->
+<div class="flex-1 overflow-y-auto px-6 pb-10 md:px-10 scroll-smooth">
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 max-w-screen-2xl mx-auto">
+<!-- Card 1: Human Mentor -->
+<div class="bg-surface-dark border border-border-dark rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 group flex flex-col h-full">
+<div class="p-5 flex flex-col gap-4 flex-1">
+<div class="flex justify-between items-start">
+<div class="flex gap-4">
+<div class="size-14 rounded-full bg-cover bg-center border-2 border-border-dark" data-alt="Portrait of Sarah Jenkins, a professional woman with glasses" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAc1acH6JFhjdCbBUX9Mm5EdgRSaPl0R3iTQ2QENw0F9gHfggaQcnkmlPleiLTwPLcVuGnDUgst4fw9KOnpqYktiPTOXay4AMV1nMmXT5N7kHTzFA2ReuPmfoAEJulBoIE5E94EETEPaWWdcyeEvfTNr-CT_mlubNB92072D7i5GpMs3DGrftiNZEwtDnz9EsJPPWZQ6Z0r8p-411afaKk3vWmqDS2eiATtZYQ_L6XaciRumzDYptCvJDXygA2AvVib7EJtCehymmcR");'></div>
+<div>
+<h3 class="text-white font-bold text-lg leading-tight">Sarah Jenkins</h3>
+<p class="text-primary text-sm font-medium">Senior DevOps Engineer</p>
+<div class="flex items-center gap-1 mt-1 text-text-secondary text-xs">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+                                            San Francisco, CA (2km)
+                                        </div>
+</div>
+</div>
+<div class="px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-emerald-400 text-[14px]">person</span>
+<span class="text-emerald-400 text-xs font-bold uppercase tracking-wider">Human</span>
+</div>
+</div>
+<p class="text-gray-300 text-sm leading-relaxed line-clamp-2">
+                                Specializing in cloud infrastructure scaling and CI/CD pipelines. I help junior devs navigate the complex world of AWS and Kubernetes.
+                            </p>
+<div class="flex flex-wrap gap-2 mt-auto pt-2">
+<span class="px-2.5 py-1 rounded bg-[#233648] text-text-secondary text-xs font-medium">AWS</span>
+<span class="px-2.5 py-1 rounded bg-[#233648] text-text-secondary text-xs font-medium">Kubernetes</span>
+<span class="px-2.5 py-1 rounded bg-[#233648] text-text-secondary text-xs font-medium">Python</span>
+</div>
+</div>
+<div class="bg-[#15202b] px-5 py-4 border-t border-border-dark flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-text-secondary text-xs">Hourly Rate</span>
+<span class="text-white font-bold text-lg">$120<span class="text-xs font-normal text-text-secondary">/hr</span></span>
+</div>
+<button class="bg-primary hover:bg-blue-600 text-white text-sm font-semibold py-2 px-4 rounded-lg transition-colors shadow-lg shadow-blue-500/20">
+                                View Profile
+                            </button>
+</div>
+</div>
+<!-- Card 2: AI Mentor -->
+<div class="bg-surface-dark border border-primary/30 rounded-xl overflow-hidden shadow-[0_0_15px_rgba(19,127,236,0.1)] hover:shadow-[0_0_20px_rgba(19,127,236,0.2)] transition-all duration-300 flex flex-col h-full relative">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500"></div>
+<div class="p-5 flex flex-col gap-4 flex-1">
+<div class="flex justify-between items-start">
+<div class="flex gap-4">
+<div class="size-14 rounded-full bg-gradient-to-br from-indigo-900 to-blue-900 border-2 border-primary/50 flex items-center justify-center text-white shadow-inner">
+<span class="material-symbols-outlined text-[32px]">smart_toy</span>
+</div>
+<div>
+<h3 class="text-white font-bold text-lg leading-tight flex items-center gap-2">
+                                            Kryppt Bot
+                                            <span class="material-symbols-outlined text-blue-400 text-[16px] fill-current" style="font-variation-settings: 'FILL' 1;">verified</span>
+</h3>
+<p class="text-blue-300 text-sm font-medium">Full Stack AI Assistant</p>
+<div class="flex items-center gap-1 mt-1 text-text-secondary text-xs">
+<span class="material-symbols-outlined text-[14px]">public</span>
+                                            Global Availability
+                                        </div>
+</div>
+</div>
+<div class="px-2.5 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-blue-400 text-[14px]">bolt</span>
+<span class="text-blue-400 text-xs font-bold uppercase tracking-wider">AI</span>
+</div>
+</div>
+<p class="text-gray-300 text-sm leading-relaxed line-clamp-2">
+                                Instant code reviews, architecture planning, and debugging assistance available 24/7. Trained on millions of repositories.
+                            </p>
+<div class="flex flex-wrap gap-2 mt-auto pt-2">
+<span class="px-2.5 py-1 rounded bg-[#233648] text-blue-200 text-xs font-medium border border-blue-500/20">JavaScript</span>
+<span class="px-2.5 py-1 rounded bg-[#233648] text-blue-200 text-xs font-medium border border-blue-500/20">System Design</span>
+<span class="px-2.5 py-1 rounded bg-[#233648] text-blue-200 text-xs font-medium border border-blue-500/20">Algorithms</span>
+</div>
+</div>
+<div class="bg-[#15202b] px-5 py-4 border-t border-border-dark flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-text-secondary text-xs">Token Rate</span>
+<span class="text-white font-bold text-lg">$0.05<span class="text-xs font-normal text-text-secondary">/1k tokens</span></span>
+</div>
+<button class="bg-white text-primary hover:bg-gray-100 font-bold py-2 px-4 rounded-lg transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">chat_bubble</span>
+                                Start Chat
+                            </button>
+</div>
+</div>
+<!-- Card 3: Human Mentor -->
+<div class="bg-surface-dark border border-border-dark rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 group flex flex-col h-full">
+<div class="p-5 flex flex-col gap-4 flex-1">
+<div class="flex justify-between items-start">
+<div class="flex gap-4">
+<div class="size-14 rounded-full bg-cover bg-center border-2 border-border-dark" data-alt="Portrait of David Chen, Asian male professional" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCt5dYEYl1dr9_9C7L_gjStiXzotBzkZg2CRsB5gmFS27RYbYchFNBMsu9Rn2Q7V61dPhByuExCwaAM4mnL5lNFkTPzrO-S2edoes6eWCQ8TUxiik4TtwWOCSN-RUYQMK2D5HuJh4APk1j18h_IKQJblq1YwZEX5h-DUKMWDRMr5nYzLqhpLLZe-IgQt-2a5Ehnw9AuaTGdkuo8pSSv9RUarUn4sPv0lBaZszlyboAGeYW01rATJCcwJcSWuSFF5yWBCWahcLSeUUB5");'></div>
+<div>
+<h3 class="text-white font-bold text-lg leading-tight">David Chen</h3>
+<p class="text-primary text-sm font-medium">Product Design Lead</p>
+<div class="flex items-center gap-1 mt-1 text-text-secondary text-xs">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+                                            New York, NY (Remote)
+                                        </div>
+</div>
+</div>
+<div class="px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-emerald-400 text-[14px]">person</span>
+<span class="text-emerald-400 text-xs font-bold uppercase tracking-wider">Human</span>
+</div>
+</div>
+<p class="text-gray-300 text-sm leading-relaxed line-clamp-2">
+                                10+ years experience in UX/UI. Former lead at Spotify and Airbnb. I mentor designers on portfolio building and design systems.
+                            </p>
+<div class="flex flex-wrap gap-2 mt-auto pt-2">
+<span class="px-2.5 py-1 rounded bg-[#233648] text-text-secondary text-xs font-medium">Figma</span>
+<span class="px-2.5 py-1 rounded bg-[#233648] text-text-secondary text-xs font-medium">User Research</span>
+<span class="px-2.5 py-1 rounded bg-[#233648] text-text-secondary text-xs font-medium">Prototyping</span>
+</div>
+</div>
+<div class="bg-[#15202b] px-5 py-4 border-t border-border-dark flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-text-secondary text-xs">Hourly Rate</span>
+<span class="text-white font-bold text-lg">$150<span class="text-xs font-normal text-text-secondary">/hr</span></span>
+</div>
+<button class="bg-primary hover:bg-blue-600 text-white text-sm font-semibold py-2 px-4 rounded-lg transition-colors shadow-lg shadow-blue-500/20">
+                                View Profile
+                            </button>
+</div>
+</div>
+<!-- Card 4: Human Mentor -->
+<div class="bg-surface-dark border border-border-dark rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 group flex flex-col h-full">
+<div class="p-5 flex flex-col gap-4 flex-1">
+<div class="flex justify-between items-start">
+<div class="flex gap-4">
+<div class="size-14 rounded-full bg-cover bg-center border-2 border-border-dark" data-alt="Portrait of Elena Rodriguez, professional woman" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCpLFPG8Y2aWYLfaU0KZkvWdUylA-gzcy3wIXOvRkWi7tQYNwbGn0Nx-UBNkvHxcrQ5M4JBlr3LdK6z-0JihtYFCQCqhY5TFskjt-Bd3NzRTXkw6p2HpWrKL6ulXvErx6cpysE6ZOrV4RiSz395Yu6ZfbYmu8RSGPg_cWtg6jNx9QM22iCwXL9nVDGLjjnVvCjIfidFI3IG8ymG8wdOUvgOWgV2AcZwWv6u3ooqavWx2ZgWvZUJTi6hbi6HHsg6OjJm9z5hRVPZby4M");'></div>
+<div>
+<h3 class="text-white font-bold text-lg leading-tight">Elena Rodriguez</h3>
+<p class="text-primary text-sm font-medium">Marketing Director</p>
+<div class="flex items-center gap-1 mt-1 text-text-secondary text-xs">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+                                            Austin, TX (5km)
+                                        </div>
+</div>
+</div>
+<div class="px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-emerald-400 text-[14px]">person</span>
+<span class="text-emerald-400 text-xs font-bold uppercase tracking-wider">Human</span>
+</div>
+</div>
+<p class="text-gray-300 text-sm leading-relaxed line-clamp-2">
+                                Growth hacking specialist focused on B2B SaaS. Let's work on your go-to-market strategy and acquisition channels.
+                            </p>
+<div class="flex flex-wrap gap-2 mt-auto pt-2">
+<span class="px-2.5 py-1 rounded bg-[#233648] text-text-secondary text-xs font-medium">SEO</span>
+<span class="px-2.5 py-1 rounded bg-[#233648] text-text-secondary text-xs font-medium">Content Strategy</span>
+<span class="px-2.5 py-1 rounded bg-[#233648] text-text-secondary text-xs font-medium">Analytics</span>
+</div>
+</div>
+<div class="bg-[#15202b] px-5 py-4 border-t border-border-dark flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-text-secondary text-xs">Hourly Rate</span>
+<span class="text-white font-bold text-lg">$95<span class="text-xs font-normal text-text-secondary">/hr</span></span>
+</div>
+<button class="bg-primary hover:bg-blue-600 text-white text-sm font-semibold py-2 px-4 rounded-lg transition-colors shadow-lg shadow-blue-500/20">
+                                View Profile
+                            </button>
+</div>
+</div>
+<!-- Card 5: AI Mentor -->
+<div class="bg-surface-dark border border-primary/30 rounded-xl overflow-hidden shadow-[0_0_15px_rgba(19,127,236,0.1)] hover:shadow-[0_0_20px_rgba(19,127,236,0.2)] transition-all duration-300 flex flex-col h-full relative">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal-400 via-blue-500 to-teal-400"></div>
+<div class="p-5 flex flex-col gap-4 flex-1">
+<div class="flex justify-between items-start">
+<div class="flex gap-4">
+<div class="size-14 rounded-full bg-gradient-to-br from-teal-900 to-slate-900 border-2 border-teal-500/50 flex items-center justify-center text-white shadow-inner">
+<span class="material-symbols-outlined text-[32px]">psychology</span>
+</div>
+<div>
+<h3 class="text-white font-bold text-lg leading-tight flex items-center gap-2">
+                                            CodeGuru AI
+                                        </h3>
+<p class="text-teal-300 text-sm font-medium">Data Science Expert</p>
+<div class="flex items-center gap-1 mt-1 text-text-secondary text-xs">
+<span class="material-symbols-outlined text-[14px]">public</span>
+                                            Global Availability
+                                        </div>
+</div>
+</div>
+<div class="px-2.5 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-blue-400 text-[14px]">bolt</span>
+<span class="text-blue-400 text-xs font-bold uppercase tracking-wider">AI</span>
+</div>
+</div>
+<p class="text-gray-300 text-sm leading-relaxed line-clamp-2">
+                                Advanced models optimized for Python data analysis, machine learning model tuning, and statistical interpretation.
+                            </p>
+<div class="flex flex-wrap gap-2 mt-auto pt-2">
+<span class="px-2.5 py-1 rounded bg-[#233648] text-teal-200 text-xs font-medium border border-teal-500/20">Pandas</span>
+<span class="px-2.5 py-1 rounded bg-[#233648] text-teal-200 text-xs font-medium border border-teal-500/20">PyTorch</span>
+<span class="px-2.5 py-1 rounded bg-[#233648] text-teal-200 text-xs font-medium border border-teal-500/20">SQL</span>
+</div>
+</div>
+<div class="bg-[#15202b] px-5 py-4 border-t border-border-dark flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-text-secondary text-xs">Token Rate</span>
+<span class="text-white font-bold text-lg">$0.08<span class="text-xs font-normal text-text-secondary">/1k tokens</span></span>
+</div>
+<button class="bg-white text-primary hover:bg-gray-100 font-bold py-2 px-4 rounded-lg transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">chat_bubble</span>
+                                Start Chat
+                            </button>
+</div>
+</div>
+<!-- Card 6: Human Mentor -->
+<div class="bg-surface-dark border border-border-dark rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 group flex flex-col h-full">
+<div class="p-5 flex flex-col gap-4 flex-1">
+<div class="flex justify-between items-start">
+<div class="flex gap-4">
+<div class="size-14 rounded-full bg-cover bg-center border-2 border-border-dark" data-alt="Portrait of Michael Ross, african american man with beard" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAzgLzVxjJcPqoCpSXkKTb59xI82MSCGT1WHzjAdME8cvOflbhrc0nyCIGyfVxHDdb_pW1cpjESEBfKptjYku1mAUPKif4xhVLNp3tBpRP_TT_d7iByTrWrkn7l4OXUAKtIZwhOAqFMrOrCI8vcb8H_LJirT6WG4Eq_9FM1r2saEJgoxhEOHkMZpAu_sqdRjECcmzZWN9wgNI5lPXONXVojMnMY2DZmY6HOs7_iuuNVURCNapbgCGp618D9VUPhf88wNSYgQ9jLqHP9");'></div>
+<div>
+<h3 class="text-white font-bold text-lg leading-tight">Michael Ross</h3>
+<p class="text-primary text-sm font-medium">Cybersecurity Analyst</p>
+<div class="flex items-center gap-1 mt-1 text-text-secondary text-xs">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+                                            Chicago, IL (12km)
+                                        </div>
+</div>
+</div>
+<div class="px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-emerald-400 text-[14px]">person</span>
+<span class="text-emerald-400 text-xs font-bold uppercase tracking-wider">Human</span>
+</div>
+</div>
+<p class="text-gray-300 text-sm leading-relaxed line-clamp-2">
+                                Specializing in penetration testing and network security. I can help you prepare for CISSP and CEH certifications.
+                            </p>
+<div class="flex flex-wrap gap-2 mt-auto pt-2">
+<span class="px-2.5 py-1 rounded bg-[#233648] text-text-secondary text-xs font-medium">Pen Testing</span>
+<span class="px-2.5 py-1 rounded bg-[#233648] text-text-secondary text-xs font-medium">Network Sec</span>
+<span class="px-2.5 py-1 rounded bg-[#233648] text-text-secondary text-xs font-medium">Compliance</span>
+</div>
+</div>
+<div class="bg-[#15202b] px-5 py-4 border-t border-border-dark flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-text-secondary text-xs">Hourly Rate</span>
+<span class="text-white font-bold text-lg">$135<span class="text-xs font-normal text-text-secondary">/hr</span></span>
+</div>
+<button class="bg-primary hover:bg-blue-600 text-white text-sm font-semibold py-2 px-4 rounded-lg transition-colors shadow-lg shadow-blue-500/20">
+                                View Profile
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kryppt - Manage Mentorship Requests</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for better visuals */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111a22; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #233648; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #324d67; 
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-screen w-full bg-background-light dark:bg-background-dark overflow-hidden">
+<!-- Sidebar -->
+<div class="flex-none w-64 border-r border-[#233648] bg-background-dark hidden md:flex flex-col justify-between p-4 h-full">
+<div class="flex flex-col gap-4">
+<div class="flex gap-3 px-2 mb-4">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-10" data-alt="Kryppt Logo Placeholder" style="background-image: linear-gradient(135deg, #137fec 0%, #0bda5b 100%);"></div>
+<div class="flex flex-col justify-center">
+<h1 class="text-white text-base font-bold leading-normal">Kryppt</h1>
+<p class="text-[#92adc9] text-xs font-normal leading-normal">Mentorship Platform</p>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#233648] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[#92adc9] group-hover:text-white">dashboard</span>
+<p class="text-[#92adc9] group-hover:text-white text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/20 text-primary" href="#">
+<span class="material-symbols-outlined fill-1">inbox</span>
+<p class="text-white text-sm font-medium leading-normal">Requests</p>
+<span class="ml-auto bg-primary text-white text-[10px] font-bold px-2 py-0.5 rounded-full">3</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#233648] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[#92adc9] group-hover:text-white">group</span>
+<p class="text-[#92adc9] group-hover:text-white text-sm font-medium leading-normal">Matches</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#233648] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[#92adc9] group-hover:text-white">chat_bubble</span>
+<p class="text-[#92adc9] group-hover:text-white text-sm font-medium leading-normal">Messages</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#233648] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[#92adc9] group-hover:text-white">settings</span>
+<p class="text-[#92adc9] group-hover:text-white text-sm font-medium leading-normal">Settings</p>
+</a>
+</div>
+</div>
+<div class="px-3 py-2">
+<div class="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity">
+<div class="size-8 rounded-full bg-cover bg-center" data-alt="User Avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDYsXMpCFoIBh8JR_k8QeE6DrDDcry7pne69ehglMJJB6dW8ggiz6ZAp5YMBBxPGfEINa1lgR9Xl6pGjrYVSIzGPFAc7ytPwA48hBYN6X56-3cesoQajCSaZqkYZuYiUEMYpl0jvyrgp_t2RLksdUNE0vQaCZJaNbejyAQglghzniYxtMDdzuzsRslyhM5pxubF6rd1_7haovGhuAS2mUKHq1idhvgTdoy6mORViML1aM2D0P9WqwYazOGbb8oXO49mTQFjNZKtGazG");'></div>
+<div class="flex flex-col">
+<p class="text-white text-sm font-medium">David Miller</p>
+<p class="text-[#92adc9] text-xs">Senior Mentor</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col h-full overflow-y-auto bg-[#111a22]">
+<!-- Mobile Header (Visible only on small screens) -->
+<div class="flex md:hidden items-center justify-between p-4 bg-[#111a22] border-b border-[#233648]">
+<div class="flex items-center gap-2">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-8" data-alt="Kryppt Logo" style="background-image: linear-gradient(135deg, #137fec 0%, #0bda5b 100%);"></div>
+<span class="text-white font-bold">Kryppt</span>
+</div>
+<button class="text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+<div class="flex-1 p-4 md:p-8 max-w-7xl mx-auto w-full">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+<div>
+<h1 class="text-white text-3xl font-bold tracking-tight mb-2">Mentorship Requests</h1>
+<p class="text-[#92adc9]">Review and manage incoming mentorship applications.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center justify-center size-10 rounded-full bg-[#233648] text-white hover:bg-[#324d67] transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-red-500 rounded-full border-2 border-[#233648]"></span>
+</button>
+<button class="flex items-center justify-center size-10 rounded-full bg-[#233648] text-white hover:bg-[#324d67] transition-colors">
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+</div>
+<!-- Stats Overview -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+<div class="bg-[#192633] border border-[#233648] p-5 rounded-xl shadow-sm">
+<div class="flex justify-between items-start mb-2">
+<p class="text-[#92adc9] text-sm font-medium">Pending Requests</p>
+<span class="material-symbols-outlined text-primary text-xl">hourglass_top</span>
+</div>
+<p class="text-white text-2xl font-bold">3</p>
+<p class="text-[#0bda5b] text-xs font-medium mt-1">+1 new today</p>
+</div>
+<div class="bg-[#192633] border border-[#233648] p-5 rounded-xl shadow-sm">
+<div class="flex justify-between items-start mb-2">
+<p class="text-[#92adc9] text-sm font-medium">Active Mentees</p>
+<span class="material-symbols-outlined text-primary text-xl">group</span>
+</div>
+<p class="text-white text-2xl font-bold">12</p>
+<p class="text-[#92adc9] text-xs font-medium mt-1">Capacity: 15</p>
+</div>
+<div class="bg-[#192633] border border-[#233648] p-5 rounded-xl shadow-sm">
+<div class="flex justify-between items-start mb-2">
+<p class="text-[#92adc9] text-sm font-medium">Total Sessions</p>
+<span class="material-symbols-outlined text-primary text-xl">video_camera_front</span>
+</div>
+<p class="text-white text-2xl font-bold">45</p>
+<p class="text-[#0bda5b] text-xs font-medium mt-1">+12% this month</p>
+</div>
+</div>
+<!-- Filters -->
+<div class="flex flex-wrap gap-3 mb-6 items-center">
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-white text-sm font-medium rounded-lg shadow-lg shadow-blue-900/20">
+<span>All Requests</span>
+<span class="bg-white/20 px-1.5 py-0.5 rounded text-xs">3</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 bg-[#233648] text-[#92adc9] hover:text-white hover:bg-[#324d67] transition-colors text-sm font-medium rounded-lg">
+<span>By Skill</span>
+<span class="material-symbols-outlined text-lg">expand_more</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 bg-[#233648] text-[#92adc9] hover:text-white hover:bg-[#324d67] transition-colors text-sm font-medium rounded-lg">
+<span>Newest First</span>
+<span class="material-symbols-outlined text-lg">sort</span>
+</button>
+</div>
+<!-- Request Cards List -->
+<div class="flex flex-col gap-5">
+<!-- Card 1 -->
+<div class="group flex flex-col md:flex-row bg-[#192633] border border-[#233648] rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 shadow-md">
+<!-- Left: Image/Profile -->
+<div class="w-full md:w-64 md:min-w-64 h-48 md:h-auto bg-cover bg-center relative" data-alt="Portrait of Alex Chen" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBNQ1cTjYzOSME4KWZRsqAdkyz0TFNCCPV5burfXCkXDvWiApKiHNor-dSaMMu0QPWr8BN7QjSmaygOk4LE-sQfW_Gvlh1sbKmAKEwOA3oTgGrZMBrmenmIiIM9PWP2lkWaH8_B44kfUtoMH7dg181fecN98a24OsFYM6muu5GM4pGzeOqkk8I3E0HgIddWu3BaQ_9eXXPOKp-FG-Qq6E3U2YB_67r7edUhlSRtyuI56m5OQBzIjsRDuuPsXtoAbuIg6sH7BdcLjfhB");'>
+<div class="absolute inset-0 bg-gradient-to-t from-[#192633] to-transparent md:bg-gradient-to-r md:from-transparent md:to-[#192633]"></div>
+<div class="absolute top-3 left-3 bg-green-500/90 text-white text-xs font-bold px-2 py-1 rounded shadow-sm backdrop-blur-sm">New Request</div>
+</div>
+<!-- Middle: Content -->
+<div class="flex-1 p-5 flex flex-col justify-center">
+<div class="flex flex-wrap justify-between items-start gap-4 mb-2">
+<div>
+<h3 class="text-white text-xl font-bold">Alex Chen</h3>
+<p class="text-[#92adc9] text-sm mt-0.5">Product Designer @ TechFlow</p>
+</div>
+<div class="flex gap-2 flex-wrap">
+<span class="px-2.5 py-1 rounded bg-[#233648] text-[#92adc9] text-xs font-medium border border-[#324d67]">UX Research</span>
+<span class="px-2.5 py-1 rounded bg-[#233648] text-[#92adc9] text-xs font-medium border border-[#324d67]">Figma</span>
+<span class="px-2.5 py-1 rounded bg-[#233648] text-[#92adc9] text-xs font-medium border border-[#324d67]">Career Transition</span>
+</div>
+</div>
+<div class="bg-[#111a22] rounded-lg p-3 mb-4 border border-[#233648]/50">
+<p class="text-gray-300 text-sm leading-relaxed">
+                                    "Hi! I've been following your work on Dribbble for years. I'm currently a graphic designer looking to transition into Product Design. I have a portfolio but need guidance on structuring case studies for tech interviews. Would love your mentorship!"
+                                </p>
+</div>
+<div class="flex items-center gap-4 text-xs text-[#92adc9]">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 2 hours ago</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">location_on</span> San Francisco, CA</span>
+</div>
+</div>
+<!-- Right: Actions -->
+<div class="md:border-l border-[#233648] p-5 flex flex-row md:flex-col justify-center items-center gap-3 bg-[#16202b] md:w-48">
+<button class="w-full py-2 px-4 bg-primary hover:bg-blue-600 text-white rounded-lg text-sm font-medium transition-colors shadow-lg shadow-blue-900/20">Accept</button>
+<button class="w-full py-2 px-4 bg-transparent border border-red-500/30 text-red-400 hover:bg-red-500/10 hover:border-red-500/50 rounded-lg text-sm font-medium transition-colors">Decline</button>
+<button class="w-full py-2 px-4 text-[#92adc9] hover:text-white text-sm font-medium transition-colors">View Profile</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group flex flex-col md:flex-row bg-[#192633] border border-[#233648] rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 shadow-md">
+<!-- Left: Image/Profile -->
+<div class="w-full md:w-64 md:min-w-64 h-48 md:h-auto bg-cover bg-center relative" data-alt="Portrait of Sarah Jones" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC3GaV3UBEMIbRvQ9SZf4ZGTXITle0725mmqvdc6trUmqv5qZTHL6mMIABSUx1bHYTkWHikSiqC3X0PVcM3sc-hGIyreahozGjunWmx4mmgFh3pShmmI_GmhU-MLNR4UBgSFlNyKlrx3tZkmTD2MDHGhWgHW1AiShW-ryRWGqDdbEp-6E6CMRX_-hDV3_dA7Q4mkCSiRBUmWt200zELF3KgXrcqNKrd8kVfqpErSr3rl40zKD5zrYTLXzRwgvPGcSVytFCEJchWfxWQ");'>
+<div class="absolute inset-0 bg-gradient-to-t from-[#192633] to-transparent md:bg-gradient-to-r md:from-transparent md:to-[#192633]"></div>
+<div class="absolute top-3 left-3 bg-[#324d67]/90 text-white text-xs font-bold px-2 py-1 rounded shadow-sm backdrop-blur-sm">Pending</div>
+</div>
+<!-- Middle: Content -->
+<div class="flex-1 p-5 flex flex-col justify-center">
+<div class="flex flex-wrap justify-between items-start gap-4 mb-2">
+<div>
+<h3 class="text-white text-xl font-bold">Sarah Jones</h3>
+<p class="text-[#92adc9] text-sm mt-0.5">Junior Developer @ StartUp Inc</p>
+</div>
+<div class="flex gap-2 flex-wrap">
+<span class="px-2.5 py-1 rounded bg-[#233648] text-[#92adc9] text-xs font-medium border border-[#324d67]">JavaScript</span>
+<span class="px-2.5 py-1 rounded bg-[#233648] text-[#92adc9] text-xs font-medium border border-[#324d67]">Node.js</span>
+<span class="px-2.5 py-1 rounded bg-[#233648] text-[#92adc9] text-xs font-medium border border-[#324d67]">Interviews</span>
+</div>
+</div>
+<div class="bg-[#111a22] rounded-lg p-3 mb-4 border border-[#233648]/50">
+<p class="text-gray-300 text-sm leading-relaxed">
+                                    "I have a big technical interview coming up with a FAANG company next month. I need help specifically with system design questions and mock interviews. I see you have experience in scalable architecture."
+                                </p>
+</div>
+<div class="flex items-center gap-4 text-xs text-[#92adc9]">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 1 day ago</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">location_on</span> Remote</span>
+</div>
+</div>
+<!-- Right: Actions -->
+<div class="md:border-l border-[#233648] p-5 flex flex-row md:flex-col justify-center items-center gap-3 bg-[#16202b] md:w-48">
+<button class="w-full py-2 px-4 bg-primary hover:bg-blue-600 text-white rounded-lg text-sm font-medium transition-colors shadow-lg shadow-blue-900/20">Accept</button>
+<button class="w-full py-2 px-4 bg-transparent border border-red-500/30 text-red-400 hover:bg-red-500/10 hover:border-red-500/50 rounded-lg text-sm font-medium transition-colors">Decline</button>
+<button class="w-full py-2 px-4 text-[#92adc9] hover:text-white text-sm font-medium transition-colors">View Profile</button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group flex flex-col md:flex-row bg-[#192633] border border-[#233648] rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 shadow-md opacity-90">
+<!-- Left: Image/Profile -->
+<div class="w-full md:w-64 md:min-w-64 h-48 md:h-auto bg-cover bg-center relative" data-alt="Portrait of Marcus Johnson" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDUER-g_9WOAJCC2XIdN3bG_jL19-aBnXMpDB0t3W_ZXlyEy-l0DUE2GbnqoYjVA5FaigR3z-lBmXVxPkjowYEoNoz0Ux8MpkUchlonmxweDctJroimbv0Xh2XAbMbtA7rRMcz0E8jx_RQvDJSBMj7LpAdznNgQELoXjCbB9SRCq7fkVC86lsfQMtKsoerBexR4A9GCDK-3c1XZvFmoDvkmyZXGyAlg6q9KNRIJfdC7anY-zJUkodnQsU56orYzj7TJn9kPoAUwI-Cy");'>
+<div class="absolute inset-0 bg-gradient-to-t from-[#192633] to-transparent md:bg-gradient-to-r md:from-transparent md:to-[#192633]"></div>
+<div class="absolute top-3 left-3 bg-[#324d67]/90 text-white text-xs font-bold px-2 py-1 rounded shadow-sm backdrop-blur-sm">Pending</div>
+</div>
+<!-- Middle: Content -->
+<div class="flex-1 p-5 flex flex-col justify-center">
+<div class="flex flex-wrap justify-between items-start gap-4 mb-2">
+<div>
+<h3 class="text-white text-xl font-bold">Marcus Johnson</h3>
+<p class="text-[#92adc9] text-sm mt-0.5">Freelance Developer</p>
+</div>
+<div class="flex gap-2 flex-wrap">
+<span class="px-2.5 py-1 rounded bg-[#233648] text-[#92adc9] text-xs font-medium border border-[#324d67]">Python</span>
+<span class="px-2.5 py-1 rounded bg-[#233648] text-[#92adc9] text-xs font-medium border border-[#324d67]">Data Science</span>
+</div>
+</div>
+<div class="bg-[#111a22] rounded-lg p-3 mb-4 border border-[#233648]/50">
+<p class="text-gray-300 text-sm leading-relaxed">
+                                    "Looking for a long-term mentor to guide me through my journey of becoming a Senior Data Scientist. I have 2 years of experience but feel stuck in my current role..."
+                                </p>
+</div>
+<div class="flex items-center gap-4 text-xs text-[#92adc9]">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 3 days ago</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">location_on</span> New York, NY</span>
+</div>
+</div>
+<!-- Right: Actions -->
+<div class="md:border-l border-[#233648] p-5 flex flex-row md:flex-col justify-center items-center gap-3 bg-[#16202b] md:w-48">
+<button class="w-full py-2 px-4 bg-primary hover:bg-blue-600 text-white rounded-lg text-sm font-medium transition-colors shadow-lg shadow-blue-900/20">Accept</button>
+<button class="w-full py-2 px-4 bg-transparent border border-red-500/30 text-red-400 hover:bg-red-500/10 hover:border-red-500/50 rounded-lg text-sm font-medium transition-colors">Decline</button>
+<button class="w-full py-2 px-4 text-[#92adc9] hover:text-white text-sm font-medium transition-colors">View Profile</button>
+</div>
+</div>
+</div>
+<!-- Footer / Pagination -->
+<div class="flex justify-between items-center mt-8 pt-4 border-t border-[#233648] text-sm text-[#92adc9]">
+<p>Showing 1-3 of 3 requests</p>
+<div class="flex gap-2">
+<button class="px-3 py-1 rounded bg-[#233648] text-gray-500 cursor-not-allowed">Previous</button>
+<button class="px-3 py-1 rounded bg-[#233648] hover:bg-[#324d67] text-white">Next</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

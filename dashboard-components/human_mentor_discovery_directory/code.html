@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kryppt Mentorship - Human Mentor Directory</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#137fec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+              "gold": "#FFD700",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-[#101922]/90 backdrop-blur-md px-6 py-3 lg:px-10">
+<div class="flex items-center gap-4">
+<div class="size-8 text-primary">
+<svg class="w-full h-full" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] hidden sm:block">Kryppt</h2>
+</div>
+<div class="flex flex-1 justify-end items-center gap-4 lg:gap-8">
+<nav class="hidden md:flex items-center gap-6 lg:gap-9">
+<a class="text-slate-900 dark:text-slate-200 hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Mentors</a>
+<a class="text-slate-900 dark:text-slate-200 hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Jobs</a>
+<a class="text-slate-900 dark:text-slate-200 hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Community</a>
+<a class="text-slate-900 dark:text-slate-200 hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">My Bookings</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center size-10 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors md:hidden">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<button class="hidden sm:flex cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] shadow-lg shadow-primary/30 hover:bg-blue-600 transition-all">
+<span class="truncate">Switch to AI Mentor</span>
+</button>
+</div>
+</div>
+</header>
+<div class="flex flex-1 max-w-[1600px] w-full mx-auto p-4 lg:p-8 gap-8">
+<!-- Sidebar Filters -->
+<aside class="hidden lg:flex flex-col w-72 shrink-0 gap-6 sticky top-24 h-[calc(100vh-8rem)] overflow-y-auto no-scrollbar pb-10">
+<div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined">tune</span> Filters
+                </h3>
+<div class="flex flex-col gap-3">
+<!-- Expertise Accordion -->
+<details class="group open:pb-2" open="">
+<summary class="flex cursor-pointer items-center justify-between py-3 font-medium text-slate-700 dark:text-slate-200 hover:text-primary transition-colors list-none">
+<span>Expertise</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180 text-slate-400">expand_more</span>
+</summary>
+<div class="flex flex-col gap-2 pl-1 pb-2">
+<label class="flex items-center gap-3 cursor-pointer group/item">
+<input checked="" class="rounded border-slate-300 text-primary focus:ring-primary/20 bg-transparent" type="checkbox"/>
+<span class="text-sm text-slate-600 dark:text-slate-400 group-hover/item:text-slate-900 dark:group-hover/item:text-slate-200">UX Design</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group/item">
+<input class="rounded border-slate-300 text-primary focus:ring-primary/20 bg-transparent" type="checkbox"/>
+<span class="text-sm text-slate-600 dark:text-slate-400 group-hover/item:text-slate-900 dark:group-hover/item:text-slate-200">Product Management</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group/item">
+<input class="rounded border-slate-300 text-primary focus:ring-primary/20 bg-transparent" type="checkbox"/>
+<span class="text-sm text-slate-600 dark:text-slate-400 group-hover/item:text-slate-900 dark:group-hover/item:text-slate-200">Frontend Dev</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group/item">
+<input class="rounded border-slate-300 text-primary focus:ring-primary/20 bg-transparent" type="checkbox"/>
+<span class="text-sm text-slate-600 dark:text-slate-400 group-hover/item:text-slate-900 dark:group-hover/item:text-slate-200">AI Engineering</span>
+</label>
+</div>
+</details>
+<!-- Industry Accordion -->
+<div class="h-px bg-slate-200 dark:bg-slate-800 w-full"></div>
+<details class="group open:pb-2">
+<summary class="flex cursor-pointer items-center justify-between py-3 font-medium text-slate-700 dark:text-slate-200 hover:text-primary transition-colors list-none">
+<span>Industry</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180 text-slate-400">expand_more</span>
+</summary>
+<div class="flex flex-col gap-2 pl-1 pb-2">
+<label class="flex items-center gap-3 cursor-pointer group/item">
+<input class="rounded border-slate-300 text-primary focus:ring-primary/20 bg-transparent" type="checkbox"/>
+<span class="text-sm text-slate-600 dark:text-slate-400 group-hover/item:text-slate-900 dark:group-hover/item:text-slate-200">Fintech</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group/item">
+<input class="rounded border-slate-300 text-primary focus:ring-primary/20 bg-transparent" type="checkbox"/>
+<span class="text-sm text-slate-600 dark:text-slate-400 group-hover/item:text-slate-900 dark:group-hover/item:text-slate-200">HealthTech</span>
+</label>
+</div>
+</details>
+<div class="h-px bg-slate-200 dark:bg-slate-800 w-full"></div>
+<!-- Availability Accordion -->
+<details class="group open:pb-2" open="">
+<summary class="flex cursor-pointer items-center justify-between py-3 font-medium text-slate-700 dark:text-slate-200 hover:text-primary transition-colors list-none">
+<span>Availability</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180 text-slate-400">expand_more</span>
+</summary>
+<div class="flex flex-col gap-2 pl-1 pb-2">
+<label class="flex items-center gap-3 cursor-pointer group/item">
+<input class="border-slate-300 text-primary focus:ring-primary/20 bg-transparent" name="avail" type="radio"/>
+<span class="text-sm text-slate-600 dark:text-slate-400 group-hover/item:text-slate-900 dark:group-hover/item:text-slate-200">Available Now</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group/item">
+<input class="border-slate-300 text-primary focus:ring-primary/20 bg-transparent" name="avail" type="radio"/>
+<span class="text-sm text-slate-600 dark:text-slate-400 group-hover/item:text-slate-900 dark:group-hover/item:text-slate-200">This Week</span>
+</label>
+</div>
+</details>
+</div>
+</div>
+<div class="mt-auto p-4 rounded-xl bg-slate-100 dark:bg-slate-800/50">
+<p class="text-xs font-semibold text-slate-500 uppercase mb-2">Pro Tip</p>
+<p class="text-sm text-slate-700 dark:text-slate-300">
+                    Switch to <strong>AI Mentor</strong> for instant 24/7 code reviews and mock interviews.
+                </p>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-w-0">
+<!-- Header Section -->
+<div class="flex flex-col gap-6 mb-8">
+<div class="flex flex-col gap-2">
+<h1 class="text-slate-900 dark:text-white text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">Find your Human Guide</h1>
+<p class="text-slate-500 dark:text-slate-400 text-lg font-normal leading-normal">Connect with verified industry leaders for 1:1 mentorship.</p>
+</div>
+<!-- Search & Quick Filters -->
+<div class="flex flex-col gap-4">
+<label class="relative flex w-full max-w-2xl h-14 group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-primary transition-colors">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="w-full h-full pl-12 pr-4 rounded-xl bg-white dark:bg-slate-800 border-none ring-1 ring-slate-200 dark:ring-slate-700 shadow-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:ring-2 focus:ring-primary/50 text-base transition-shadow" placeholder="Search by skill, company, or name..." value=""/>
+</label>
+<div class="flex flex-wrap gap-2 items-center">
+<span class="text-xs font-semibold text-slate-500 uppercase tracking-wide mr-2">Popular:</span>
+<button class="flex h-8 items-center justify-center gap-x-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-3 hover:border-primary hover:text-primary transition-colors">
+<span class="text-slate-700 dark:text-slate-300 text-sm font-medium">UX Design</span>
+</button>
+<button class="flex h-8 items-center justify-center gap-x-2 rounded-lg bg-primary/10 border border-primary/20 px-3">
+<span class="text-primary text-sm font-medium">Available Now</span>
+<span class="flex size-2 rounded-full bg-green-500 animate-pulse"></span>
+</button>
+<button class="flex h-8 items-center justify-center gap-x-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-3 hover:border-primary hover:text-primary transition-colors">
+<span class="text-slate-700 dark:text-slate-300 text-sm font-medium">Career Growth</span>
+</button>
+<button class="flex h-8 items-center justify-center gap-x-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-3 hover:border-primary hover:text-primary transition-colors">
+<span class="text-slate-700 dark:text-slate-300 text-sm font-medium">Design Systems</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Mentors Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- Mentor Card 1 -->
+<div class="flex flex-col bg-white dark:bg-[#15202b] rounded-2xl p-4 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl hover:translate-y-[-2px] transition-all duration-300 group">
+<!-- Profile Header -->
+<div class="flex items-start justify-between mb-4">
+<div class="flex gap-4">
+<div class="relative">
+<img class="size-16 rounded-full object-cover border-2 border-white dark:border-slate-700 shadow-sm" data-alt="Professional headshot of a smiling woman with dark curly hair in business casual attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhWnkc7F_00W-22xmj3AKGoZv40hGBN62zBaZSXRXuVVOJ0058NoyTiW-cNC_9jzb8h6f0cc7UgKvLQUk88sLqghP76BI4uiFS4iiJpWUlWBoEtGo6Qm0xGQGjsgCIq8CqASB6RA2hW6b0rmwwFAKGGXF077MuySUV33X39VBCwaKFQK8JXg7s0Fgdks677yFyZewxvJz-oawpjClQaGI14c3eB-ZGK5Kv-eHGVLUslFU2y9Ucc5LH3ZMJ7OBe9w8P7YyVXmV4_Eu3"/>
+<div class="absolute -bottom-1 -right-1 bg-white dark:bg-slate-800 rounded-full p-0.5" title="LinkedIn Verified">
+<span class="material-symbols-outlined text-[#FFD700] text-[20px] fill-current" style="font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;">verified</span>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-slate-900 dark:text-white text-lg leading-tight group-hover:text-primary transition-colors">Sarah Jenkins</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Senior Product Designer</p>
+<p class="text-xs font-semibold text-slate-400 mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">apartment</span> Spotify
+                                </p>
+</div>
+</div>
+</div>
+<!-- Vibe Check Video Thumbnail -->
+<div class="relative w-full aspect-video rounded-xl overflow-hidden mb-4 bg-slate-100 group/video cursor-pointer">
+<img class="w-full h-full object-cover opacity-90 group-hover/video:scale-105 transition-transform duration-500" data-alt="Blurry background of a modern office, placeholder for video thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBngrubS4XQvbJMYC7JMXfWkH7epFFt3EJqGtbeUh7UtphXHQlF2hX1D505V3ww3jBlZLPwC0x1em9wIRiTsGJBAjip9KpzwUmAqmAyHFE6MuBSPnURPigKTlHVKsU3eZhkw-14ayRen-fO9RJGlvwD7Vv6B7LoXrAHM8WOZJ3dzB4NPVkRpKUK-eIFv2p0hR-axZrpps16WuYC3KWEets5ql46FrxE-BxKm2QTSRPFCNjQvAhHyDRDM-NkHc0kC2DpzNY7NXMR8Xv8"/>
+<div class="absolute inset-0 bg-black/10 group-hover/video:bg-black/20 transition-colors"></div>
+<!-- Play Button -->
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="size-12 rounded-full bg-white/90 backdrop-blur text-primary flex items-center justify-center shadow-lg group-hover/video:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl ml-1">play_arrow</span>
+</div>
+</div>
+<!-- Badge -->
+<div class="absolute top-3 left-3 bg-black/50 backdrop-blur-md px-2 py-1 rounded-lg border border-white/10">
+<span class="text-xs font-bold text-white flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">videocam</span> Vibe Check
+                            </span>
+</div>
+</div>
+<!-- Status & Tags -->
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2.5 py-1 rounded-lg text-xs font-medium">#UX</span>
+<span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2.5 py-1 rounded-lg text-xs font-medium">#PortfolioReview</span>
+</div>
+<div class="mt-auto pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-2 mb-0.5">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+</span>
+<span class="text-xs font-bold text-green-600 dark:text-green-400">Available in 15m</span>
+</div>
+<span class="text-slate-900 dark:text-white font-bold text-lg">$120<span class="text-slate-400 text-sm font-normal">/hr</span></span>
+</div>
+<button class="bg-primary hover:bg-blue-600 text-white font-semibold py-2 px-5 rounded-xl text-sm transition-colors shadow-lg shadow-primary/20">
+                            Book Session
+                        </button>
+</div>
+</div>
+<!-- Mentor Card 2 -->
+<div class="flex flex-col bg-white dark:bg-[#15202b] rounded-2xl p-4 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl hover:translate-y-[-2px] transition-all duration-300 group">
+<div class="flex items-start justify-between mb-4">
+<div class="flex gap-4">
+<div class="relative">
+<img class="size-16 rounded-full object-cover border-2 border-white dark:border-slate-700 shadow-sm" data-alt="Professional headshot of a man with glasses and beard in a suit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5qoXWYF-waAEd53p8z5yzsRU4QTLRNRiDNiraQeb2njjIbw4-R84OlLUbxQfvrnloQ29Dj8JNWNc866R9vKXFW0W4oG42Q8SPHLWUQtNkQMS1BKxYiEugqI9GdV6NtbXM9AZ_nUUi85BMRhmft0tbVtelvWUA_WGUprMTloG5j3KQYRVQed5188nnnc8vEezz54mEgy9R9upMJFp7f5LuQTSwDNt3reXsJ0TvGLG7cH4E3-lSMlk1hw20O2g9XUqrutkiKa1Df5xO"/>
+<div class="absolute -bottom-1 -right-1 bg-white dark:bg-slate-800 rounded-full p-0.5" title="LinkedIn Verified">
+<span class="material-symbols-outlined text-[#FFD700] text-[20px] fill-current" style="font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;">verified</span>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-slate-900 dark:text-white text-lg leading-tight group-hover:text-primary transition-colors">David Chen</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Staff Software Engineer</p>
+<p class="text-xs font-semibold text-slate-400 mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">apartment</span> Google
+                                </p>
+</div>
+</div>
+</div>
+<div class="relative w-full aspect-video rounded-xl overflow-hidden mb-4 bg-slate-100 group/video cursor-pointer">
+<img class="w-full h-full object-cover opacity-90 group-hover/video:scale-105 transition-transform duration-500" data-alt="Abstract code on a screen background for video thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG9hDqFmHFz9FdFuxqriGavHXgypYVOAcmdLzrtbvPjcjSAB55fuA7PfIUUIKsHuYF15YN7mXljzQvOWT6VmHGob2n-i6M-vDaN5j-sxmEFVrC8PVfh_d8b1zywmQI31CtZEjLIos_iX7hBqa1eB8Ew8RcobivwoyWu_1_sRP8as9uSpjSLr1oLQBDpMgc6TgsVxhzD3Gblr-_QhGyvRRsjiwhrn-awgquTA2TVo2xCJ4G4SElXpUnjOPr_fwr4xGLIFMoZYP7F6jd"/>
+<div class="absolute inset-0 bg-black/10 group-hover/video:bg-black/20 transition-colors"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="size-12 rounded-full bg-white/90 backdrop-blur text-primary flex items-center justify-center shadow-lg group-hover/video:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl ml-1">play_arrow</span>
+</div>
+</div>
+<div class="absolute top-3 left-3 bg-black/50 backdrop-blur-md px-2 py-1 rounded-lg border border-white/10">
+<span class="text-xs font-bold text-white flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">videocam</span> Vibe Check
+                            </span>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2.5 py-1 rounded-lg text-xs font-medium">#React</span>
+<span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2.5 py-1 rounded-lg text-xs font-medium">#SystemDesign</span>
+</div>
+<div class="mt-auto pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-2 mb-0.5">
+<span class="relative flex h-2.5 w-2.5">
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-slate-300 dark:bg-slate-600"></span>
+</span>
+<span class="text-xs font-medium text-slate-500 dark:text-slate-400">Available tomorrow</span>
+</div>
+<span class="text-slate-900 dark:text-white font-bold text-lg">$200<span class="text-slate-400 text-sm font-normal">/hr</span></span>
+</div>
+<button class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-primary text-slate-900 dark:text-white hover:text-primary font-semibold py-2 px-5 rounded-xl text-sm transition-colors">
+                            View Profile
+                        </button>
+</div>
+</div>
+<!-- Mentor Card 3 -->
+<div class="flex flex-col bg-white dark:bg-[#15202b] rounded-2xl p-4 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl hover:translate-y-[-2px] transition-all duration-300 group">
+<div class="flex items-start justify-between mb-4">
+<div class="flex gap-4">
+<div class="relative">
+<img class="size-16 rounded-full object-cover border-2 border-white dark:border-slate-700 shadow-sm" data-alt="Professional headshot of a smiling woman with blonde hair" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkKHxmvh2HMXLYUMHk3-FB0Gv4otbAi2FCqxRyc-dOAFAt89B3vtlc3gWvQNUDuyXuluP_UM3ODuz9w9mcb9n4ihASOiUbwe8RmFMH7JSNaDfMsXZH47YX-isZVagfowXZCpw2DNpt9jqdNlh0NQThlqlZrKWE50vnlPB_1bbVxbYAJf2bTiQ4k5SjZS96SxoVk8U26ourVKQLIlMpYXcBCIg2DHyY9a6mbDE64LABXVn9teuY2Z9dCkBCxJ9lnM_nKAP4eyvBKjS_"/>
+<div class="absolute -bottom-1 -right-1 bg-white dark:bg-slate-800 rounded-full p-0.5" title="LinkedIn Verified">
+<span class="material-symbols-outlined text-[#FFD700] text-[20px] fill-current" style="font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;">verified</span>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-slate-900 dark:text-white text-lg leading-tight group-hover:text-primary transition-colors">Elena Rodriguez</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">VP of Marketing</p>
+<p class="text-xs font-semibold text-slate-400 mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">apartment</span> Airbnb
+                                </p>
+</div>
+</div>
+</div>
+<div class="relative w-full aspect-video rounded-xl overflow-hidden mb-4 bg-slate-100 group/video cursor-pointer">
+<img class="w-full h-full object-cover opacity-90 group-hover/video:scale-105 transition-transform duration-500" data-alt="Office meeting scene with sticky notes on glass for video thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUrAkphWzwVJgiaSQsQjkR7DhEAqBZ2XMSuAsCiULqsCWAL7Lz2Zd4yxattEFyDiRG8XAaCYtl-roFGcM__WpRxSO37AzoRitth3Ge6pjiANfGGgIIl9f5jZ_zEJe3wYYR6v5YUUfx1jXjyE7e-nXCFrONzGh_2kzmy5NCHQizLhnCE4XkydCM20BWvmrBmcRDpySdmIEZSopn02w2lT3SbwhEAzfWpCZHQZmU74XmhsR4U3w4yXJuXXLG6XuAYSCD-6wNCdB_F1K_"/>
+<div class="absolute inset-0 bg-black/10 group-hover/video:bg-black/20 transition-colors"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="size-12 rounded-full bg-white/90 backdrop-blur text-primary flex items-center justify-center shadow-lg group-hover/video:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl ml-1">play_arrow</span>
+</div>
+</div>
+<div class="absolute top-3 left-3 bg-black/50 backdrop-blur-md px-2 py-1 rounded-lg border border-white/10">
+<span class="text-xs font-bold text-white flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">videocam</span> Vibe Check
+                            </span>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2.5 py-1 rounded-lg text-xs font-medium">#Growth</span>
+<span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2.5 py-1 rounded-lg text-xs font-medium">#BrandStrategy</span>
+</div>
+<div class="mt-auto pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-2 mb-0.5">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+</span>
+<span class="text-xs font-bold text-green-600 dark:text-green-400">Available in 1h</span>
+</div>
+<span class="text-slate-900 dark:text-white font-bold text-lg">$180<span class="text-slate-400 text-sm font-normal">/hr</span></span>
+</div>
+<button class="bg-primary hover:bg-blue-600 text-white font-semibold py-2 px-5 rounded-xl text-sm transition-colors shadow-lg shadow-primary/20">
+                            Book Session
+                        </button>
+</div>
+</div>
+<!-- Mentor Card 4 -->
+<div class="flex flex-col bg-white dark:bg-[#15202b] rounded-2xl p-4 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl hover:translate-y-[-2px] transition-all duration-300 group">
+<div class="flex items-start justify-between mb-4">
+<div class="flex gap-4">
+<div class="relative">
+<img class="size-16 rounded-full object-cover border-2 border-white dark:border-slate-700 shadow-sm" data-alt="Headshot of a smiling man with short dark hair in a white shirt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARU2hI7ebXTuJNo9_vr651-1ramGOQ5d6b6edfQ6xeGVnPsivxnZHLnmWl4O_emLexkRyBmM06TvTPIcrTHn-DgdC2Wc4364Rkrz7bhrVZMrL65nsSKPkdd6PAqGZcHlruPBnoWT8i16NHn879hL9n-iSWFqRSLMSJq8ZV_8gs7zvI_nthegJCeUnwUdzPmvf0NHVbs6yh8U6B2LppoH2X7P7ww5yFrR9GryMbGmPwMnX1tnk3hNcTkRb_BLsL9OPXj7CQgTGxV-iu"/>
+<div class="absolute -bottom-1 -right-1 bg-white dark:bg-slate-800 rounded-full p-0.5" title="LinkedIn Verified">
+<span class="material-symbols-outlined text-[#FFD700] text-[20px] fill-current" style="font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;">verified</span>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-slate-900 dark:text-white text-lg leading-tight group-hover:text-primary transition-colors">Marcus Johnson</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">AI Researcher</p>
+<p class="text-xs font-semibold text-slate-400 mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">apartment</span> OpenAI
+                                </p>
+</div>
+</div>
+</div>
+<div class="relative w-full aspect-video rounded-xl overflow-hidden mb-4 bg-slate-100 group/video cursor-pointer">
+<img class="w-full h-full object-cover opacity-90 group-hover/video:scale-105 transition-transform duration-500" data-alt="Purple AI neural network visualization background for video thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKX68kmgMwFlOs1u71DZjbXohufwPHdh_PMPinwbr8TAJjLoZ9cEbbBbOkkv4fg7jJonCZ_iIK5_Ic8AKnNVGihfSde530M72NlgE6UCii5WEj7rdLVXkN0LHpTmckUFRKpWcCkMZQBTAf5nTpTJgTBfdhcxUlSkkJtyMRv9qhOkrF_JwGgMvpQ575sPIBOtx_lmadS0OISxuCnd-YUMWQzQYI8ib-ZzSrP1FEKG3UbQ3wneqQcKu-JKkpCLW8z8M8zu9c2PA0Mj0a"/>
+<div class="absolute inset-0 bg-black/10 group-hover/video:bg-black/20 transition-colors"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="size-12 rounded-full bg-white/90 backdrop-blur text-primary flex items-center justify-center shadow-lg group-hover/video:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl ml-1">play_arrow</span>
+</div>
+</div>
+<div class="absolute top-3 left-3 bg-black/50 backdrop-blur-md px-2 py-1 rounded-lg border border-white/10">
+<span class="text-xs font-bold text-white flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">videocam</span> Vibe Check
+                            </span>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2.5 py-1 rounded-lg text-xs font-medium">#MachineLearning</span>
+<span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2.5 py-1 rounded-lg text-xs font-medium">#NLP</span>
+</div>
+<div class="mt-auto pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-2 mb-0.5">
+<span class="relative flex h-2.5 w-2.5">
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-slate-300 dark:bg-slate-600"></span>
+</span>
+<span class="text-xs font-medium text-slate-500 dark:text-slate-400">Next week</span>
+</div>
+<span class="text-slate-900 dark:text-white font-bold text-lg">$250<span class="text-slate-400 text-sm font-normal">/hr</span></span>
+</div>
+<button class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-primary text-slate-900 dark:text-white hover:text-primary font-semibold py-2 px-5 rounded-xl text-sm transition-colors">
+                            View Profile
+                        </button>
+</div>
+</div>
+<!-- Mentor Card 5 -->
+<div class="flex flex-col bg-white dark:bg-[#15202b] rounded-2xl p-4 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl hover:translate-y-[-2px] transition-all duration-300 group">
+<div class="flex items-start justify-between mb-4">
+<div class="flex gap-4">
+<div class="relative">
+<img class="size-16 rounded-full object-cover border-2 border-white dark:border-slate-700 shadow-sm" data-alt="Portrait of a woman with braided hair wearing a yellow top" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuutJSBgunoZNWr6IZHQvAPGNSEHaJ3OIJjvIUH1hRCLf2MJF5uwg54Ox6JemHVHRLYhxrgnGYP6qrdhcM5ydTdwFz2meyq_mIP2ZuoNekSJxQ770DTiz-8_qKajiFudf0MyeqD-4F0srcLM2OT_nueWW7lNBfdF86pQQIjpP_QyOhpvluxtrd8vrSR-5DlBuAAGUeMNeRzZNvvbjUCYTfUIdUPIzdq1714LMZYg7kKTAOTVXtK6crNAi0QQU2yoTykFITNSidmw6R"/>
+<div class="absolute -bottom-1 -right-1 bg-white dark:bg-slate-800 rounded-full p-0.5" title="LinkedIn Verified">
+<span class="material-symbols-outlined text-[#FFD700] text-[20px] fill-current" style="font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;">verified</span>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-slate-900 dark:text-white text-lg leading-tight group-hover:text-primary transition-colors">Priya Patel</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Product Manager</p>
+<p class="text-xs font-semibold text-slate-400 mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">apartment</span> Stripe
+                                </p>
+</div>
+</div>
+</div>
+<div class="relative w-full aspect-video rounded-xl overflow-hidden mb-4 bg-slate-100 group/video cursor-pointer">
+<img class="w-full h-full object-cover opacity-90 group-hover/video:scale-105 transition-transform duration-500" data-alt="Bright modern office space background for video thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-mOYuwydGqREBsb4Gcqk1g63i-iYyZMiVIXV7y01WhSEnhvKJ6AoD9NhELYl0XMLDDGrK5s-X63en6w3fgOT7EiOcyQhd5MoTOUM6XrqrkEr2bmNz_iQE5CPCrP0McSDQ88FOjGRWpaqb2GXUePSpe1f0Ks5vj_lnWN4o_ULwXTGAnfODEm92z_QyPJMTkAeXrvdl2eEjuXB8xw8jZzcaSdiWg4mqtNY5tPpRr08risOxWCwK9-LyOpcW8aSl8YjF6B9NdiT5DEsN"/>
+<div class="absolute inset-0 bg-black/10 group-hover/video:bg-black/20 transition-colors"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="size-12 rounded-full bg-white/90 backdrop-blur text-primary flex items-center justify-center shadow-lg group-hover/video:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl ml-1">play_arrow</span>
+</div>
+</div>
+<div class="absolute top-3 left-3 bg-black/50 backdrop-blur-md px-2 py-1 rounded-lg border border-white/10">
+<span class="text-xs font-bold text-white flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">videocam</span> Vibe Check
+                            </span>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2.5 py-1 rounded-lg text-xs font-medium">#ProductLed</span>
+<span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2.5 py-1 rounded-lg text-xs font-medium">#Roadmapping</span>
+</div>
+<div class="mt-auto pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-2 mb-0.5">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+</span>
+<span class="text-xs font-bold text-green-600 dark:text-green-400">Available in 15m</span>
+</div>
+<span class="text-slate-900 dark:text-white font-bold text-lg">$165<span class="text-slate-400 text-sm font-normal">/hr</span></span>
+</div>
+<button class="bg-primary hover:bg-blue-600 text-white font-semibold py-2 px-5 rounded-xl text-sm transition-colors shadow-lg shadow-primary/20">
+                            Book Session
+                        </button>
+</div>
+</div>
+<!-- Mentor Card 6 -->
+<div class="flex flex-col bg-white dark:bg-[#15202b] rounded-2xl p-4 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl hover:translate-y-[-2px] transition-all duration-300 group">
+<div class="flex items-start justify-between mb-4">
+<div class="flex gap-4">
+<div class="relative">
+<img class="size-16 rounded-full object-cover border-2 border-white dark:border-slate-700 shadow-sm" data-alt="Portrait of a serious man in a dark suit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8f8vvgxqMc3vMWncI906_I2VaQ8bouDmKlzh9b51cdJeLNzBipdzPhaDBTd6v6q3-d2Adi606htebvDlYP_HIj35rjXVi2m2bb3B9qgNNXu6KzDStzssL90-K-NqDZc7gaXIa3GZ4H67KHiIe2Bkxk4QkQ-frtjFRGdcISHhS3BUtdX8i_7cvqZcca3zOfsaVHXIacPEWPM4pof64It9DagMgRW0lEx8ktlbhJJPYioo9Equm04hGAdTe78ipUuqOWSCApzPIl3oz"/>
+<div class="absolute -bottom-1 -right-1 bg-white dark:bg-slate-800 rounded-full p-0.5" title="LinkedIn Verified">
+<span class="material-symbols-outlined text-[#FFD700] text-[20px] fill-current" style="font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;">verified</span>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-slate-900 dark:text-white text-lg leading-tight group-hover:text-primary transition-colors">James Wilson</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Founder &amp; CTO</p>
+<p class="text-xs font-semibold text-slate-400 mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">apartment</span> TechStars
+                                </p>
+</div>
+</div>
+</div>
+<div class="relative w-full aspect-video rounded-xl overflow-hidden mb-4 bg-slate-100 group/video cursor-pointer">
+<img class="w-full h-full object-cover opacity-90 group-hover/video:scale-105 transition-transform duration-500" data-alt="Meeting room with a whiteboard and people discussing for video thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4kcbhX5lHJgWEhHY_u1wR5f_W6hXcPk2kjs4nxzPnBRBPkDBKHAMzh0sb1e9UetsKHSW4PfIx_SOlJTAaDJ4Tz6i0-D60rcNHKYxhVn1tDfxIgooCVT4aU_vi65o36BnUCLFp_ImYXZ_0mNJaLhRVd23Z3zoebmI1uqBVTvRDFQNfCH7gU-vHL3OSdTOjYe89SuL8q1yyeBeA_Zxpf7AaeCftLI-FH5VxolZQCA0-FT88vrR8x1fO1q7EPDXilYiRMxSKmIJfuwhf"/>
+<div class="absolute inset-0 bg-black/10 group-hover/video:bg-black/20 transition-colors"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="size-12 rounded-full bg-white/90 backdrop-blur text-primary flex items-center justify-center shadow-lg group-hover/video:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl ml-1">play_arrow</span>
+</div>
+</div>
+<div class="absolute top-3 left-3 bg-black/50 backdrop-blur-md px-2 py-1 rounded-lg border border-white/10">
+<span class="text-xs font-bold text-white flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">videocam</span> Vibe Check
+                            </span>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2.5 py-1 rounded-lg text-xs font-medium">#Startup</span>
+<span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2.5 py-1 rounded-lg text-xs font-medium">#Fundraising</span>
+</div>
+<div class="mt-auto pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-2 mb-0.5">
+<span class="relative flex h-2.5 w-2.5">
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-slate-300 dark:bg-slate-600"></span>
+</span>
+<span class="text-xs font-medium text-slate-500 dark:text-slate-400">Busy until Friday</span>
+</div>
+<span class="text-slate-900 dark:text-white font-bold text-lg">$300<span class="text-slate-400 text-sm font-normal">/hr</span></span>
+</div>
+<button class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-primary text-slate-900 dark:text-white hover:text-primary font-semibold py-2 px-5 rounded-xl text-sm transition-colors">
+                            View Profile
+                        </button>
+</div>
+</div>
+</div>
+<!-- Load More Button -->
+<div class="flex justify-center mt-12 mb-8">
+<button class="flex items-center gap-2 px-6 py-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-medium hover:border-primary hover:text-primary transition-colors shadow-sm">
+                    Show more mentors
+                    <span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+</main>
+</div>
+</body></html>

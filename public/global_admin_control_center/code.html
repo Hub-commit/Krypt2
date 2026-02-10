@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kryppt Admin Dashboard</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for dark theme */
+        .dark ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: #111a22; 
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #324d67; 
+            border-radius: 4px;
+        }
+        .dark ::-webkit-scrollbar-thumb:hover {
+            background: #4b6a88; 
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-hidden">
+<div class="flex h-screen w-full">
+<!-- Sidebar -->
+<aside class="w-72 flex-shrink-0 hidden lg:flex flex-col border-r border-[#324d67] bg-[#111a22]">
+<div class="flex h-full flex-col justify-between p-4">
+<div class="flex flex-col gap-4">
+<!-- User Profile / Logo Area -->
+<div class="flex items-center gap-3 px-2 py-4 border-b border-[#324d67] mb-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-12 ring-2 ring-[#324d67]" data-alt="Abstract geometric avatar representing an admin user" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB64t0-P6p8zWEEH2rlSRwJ88zU_QUgtRte1HyRfuj-AtdGGyCO3AgWV1VkzU8fSBfQN0Kqd2fWv2s-5XhkRxG6J_iKz6DlHI-ob_uaDlPmHlFEC6R64hMU99PnHycuiCgb6axbGqhNFPYQaKtVx8LMvLeXjaPUKsmUWU0TJ0R6MwBoB-14eH_h9PiGs_OSrnqX8P2Cn6bSaOesqnYN2XczjE1-c0BLUcrdec_v-cVktEo-m7oy6tnSXgXc1snwEb_z1JRNdCtVpxq_");'></div>
+<div class="flex flex-col">
+<h1 class="text-white text-lg font-bold leading-normal">Kryppt Admin</h1>
+<p class="text-[#92adc9] text-sm font-normal leading-normal">Super Admin</p>
+</div>
+</div>
+<!-- Navigation -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-3 px-3 py-3 rounded-lg bg-primary/20 border-l-4 border-primary">
+<span class="material-symbols-outlined text-primary">dashboard</span>
+<p class="text-white text-sm font-bold leading-normal">Dashboard</p>
+</div>
+<div class="flex items-center justify-between gap-3 px-3 py-3 rounded-lg hover:bg-[#233648] transition-colors group cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#92adc9] group-hover:text-white">verified_user</span>
+<p class="text-[#92adc9] group-hover:text-white text-sm font-medium leading-normal">Mentor Verifications</p>
+</div>
+<span class="bg-primary text-white text-[10px] font-bold px-2 py-0.5 rounded-full">12</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-[#233648] transition-colors group cursor-pointer">
+<span class="material-symbols-outlined text-[#92adc9] group-hover:text-white">price_change</span>
+<p class="text-[#92adc9] group-hover:text-white text-sm font-medium leading-normal">AI Fee Management</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-[#233648] transition-colors group cursor-pointer">
+<span class="material-symbols-outlined text-[#92adc9] group-hover:text-white">work_history</span>
+<p class="text-[#92adc9] group-hover:text-white text-sm font-medium leading-normal">Job Approvals</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-[#233648] transition-colors group cursor-pointer">
+<span class="material-symbols-outlined text-[#92adc9] group-hover:text-white">monitor_heart</span>
+<p class="text-[#92adc9] group-hover:text-white text-sm font-medium leading-normal">System Health</p>
+</div>
+</div>
+</div>
+<!-- Bottom Settings -->
+<div class="flex flex-col gap-2 pt-4 border-t border-[#324d67]">
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#233648] transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[#92adc9]">settings</span>
+<p class="text-[#92adc9] text-sm font-medium">Settings</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#233648] transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[#92adc9]">logout</span>
+<p class="text-[#92adc9] text-sm font-medium">Logout</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 h-full overflow-y-auto bg-background-light dark:bg-background-dark relative">
+<div class="max-w-[1200px] mx-auto p-6 md:p-8 lg:p-10 flex flex-col gap-8">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+<div>
+<h2 class="text-3xl font-bold text-slate-900 dark:text-white tracking-tight">Global Control Center</h2>
+<p class="text-slate-500 dark:text-[#92adc9] mt-1">Overview of system performance and pending administrative tasks.</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+</span>
+<span class="text-sm font-medium text-green-500">System Operational</span>
+</div>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Stat Card 1 -->
+<div class="flex flex-col gap-2 rounded-xl p-6 border border-[#324d67] bg-[#111a22] shadow-lg">
+<div class="flex justify-between items-start">
+<p class="text-[#92adc9] text-sm font-medium leading-normal">Pending Reviews</p>
+<span class="material-symbols-outlined text-primary">rate_review</span>
+</div>
+<p class="text-white tracking-tight text-3xl font-bold leading-tight">12</p>
+<div class="flex items-center gap-1 text-[#0bda5b] text-xs font-medium bg-[#0bda5b]/10 w-fit px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+                            +2.5% from yesterday
+                        </div>
+</div>
+<!-- Stat Card 2 -->
+<div class="flex flex-col gap-2 rounded-xl p-6 border border-[#324d67] bg-[#111a22] shadow-lg">
+<div class="flex justify-between items-start">
+<p class="text-[#92adc9] text-sm font-medium leading-normal">Active Mentors</p>
+<span class="material-symbols-outlined text-primary">groups</span>
+</div>
+<p class="text-white tracking-tight text-3xl font-bold leading-tight">1,402</p>
+<div class="flex items-center gap-1 text-[#0bda5b] text-xs font-medium bg-[#0bda5b]/10 w-fit px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+                            +12% this month
+                        </div>
+</div>
+<!-- Stat Card 3 -->
+<div class="flex flex-col gap-2 rounded-xl p-6 border border-[#324d67] bg-[#111a22] shadow-lg">
+<div class="flex justify-between items-start">
+<p class="text-[#92adc9] text-sm font-medium leading-normal">System Uptime</p>
+<span class="material-symbols-outlined text-primary">dns</span>
+</div>
+<p class="text-white tracking-tight text-3xl font-bold leading-tight">99.98%</p>
+<div class="flex items-center gap-1 text-[#0bda5b] text-xs font-medium bg-[#0bda5b]/10 w-fit px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                            Stable
+                        </div>
+</div>
+<!-- Stat Card 4 -->
+<div class="flex flex-col gap-2 rounded-xl p-6 border border-[#324d67] bg-[#111a22] shadow-lg">
+<div class="flex justify-between items-start">
+<p class="text-[#92adc9] text-sm font-medium leading-normal">Revenue (24h)</p>
+<span class="material-symbols-outlined text-primary">payments</span>
+</div>
+<p class="text-white tracking-tight text-3xl font-bold leading-tight">$8,450</p>
+<div class="flex items-center gap-1 text-[#0bda5b] text-xs font-medium bg-[#0bda5b]/10 w-fit px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+                            +5.4%
+                        </div>
+</div>
+</div>
+<!-- Main Layout Columns -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
+<!-- Left Column: Verification Queue (Takes up 2/3 space on large screens) -->
+<div class="xl:col-span-2 flex flex-col gap-4">
+<div class="flex items-center justify-between pb-2">
+<h3 class="text-xl font-bold text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">verified</span>
+                                Mentor Verification Queue
+                            </h3>
+<button class="text-sm text-primary font-medium hover:text-blue-400">View All Queue</button>
+</div>
+<!-- Table Card -->
+<div class="rounded-xl border border-[#324d67] bg-[#111a22] overflow-hidden shadow-lg">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-[#192633] border-b border-[#324d67]">
+<th class="px-6 py-4 text-xs font-semibold text-[#92adc9] uppercase tracking-wider">Candidate</th>
+<th class="px-6 py-4 text-xs font-semibold text-[#92adc9] uppercase tracking-wider">Specialty</th>
+<th class="px-6 py-4 text-xs font-semibold text-[#92adc9] uppercase tracking-wider">AI Score</th>
+<th class="px-6 py-4 text-xs font-semibold text-[#92adc9] uppercase tracking-wider">Status</th>
+<th class="px-6 py-4 text-xs font-semibold text-[#92adc9] uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#324d67]">
+<!-- Row 1 -->
+<tr class="group hover:bg-[#1c2936] transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-9 rounded-full bg-cover bg-center" data-alt="Headshot of Sarah Jenkins" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAu-M_EiAUvxAVok1IuKg6gd0M5xscAqDHNyxNfs_AogaTaxqLzfVZFV67Xe2Jld9ScdlH7fZgf5xEsQd8LyV7MaQ72n2qIY-jsaRI7DBLaGqgW3Dmf7ncu3HsgivzLuO9loxnKKzFlWy69C177uAYxIHsBGu2Gvw7YVOGWHysmrMTFdRVcMY1SPz0TToaWyQxMbkLrwU1IoIlWstTr_wnhZFapskEsG9QxNKRDKpmjSFPAU15Db6sUzmKGeB-e5ACcHclJeXBJs9an");'></div>
+<div>
+<p class="text-sm font-medium text-white">Sarah Jenkins</p>
+<p class="text-xs text-[#92adc9]">ID: #8821</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-[#92adc9]">Blockchain Dev</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-24 h-1.5 bg-[#324d67] rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 88%"></div>
+</div>
+<span class="text-sm font-bold text-white">88%</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-blue-500/10 text-blue-400 border border-blue-500/20">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+                                                    AI Vetted
+                                                </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-sm font-medium text-[#92adc9] hover:text-white transition-colors">Review</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="group hover:bg-[#1c2936] transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-9 rounded-full bg-cover bg-center" data-alt="Headshot of Michael Chen" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCJFH8-n8ksfzcuoD-dtssK1sdxICuGg7oQEGIh51v5euc1BvASgjbSWvlSfuzkvUQ8qUtybHWDK__5gAPLE9Z20jpotOdh9M4209ZntMTxngi-KiYq3MZmg3EO3baxM6gUX6OllDjxZMhpAAEUmUB2zu-EBitrBLYCIshR40jv-yxxa3rn92mcb12WOOKyMFYYexwFXj4b-tSOfRNaD5-pP0aj7nAITiIXx3oU0sa5RrSF7sQP_4S_fwMWQhxg76mv9HrQltwjfRiN");'></div>
+<div>
+<p class="text-sm font-medium text-white">Michael Chen</p>
+<p class="text-xs text-[#92adc9]">ID: #8845</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-[#92adc9]">Smart Contracts</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-24 h-1.5 bg-[#324d67] rounded-full overflow-hidden">
+<div class="h-full bg-green-500 rounded-full" style="width: 92%"></div>
+</div>
+<span class="text-sm font-bold text-white">92%</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-green-500/10 text-green-400 border border-green-500/20">
+<span class="w-1.5 h-1.5 rounded-full bg-green-400"></span>
+                                                    High Priority
+                                                </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="bg-primary hover:bg-blue-600 text-white text-xs font-bold py-1.5 px-3 rounded transition-colors">Approve</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="group hover:bg-[#1c2936] transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-9 rounded-full bg-cover bg-center" data-alt="Headshot of Elena Rodriguez" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBoiolVwOzzr1D2cl7fpuNPZL72I7U6iQqSaew86Fig_NMeRyxLc2kGrGiGwiHjVimITcXPd8m4VTs-BSCf_KWf6iy4apkmg0VHcqp50dgfRWX6jyA7C8MTLek5pfrwU72WxZiEiwNT59jg2iwGquC8-voaSh5uz_x6kMTC5VmJpsOFNeIkCPuapV7zVr6ezQ8KgXg1qC9wxdJFWbm8xZbAhXIsgZot2H1C2W6Nt2yowUa4M-m0MWYMLaahKOhXedinDskQj1BFqEWs");'></div>
+<div>
+<p class="text-sm font-medium text-white">Elena R.</p>
+<p class="text-xs text-[#92adc9]">ID: #8901</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-[#92adc9]">DeFi Strategy</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-24 h-1.5 bg-[#324d67] rounded-full overflow-hidden">
+<div class="h-full bg-yellow-500 rounded-full" style="width: 74%"></div>
+</div>
+<span class="text-sm font-bold text-white">74%</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">
+<span class="w-1.5 h-1.5 rounded-full bg-yellow-400"></span>
+                                                    Pending
+                                                </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-sm font-medium text-[#92adc9] hover:text-white transition-colors">Review</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="group hover:bg-[#1c2936] transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-9 rounded-full bg-cover bg-center" data-alt="Headshot of Davide Bianchi" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBuWLozH_jrX2OmPY4YENgRBFJO21RyxrZRUEg6OTg9K8DuChzkoCtQBd0qfKZ2DTYaFskVc-xtygyf-L43Zuswp-ITlYs1TGJHySdISqR59AggKqEsCHfUBWg2RtzVeD18We3b66DWxqgOQ7mhWYE9NTUA_yPL_o_XxQ21rG90lXn2pDg3fx7bey0eYI79aqFcLA12HJMnU8R-VmDJL718mJqfg-DnuaZbw1V_ueN7V4L16i2a69bZyYJh2VAGTHr2TWTh5x3S2biJ");'></div>
+<div>
+<p class="text-sm font-medium text-white">Davide B.</p>
+<p class="text-xs text-[#92adc9]">ID: #8912</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-[#92adc9]">Rust Engineering</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-24 h-1.5 bg-[#324d67] rounded-full overflow-hidden">
+<div class="h-full bg-red-500 rounded-full" style="width: 65%"></div>
+</div>
+<span class="text-sm font-bold text-white">65%</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-red-500/10 text-red-400 border border-red-500/20">
+<span class="w-1.5 h-1.5 rounded-full bg-red-400"></span>
+                                                    Flagged
+                                                </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-sm font-medium text-red-400 hover:text-red-300 transition-colors">Reject</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Right Column: Fee Management (Takes up 1/3 space on large screens) -->
+<div class="flex flex-col gap-4">
+<h3 class="text-xl font-bold text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">currency_exchange</span>
+                            Global Fee Settings
+                        </h3>
+<div class="flex-1 rounded-xl border border-[#324d67] bg-[#111a22] p-6 shadow-lg flex flex-col gap-6">
+<!-- Fee Input Group -->
+<div class="flex flex-col gap-4">
+<div class="flex flex-col gap-1">
+<label class="text-sm font-medium text-[#92adc9]">Base Service Fee (USD)</label>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-[#92adc9] material-symbols-outlined text-lg">attach_money</span>
+<input class="w-full bg-[#192633] border border-[#324d67] rounded-lg py-2 pl-10 pr-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all font-medium" type="text" value="25.00"/>
+</div>
+<p class="text-xs text-slate-500">Standard rate for all new sessions.</p>
+</div>
+<div class="flex flex-col gap-1">
+<label class="text-sm font-medium text-[#92adc9]">Crypto Volatility Multiplier</label>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-[#92adc9] material-symbols-outlined text-lg">trending_up</span>
+<input class="w-full bg-[#192633] border border-[#324d67] rounded-lg py-2 pl-10 pr-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all font-medium" type="text" value="1.05"/>
+</div>
+<p class="text-xs text-slate-500">Safety buffer for ETH/BTC fluctuations.</p>
+</div>
+</div>
+<hr class="border-[#324d67]"/>
+<!-- Category Surcharges -->
+<div class="flex flex-col gap-3">
+<label class="text-sm font-bold text-white">Category Surcharges (%)</label>
+<div class="flex items-center justify-between gap-4">
+<span class="text-sm text-[#92adc9]">Blockchain Dev</span>
+<input class="w-20 bg-[#192633] border border-[#324d67] rounded text-center text-white text-sm py-1 focus:border-primary focus:outline-none" type="text" value="15%"/>
+</div>
+<div class="flex items-center justify-between gap-4">
+<span class="text-sm text-[#92adc9]">DeFi Strategy</span>
+<input class="w-20 bg-[#192633] border border-[#324d67] rounded text-center text-white text-sm py-1 focus:border-primary focus:outline-none" type="text" value="12%"/>
+</div>
+<div class="flex items-center justify-between gap-4">
+<span class="text-sm text-[#92adc9]">Smart Contracts</span>
+<input class="w-20 bg-[#192633] border border-[#324d67] rounded text-center text-white text-sm py-1 focus:border-primary focus:outline-none" type="text" value="18%"/>
+</div>
+</div>
+<div class="mt-auto pt-4">
+<button class="w-full bg-primary hover:bg-blue-600 text-white font-bold py-3 rounded-lg shadow-lg shadow-blue-900/20 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">save</span>
+                                    Update Global Pricing
+                                </button>
+<p class="text-center text-xs text-[#92adc9] mt-3">Last updated by Super Admin 2h ago</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer / Extra Info -->
+<div class="flex flex-col md:flex-row justify-between items-center border-t border-[#324d67] pt-6 gap-4">
+<p class="text-[#92adc9] text-sm">© 2023 Kryppt Admin Panel. All systems operational.</p>
+<div class="flex gap-4">
+<span class="text-xs font-mono text-[#5b7a96] bg-[#192633] px-2 py-1 rounded">v2.4.0-stable</span>
+<span class="text-xs font-mono text-[#5b7a96] bg-[#192633] px-2 py-1 rounded">Latency: 24ms</span>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

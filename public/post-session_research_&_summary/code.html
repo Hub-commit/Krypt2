@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Post-Session Summary - Kryppt</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#137fec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"],
+              "mono": ["Fira Code", "monospace"],
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#0d141b] dark:text-slate-200 font-display transition-colors duration-200">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Navigation -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7edf3] dark:border-slate-800 bg-white dark:bg-[#1a2632] px-4 md:px-10 py-3 sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-[#0d141b] dark:text-white">
+<div class="size-8 text-primary">
+<svg class="w-full h-full" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6_319)">
+<path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor"></path>
+</g>
+<defs>
+<clippath id="clip0_6_319"><rect fill="white" height="48" width="48"></rect></clippath>
+</defs>
+</svg>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Kryppt</h2>
+</div>
+<div class="hidden md:flex items-center gap-9">
+<a class="text-[#0d141b] dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Dashboard</a>
+<a class="text-[#0d141b] dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Mentorships</a>
+<a class="text-[#0d141b] dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Jobs</a>
+<a class="text-[#0d141b] dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Community</a>
+</div>
+</div>
+<div class="flex flex-1 justify-end gap-4 md:gap-8">
+<label class="hidden md:flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-[#4c739a] flex border-none bg-[#e7edf3] dark:bg-slate-700 items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] dark:text-white focus:outline-0 focus:ring-0 border-none bg-[#e7edf3] dark:bg-slate-700 focus:border-none h-full placeholder:text-[#4c739a] dark:placeholder:text-slate-400 px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Search" value=""/>
+</div>
+</label>
+<button class="flex items-center justify-center overflow-hidden rounded-lg size-10 bg-[#e7edf3] dark:bg-slate-700 text-[#0d141b] dark:text-white transition-colors hover:bg-slate-200 dark:hover:bg-slate-600">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border border-slate-200 dark:border-slate-700" data-alt="User profile picture showing a smiling professional" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB_Xrg-PCWJSdHx5RaOiKjzCsQbnC_EBTf--SEsIH_pJiNLWdXfyLZ1w3jlVnpz4dBi7w6oPniI5bySXVDcz_4T9C_v6Dxr7goYr7orNZU5dlwBVAW2u7KB6SfVF5TmsgsxDeMm7_QFhHGKIeQdKuva2j42tJd_qu8EUTX_EHZOu7xuTe6M3WWF9ZxOE9yS8XbxaPvV8GBwjWD1JJxTQwERHsXjFIZ0EDi_4rjiX1toBLt3SJJf6ZXbVu5cinX8GbbBBVIbpzMotyTB");'></div>
+</div>
+</header>
+<!-- Main Content Wrapper -->
+<div class="flex flex-1 justify-center py-8 px-4 md:px-8 lg:px-20 xl:px-40">
+<div class="flex flex-col w-full max-w-[1200px] gap-8">
+<!-- Breadcrumbs & Heading Section -->
+<div class="flex flex-col gap-6">
+<div class="flex flex-wrap gap-2 text-sm">
+<a class="text-[#4c739a] dark:text-slate-400 font-medium hover:underline" href="#">Home</a>
+<span class="text-[#4c739a] dark:text-slate-500 font-medium">/</span>
+<a class="text-[#4c739a] dark:text-slate-400 font-medium hover:underline" href="#">Sessions</a>
+<span class="text-[#4c739a] dark:text-slate-500 font-medium">/</span>
+<span class="text-[#0d141b] dark:text-slate-200 font-medium">Session #42: React Architecture</span>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 pb-6 border-b border-[#e7edf3] dark:border-slate-800">
+<div class="flex flex-col gap-3">
+<h1 class="text-[#0d141b] dark:text-white text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">Session #42: React Architecture &amp; Career</h1>
+<div class="flex items-center gap-2 text-[#4c739a] dark:text-slate-400 text-sm md:text-base font-normal">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span>October 24, 2023</span>
+<span class="mx-1">•</span>
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span>10:00 AM - 11:00 AM</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-3">
+<button class="flex items-center justify-center gap-2 rounded-lg h-10 px-4 bg-white dark:bg-slate-800 border border-[#e7edf3] dark:border-slate-700 text-[#0d141b] dark:text-white text-sm font-bold shadow-sm hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-[20px]">download</span>
+<span>Download PDF</span>
+</button>
+<button class="flex items-center justify-center gap-2 rounded-lg h-10 px-4 bg-primary/10 text-primary dark:text-primary-400 text-sm font-bold hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-[20px]">share</span>
+<span>Share Notes</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Mentor Profile Strip -->
+<div class="flex flex-col sm:flex-row gap-4 sm:items-center justify-between p-4 bg-white dark:bg-[#1a2632] rounded-xl border border-[#e7edf3] dark:border-slate-800 shadow-sm">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-12 md:size-14 ring-2 ring-primary/20" data-alt="Portrait of Sarah Jenkins, Senior Frontend Engineer" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAK8gXj9NJs3LBcECNf2I_XzXZ0mGj7rACfpWqws2ZTICeOGQh6aD612mootzZO6EEnE_Z0h_P3i2MblristsqD8QKHMlCv9OIJv2Ru7HJk-a7oJJfYrDZd-oj53I4UJDSF9MSoZKjNQwYPrSIDp-3t-VbDMZHOz8iIIPch2W037fqdsVwMDH1XRkczugO46HwCcYLoJu1JDa7CACrKzwkpTIau3Up4C1aQWENHDDYKI25XF1i_UZmJCfVk_h4n4i3kSFcJ9W6zAcTL");'></div>
+<div class="flex flex-col">
+<p class="text-[#0d141b] dark:text-white text-lg font-bold leading-tight">Sarah Jenkins</p>
+<p class="text-[#4c739a] dark:text-slate-400 text-sm font-normal">Senior Frontend Engineer at TechCorp</p>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex flex-1 sm:flex-none min-w-[120px] cursor-pointer items-center justify-center rounded-lg h-9 px-4 bg-[#e7edf3] dark:bg-slate-700 text-[#0d141b] dark:text-white text-sm font-bold hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors">
+                            Message
+                        </button>
+<button class="flex flex-1 sm:flex-none min-w-[120px] cursor-pointer items-center justify-center rounded-lg h-9 px-4 bg-primary text-white text-sm font-bold hover:bg-primary/90 transition-colors shadow-md shadow-primary/20">
+                            Schedule Next
+                        </button>
+</div>
+</div>
+<!-- Main Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left Column (Content) -->
+<div class="lg:col-span-2 flex flex-col gap-8">
+<!-- AI Highlights -->
+<div class="bg-white dark:bg-[#1a2632] rounded-xl p-6 border border-[#e7edf3] dark:border-slate-800 shadow-sm">
+<div class="flex items-center gap-3 mb-4">
+<div class="p-2 bg-purple-100 dark:bg-purple-900/30 rounded-lg text-purple-600 dark:text-purple-400">
+<span class="material-symbols-outlined text-[24px]">auto_awesome</span>
+</div>
+<h2 class="text-[#0d141b] dark:text-white text-xl font-bold">Session Highlights</h2>
+</div>
+<div class="prose dark:prose-invert prose-slate max-w-none">
+<p class="text-[#0d141b] dark:text-slate-300 leading-relaxed mb-4">
+                                    In this session, we deeply explored <strong>React Performance Optimization</strong> techniques. Specifically, we discussed when to use <code class="bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded text-sm text-pink-600 dark:text-pink-400">useMemo</code> versus <code class="bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded text-sm text-pink-600 dark:text-pink-400">useCallback</code> to prevent unnecessary re-renders in large lists. Sarah also shared insights on navigating the transition from Mid-level to Senior Engineer, emphasizing the importance of "System Design" skills over pure coding speed.
+                                </p>
+<div class="flex flex-wrap gap-2 mt-4">
+<span class="px-3 py-1 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 text-xs font-semibold rounded-full border border-blue-100 dark:border-blue-800">#ReactJS</span>
+<span class="px-3 py-1 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 text-xs font-semibold rounded-full border border-blue-100 dark:border-blue-800">#Performance</span>
+<span class="px-3 py-1 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 text-xs font-semibold rounded-full border border-emerald-100 dark:border-emerald-800">#CareerGrowth</span>
+<span class="px-3 py-1 bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400 text-xs font-semibold rounded-full border border-orange-100 dark:border-orange-800">#SystemDesign</span>
+</div>
+</div>
+</div>
+<!-- Code Snippet -->
+<div class="bg-white dark:bg-[#1a2632] rounded-xl overflow-hidden border border-[#e7edf3] dark:border-slate-800 shadow-sm flex flex-col">
+<div class="bg-slate-50 dark:bg-slate-800/50 px-6 py-3 border-b border-[#e7edf3] dark:border-slate-800 flex justify-between items-center">
+<div class="flex items-center gap-2 text-slate-500 dark:text-slate-400 font-medium text-sm">
+<span class="material-symbols-outlined text-[18px]">code</span>
+<span>Memoization Example</span>
+</div>
+<button class="text-xs font-bold text-primary flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-[16px]">content_copy</span> Copy
+                                </button>
+</div>
+<div class="bg-[#1e293b] p-6 overflow-x-auto">
+<pre class="text-sm font-mono text-slate-300 leading-relaxed"><span class="text-purple-400">const</span> <span class="text-blue-400">ExpensiveComponent</span> = <span class="text-yellow-300">memo</span>(({ <span class="text-sky-300">data</span>, <span class="text-sky-300">onItemClick</span> }) =&gt; {
+  <span class="text-slate-500">// Only re-calculates if data changes</span>
+  <span class="text-purple-400">const</span> <span class="text-sky-300">processedData</span> = <span class="text-yellow-300">useMemo</span>(() =&gt; {
+    <span class="text-purple-400">return</span> <span class="text-sky-300">data</span>.<span class="text-blue-400">map</span>(<span class="text-sky-300">item</span> =&gt; <span class="text-blue-400">heavyCalculation</span>(<span class="text-sky-300">item</span>));
+  }, [<span class="text-sky-300">data</span>]);
+
+  <span class="text-purple-400">return</span> (
+    &lt;<span class="text-red-400">div</span>&gt;
+      {<span class="text-sky-300">processedData</span>.<span class="text-blue-400">map</span>(<span class="text-sky-300">item</span> =&gt; (
+        &lt;<span class="text-red-400">ListItem</span> <span class="text-sky-300">key</span>={item.id} <span class="text-sky-300">onClick</span>={onItemClick} /&gt;
+      ))}
+    &lt;/<span class="text-red-400">div</span>&gt;
+  );
+});
+</pre>
+</div>
+</div>
+<!-- Research Notes -->
+<div class="bg-white dark:bg-[#1a2632] rounded-xl p-6 border border-[#e7edf3] dark:border-slate-800 shadow-sm">
+<h3 class="text-[#0d141b] dark:text-white text-lg font-bold mb-4">Research &amp; Resources</h3>
+<ul class="flex flex-col gap-3">
+<li>
+<a class="group flex items-start gap-4 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors border border-transparent hover:border-[#e7edf3] dark:hover:border-slate-700" href="#">
+<div class="size-10 rounded bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400 shrink-0">
+<span class="material-symbols-outlined">article</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[#0d141b] dark:text-white font-semibold group-hover:text-primary transition-colors">React Documentation: useMemo</span>
+<span class="text-[#4c739a] dark:text-slate-400 text-sm">Official documentation explaining the hook API and best practices.</span>
+</div>
+<div class="ml-auto text-slate-400 group-hover:text-primary self-center">
+<span class="material-symbols-outlined">open_in_new</span>
+</div>
+</a>
+</li>
+<li>
+<a class="group flex items-start gap-4 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors border border-transparent hover:border-[#e7edf3] dark:hover:border-slate-700" href="#">
+<div class="size-10 rounded bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-600 dark:text-orange-400 shrink-0">
+<span class="material-symbols-outlined">web</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[#0d141b] dark:text-white font-semibold group-hover:text-primary transition-colors">Overreacted: A Complete Guide to useEffect</span>
+<span class="text-[#4c739a] dark:text-slate-400 text-sm">Dan Abramov's deep dive into effects and dependencies.</span>
+</div>
+<div class="ml-auto text-slate-400 group-hover:text-primary self-center">
+<span class="material-symbols-outlined">open_in_new</span>
+</div>
+</a>
+</li>
+<li>
+<a class="group flex items-start gap-4 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors border border-transparent hover:border-[#e7edf3] dark:hover:border-slate-700" href="#">
+<div class="size-10 rounded bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
+<span class="material-symbols-outlined">work</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[#0d141b] dark:text-white font-semibold group-hover:text-primary transition-colors">Local Job: Senior React Dev @ FintechStart</span>
+<span class="text-[#4c739a] dark:text-slate-400 text-sm">Discussed during session. Application deadline: Friday.</span>
+</div>
+<div class="ml-auto text-slate-400 group-hover:text-primary self-center">
+<span class="material-symbols-outlined">arrow_forward</span>
+</div>
+</a>
+</li>
+</ul>
+</div>
+</div>
+<!-- Right Column (Sidebar) -->
+<div class="flex flex-col gap-6">
+<!-- Session Recording Card -->
+<div class="bg-white dark:bg-[#1a2632] rounded-xl p-4 border border-[#e7edf3] dark:border-slate-800 shadow-sm">
+<h3 class="text-[#0d141b] dark:text-white text-base font-bold mb-3">Session Recording</h3>
+<div class="relative w-full aspect-video rounded-lg overflow-hidden group cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Abstract gradient background representing a video thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCrJVegmUmxPwT07A2sHmo0DDjtQL5TTPeWXpspCdNCGCdGRFBYC2Jl6drDeMRCuKFhYC85BaICbxvPvAv4JqUzu7pOcrjyr3OH-sGdDo33QH5KIvmSxxRfPKcsWsJuBHMXsyry8hQq90r1nDG8tveMaBxaffF_CKLfOBt5Kgj-dWAdS7R2bNnrKEbIcMF323CKdksPnieQ3Jf_FjpMiW9oMGhKEqRl87cLZVsoX75ZCjrOIdAstGlwkdyJgfm0t_HC6Upk6eDhsVU3");'></div>
+<div class="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors flex items-center justify-center">
+<div class="size-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/50 text-white transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-[32px] ml-1">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-0.5 rounded font-medium">58:42</div>
+</div>
+<button class="w-full mt-3 flex items-center justify-center gap-2 text-primary dark:text-primary-400 text-sm font-bold py-2 rounded hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-[18px]">visibility</span> Watch Recording
+                            </button>
+</div>
+<!-- Action Center / Next Steps -->
+<div class="bg-white dark:bg-[#1a2632] rounded-xl p-5 border border-[#e7edf3] dark:border-slate-800 shadow-sm flex flex-col h-auto">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-[#0d141b] dark:text-white text-base font-bold">Next Steps</h3>
+<span class="text-xs font-semibold text-slate-500 bg-slate-100 dark:bg-slate-700 px-2 py-0.5 rounded-full">1/3 Done</span>
+</div>
+<div class="flex flex-col gap-3">
+<label class="flex items-start gap-3 cursor-pointer group">
+<input checked="" class="mt-1 size-4 rounded border-slate-300 text-primary focus:ring-primary dark:border-slate-600 dark:bg-slate-700 dark:checked:bg-primary" type="checkbox"/>
+<span class="text-sm text-slate-500 dark:text-slate-400 line-through group-hover:text-slate-700 dark:group-hover:text-slate-300 transition-colors">Refactor the User Dashboard component using useMemo</span>
+</label>
+<label class="flex items-start gap-3 cursor-pointer group">
+<input class="mt-1 size-4 rounded border-slate-300 text-primary focus:ring-primary dark:border-slate-600 dark:bg-slate-700 dark:checked:bg-primary" type="checkbox"/>
+<span class="text-sm text-[#0d141b] dark:text-slate-200 group-hover:text-primary transition-colors">Read "Clean Code" chapter on Functions</span>
+</label>
+<label class="flex items-start gap-3 cursor-pointer group">
+<input class="mt-1 size-4 rounded border-slate-300 text-primary focus:ring-primary dark:border-slate-600 dark:bg-slate-700 dark:checked:bg-primary" type="checkbox"/>
+<span class="text-sm text-[#0d141b] dark:text-slate-200 group-hover:text-primary transition-colors">Apply to 3 local jobs on Kryppt Jobs board</span>
+</label>
+</div>
+<div class="mt-5 pt-4 border-t border-[#e7edf3] dark:border-slate-800">
+<button class="flex items-center gap-2 text-slate-500 hover:text-primary text-sm font-medium transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span> Add new task
+                                </button>
+</div>
+</div>
+<!-- Rating / Feedback -->
+<div class="bg-gradient-to-br from-white to-blue-50 dark:from-[#1a2632] dark:to-[#1a2632] rounded-xl p-5 border border-[#e7edf3] dark:border-slate-800 shadow-sm text-center">
+<h3 class="text-[#0d141b] dark:text-white text-base font-bold mb-2">How was Sarah?</h3>
+<p class="text-xs text-[#4c739a] dark:text-slate-400 mb-4">Your feedback helps improve future sessions.</p>
+<div class="flex justify-center gap-2 mb-4">
+<button class="text-yellow-400 hover:scale-110 transition-transform"><span class="material-symbols-outlined filled text-[28px]" style="font-variation-settings: 'FILL' 1;">star</span></button>
+<button class="text-yellow-400 hover:scale-110 transition-transform"><span class="material-symbols-outlined filled text-[28px]" style="font-variation-settings: 'FILL' 1;">star</span></button>
+<button class="text-yellow-400 hover:scale-110 transition-transform"><span class="material-symbols-outlined filled text-[28px]" style="font-variation-settings: 'FILL' 1;">star</span></button>
+<button class="text-yellow-400 hover:scale-110 transition-transform"><span class="material-symbols-outlined filled text-[28px]" style="font-variation-settings: 'FILL' 1;">star</span></button>
+<button class="text-slate-300 dark:text-slate-600 hover:text-yellow-400 hover:scale-110 transition-all"><span class="material-symbols-outlined text-[28px]">star</span></button>
+</div>
+<textarea class="w-full text-sm p-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:border-primary focus:ring-1 focus:ring-primary mb-3 resize-none h-20 placeholder:text-slate-400" placeholder="Optional: Any specific comments?"></textarea>
+<button class="w-full bg-primary text-white text-sm font-bold py-2 rounded-lg hover:bg-primary/90 transition-colors shadow-sm shadow-blue-200 dark:shadow-none">Submit Feedback</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>
