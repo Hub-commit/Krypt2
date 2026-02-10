@@ -38,8 +38,11 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'Server is running', timestamp: new Date() });
 });
 
-// Static files
-app.use(express.static('public'));
+// Static files - serve public folder at /public route
+app.use('/public', express.static('public'));
+
+// Also serve at root for index.html
+app.use('/', express.static('public'));
 
 // Socket.IO for real-time messaging
 io.on('connection', (socket) => {
