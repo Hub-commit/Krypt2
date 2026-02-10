@@ -13,12 +13,7 @@
     "server.js": {
       "runtime": "nodejs18.x",
       "memory": 3008,
-      "maxDuration": 60,
-      "environment": {
-        "GEMINI_API_KEY": "@gemini_api_key",
-        "MONGODB_URI": "@mongodb_uri",
-        "JWT_SECRET": "@jwt_secret"
-      }
+      "maxDuration": 60
     }
   },
   "routes": [
