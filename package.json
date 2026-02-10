@@ -6,8 +6,12 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "build": "echo 'Build complete'",
-    "test": "jest"
+    "build": "npm install",
+    "test": "jest",
+    "heroku-postbuild": "npm install"
+  },
+  "engines": {
+    "node": "18.x"
   },
   "keywords": [
     "mentorship",

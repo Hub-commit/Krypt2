@@ -1,21 +1,39 @@
-/* eslint-disable */
-/**
- * @type {import('next').NextConfig}
- */
-const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-  env: {
-    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000',
+{
+  "version": 2,
+  "buildCommand": "npm install",
+  "env": {
+    "GEMINI_API_KEY": "@gemini_api_key",
+    "MONGODB_URI": "@mongodb_uri",
+    "JWT_SECRET": "@jwt_secret",
+    "JWT_EXPIRE": "7d",
+    "NODE_ENV": "production",
+    "CORS_ORIGIN": "@cors_origin"
   },
-  rewrites: async () => {
-    return [
-      {
-        source: '/api/:path*',
-        destination: `${process.env.API_URL || 'http://localhost:5000'}/api/:path*`,
-      },
-    ];
+  "functions": {
+    "server.js": {
+      "runtime": "nodejs18.x",
+      "memory": 3008,
+      "maxDuration": 60,
+      "environment": {
+        "GEMINI_API_KEY": "@gemini_api_key",
+        "MONGODB_URI": "@mongodb_uri",
+        "JWT_SECRET": "@jwt_secret"
+      }
+    }
   },
-};
-
-module.exports = nextConfig;
+  "routes": [
+    {
+      "src": "/public/(.*)",
+      "dest": "/public/$1"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "/server.js",
+      "methods": ["GET", "POST", "PUT", "DELETE", "PATCH"]
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/public/index.html"
+    }
+  ]
+}
