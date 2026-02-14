@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>404 - Page Not Found - Kryppt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#0d141b] dark:text-white font-display overflow-hidden">
+<div class="flex min-h-screen w-full items-center justify-center p-4">
+    <div class="text-center max-w-md">
+        <!-- 404 Illustration -->
+        <div class="mb-8 float-animation">
+            <span class="material-symbols-outlined text-8xl text-gray-300 dark:text-gray-700" style="font-size: 200px;">error</span>
+        </div>
+
+        <!-- Error Code -->
+        <div class="mb-6">
+            <h1 class="text-6xl font-black text-primary mb-2">404</h1>
+            <h2 class="text-3xl font-bold text-[#0d141b] dark:text-white mb-3">Page Not Found</h2>
+            <p class="text-gray-600 dark:text-gray-400 text-base">Sorry, the page you're looking for doesn't exist or has been moved.</p>
+        </div>
+
+        <!-- Error Details -->
+        <div class="bg-gray-50 dark:bg-[#1a2332] rounded-lg p-4 mb-8">
+            <p class="text-sm text-gray-600 dark:text-gray-300">
+                <span class="font-mono">URL: /page/not/found</span>
+            </p>
+            <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">
+                Error ID: <span class="font-mono">ERR_404_{{ timestamp }}</span>
+            </p>
+        </div>
+
+        <!-- Suggestions -->
+        <div class="mb-8 text-left bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+            <h3 class="font-semibold text-blue-900 dark:text-blue-300 mb-2 flex items-center gap-2">
+                <span class="material-symbols-outlined text-lg">lightbulb</span>
+                What you can do:
+            </h3>
+            <ul class="space-y-2 text-sm text-blue-800 dark:text-blue-200">
+                <li class="flex items-start gap-2">
+                    <span class="material-symbols-outlined text-base mt-0.5 flex-shrink-0">chevron_right</span>
+                    <span>Check the URL for typos</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="material-symbols-outlined text-base mt-0.5 flex-shrink-0">chevron_right</span>
+                    <span>Go back to the previous page</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="material-symbols-outlined text-base mt-0.5 flex-shrink-0">chevron_right</span>
+                    <span>Return to the home page</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="material-symbols-outlined text-base mt-0.5 flex-shrink-0">chevron_right</span>
+                    <span>Contact support if you think this is a bug</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row gap-3 justify-center mb-8">
+            <button class="px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined">home</span>
+                Go to Home
+            </button>
+            <button class="px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-semibold rounded-lg hover:bg-gray-100 dark:hover:bg-[#1a2332] transition-colors flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Go Back
+            </button>
+        </div>
+
+        <!-- Help Section -->
+        <div class="border-t border-gray-200 dark:border-gray-700 pt-8">
+            <p class="text-xs text-gray-600 dark:text-gray-400 mb-3">Need help?</p>
+            <div class="flex items-center justify-center gap-3">
+                <a href="#" class="inline-flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#1a2332] transition-colors">
+                    <span class="material-symbols-outlined text-lg">question_mark</span>
+                    <span>FAQ</span>
+                </a>
+                <a href="#" class="inline-flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#1a2332] transition-colors">
+                    <span class="material-symbols-outlined text-lg">mail</span>
+                    <span>Support</span>
+                </a>
+                <a href="#" class="inline-flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#1a2332] transition-colors">
+                    <span class="material-symbols-outlined text-lg">forum</span>
+                    <span>Community</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

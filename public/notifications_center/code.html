@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Notifications - Kryppt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-white overflow-hidden">
+<div class="flex h-screen w-full">
+    <!-- Sidebar Navigation -->
+    <aside class="w-64 flex flex-col h-full border-r border-gray-200 dark:border-gray-800 bg-white dark:bg-[#111a22] hidden lg:flex">
+        <div class="flex flex-col h-full p-4 justify-between">
+            <div class="flex flex-col gap-6">
+                <!-- Brand -->
+                <div class="flex gap-3 items-center px-2">
+                    <div class="bg-center bg-no-repeat bg-cover rounded-full size-10 bg-primary flex items-center justify-center text-white font-bold text-xl">K</div>
+                    <div class="flex flex-col">
+                        <h1 class="text-gray-900 dark:text-white text-lg font-bold leading-normal">Kryppt</h1>
+                        <p class="text-gray-500 dark:text-[#92adc9] text-xs font-normal leading-normal">Mentorship Platform</p>
+                    </div>
+                </div>
+                <!-- Navigation Links -->
+                <nav class="flex flex-col gap-2">
+                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#233648] transition-colors" href="#">
+                        <span class="material-symbols-outlined" style="font-size: 20px;">dashboard</span>
+                        <span class="text-sm font-medium leading-normal">Dashboard</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#233648] transition-colors" href="#">
+                        <span class="material-symbols-outlined" style="font-size: 20px;">group</span>
+                        <span class="text-sm font-medium leading-normal">My Mentors</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#233648] transition-colors" href="#">
+                        <span class="material-symbols-outlined" style="font-size: 20px;">work</span>
+                        <span class="text-sm font-medium leading-normal">Jobs</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary text-white" href="#">
+                        <span class="material-symbols-outlined" style="font-size: 20px;">notifications</span>
+                        <span class="text-sm font-medium leading-normal">Notifications</span>
+                    </a>
+                </nav>
+            </div>
+            <!-- User Profile -->
+            <div class="flex flex-col gap-1 border-t border-gray-200 dark:border-gray-800 pt-4">
+                <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#233648] transition-colors" href="#">
+                    <div class="bg-center bg-no-repeat bg-cover rounded-full size-8" style='background-image: url("https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=32&h=32&fit=crop");'></div>
+                    <div class="flex flex-col">
+                        <p class="text-sm font-medium leading-none">You</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">View Profile</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col h-full overflow-y-auto relative bg-background-light dark:bg-background-dark">
+        <!-- Top Navigation -->
+        <header class="sticky top-0 z-40 border-b border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-[#111a22]/80 backdrop-blur-sm px-6 lg:px-8 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <button class="flex items-center justify-center p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-[#233648] transition-colors lg:hidden">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white">Notifications</h2>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button class="px-3 py-1.5 text-xs font-medium text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-100 dark:hover:bg-[#233648] transition-colors">
+                        Mark all as read
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Notifications Content -->
+        <div class="flex-1 p-6 lg:p-8">
+            <div class="max-w-2xl mx-auto space-y-6">
+                <!-- Filter Tabs -->
+                <div class="flex gap-2 border-b border-gray-200 dark:border-gray-700">
+                    <button class="px-4 py-3 text-sm font-medium text-primary border-b-2 border-primary">All (12)</button>
+                    <button class="px-4 py-3 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">Unread (5)</button>
+                    <button class="px-4 py-3 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">Mentions (2)</button>
+                </div>
+
+                <!-- Notifications List -->
+                <div class="space-y-3">
+                    <!-- Notification Item - Unread -->
+                    <div class="bg-white dark:bg-[#111a22] border border-gray-200 dark:border-gray-800 rounded-lg p-4 hover:shadow-md dark:hover:shadow-lg transition-shadow cursor-pointer">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0">
+                                <div class="w-3 h-3 rounded-full bg-primary mt-2"></div>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex items-start justify-between gap-3">
+                                    <div>
+                                        <p class="text-sm font-semibold text-gray-900 dark:text-white">New mentorship opportunity</p>
+                                        <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Sarah Chen wants to mentor you in Product Management. She has 8 years of experience at tech companies.</p>
+                                    </div>
+                                    <span class="material-symbols-outlined text-gray-400 text-xl flex-shrink-0">close</span>
+                                </div>
+                                <div class="flex items-center gap-3 mt-3">
+                                    <span class="text-xs text-gray-500 dark:text-gray-400">Just now</span>
+                                    <button class="text-xs font-medium text-primary hover:underline">View profile</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notification Item - Unread -->
+                    <div class="bg-white dark:bg-[#111a22] border border-gray-200 dark:border-gray-800 rounded-lg p-4 hover:shadow-md dark:hover:shadow-lg transition-shadow cursor-pointer">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0">
+                                <div class="w-3 h-3 rounded-full bg-primary mt-2"></div>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex items-start justify-between gap-3">
+                                    <div>
+                                        <p class="text-sm font-semibold text-gray-900 dark:text-white">New message from your mentor</p>
+                                        <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">John Davis replied to your last message: "Great question! Let's discuss this in our next session."</p>
+                                    </div>
+                                    <span class="material-symbols-outlined text-gray-400 text-xl flex-shrink-0">close</span>
+                                </div>
+                                <div class="flex items-center gap-3 mt-3">
+                                    <span class="text-xs text-gray-500 dark:text-gray-400">5 minutes ago</span>
+                                    <button class="text-xs font-medium text-primary hover:underline">View message</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notification Item - Read -->
+                    <div class="bg-gray-50 dark:bg-[#0d1419] border border-gray-200 dark:border-gray-800 rounded-lg p-4 hover:shadow-md dark:hover:shadow-lg transition-shadow cursor-pointer opacity-75">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0">
+                                <div class="w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-600 mt-2"></div>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex items-start justify-between gap-3">
+                                    <div>
+                                        <p class="text-sm font-semibold text-gray-900 dark:text-white">Mentorship session scheduled</p>
+                                        <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Your session with Emma Johnson is scheduled for tomorrow at 2:00 PM (EST).</p>
+                                    </div>
+                                    <span class="material-symbols-outlined text-gray-400 text-xl flex-shrink-0">close</span>
+                                </div>
+                                <div class="flex items-center gap-3 mt-3">
+                                    <span class="text-xs text-gray-500 dark:text-gray-400">2 hours ago</span>
+                                    <button class="text-xs font-medium text-primary hover:underline">View session</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notification Item - Read -->
+                    <div class="bg-gray-50 dark:bg-[#0d1419] border border-gray-200 dark:border-gray-800 rounded-lg p-4 hover:shadow-md dark:hover:shadow-lg transition-shadow cursor-pointer opacity-75">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0">
+                                <div class="w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-600 mt-2"></div>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex items-start justify-between gap-3">
+                                    <div>
+                                        <p class="text-sm font-semibold text-gray-900 dark:text-white">Job recommendation</p>
+                                        <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Senior Product Manager at TechCorp matches your profile. Salary: $150K - $180K</p>
+                                    </div>
+                                    <span class="material-symbols-outlined text-gray-400 text-xl flex-shrink-0">close</span>
+                                </div>
+                                <div class="flex items-center gap-3 mt-3">
+                                    <span class="text-xs text-gray-500 dark:text-gray-400">Yesterday</span>
+                                    <button class="text-xs font-medium text-primary hover:underline">View job</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notification Item - Read -->
+                    <div class="bg-gray-50 dark:bg-[#0d1419] border border-gray-200 dark:border-gray-800 rounded-lg p-4 hover:shadow-md dark:hover:shadow-lg transition-shadow cursor-pointer opacity-75">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0">
+                                <div class="w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-600 mt-2"></div>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex items-start justify-between gap-3">
+                                    <div>
+                                        <p class="text-sm font-semibold text-gray-900 dark:text-white">Profile viewed by mentor</p>
+                                        <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Michael Rodriguez viewed your profile and might be interested in mentoring you.</p>
+                                    </div>
+                                    <span class="material-symbols-outlined text-gray-400 text-xl flex-shrink-0">close</span>
+                                </div>
+                                <div class="flex items-center gap-3 mt-3">
+                                    <span class="text-xs text-gray-500 dark:text-gray-400">2 days ago</span>
+                                    <button class="text-xs font-medium text-primary hover:underline">View profile</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Empty State Message -->
+                    <div class="text-center py-12">
+                        <span class="material-symbols-outlined text-6xl text-gray-300 dark:text-gray-700 block mb-4">notifications_none</span>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">No older notifications. You're all caught up!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+</html>

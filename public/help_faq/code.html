@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Help & FAQ - Kryppt</title>
+    <meta content="Get answers to your questions about Kryppt" name="description"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#0d141b] dark:text-white font-display">
+<div class="w-full flex flex-col">
+    <!-- Navigation -->
+    <header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7edf3] dark:border-b-[#2a3441] bg-white/90 dark:bg-[#101922]/90 backdrop-blur-sm px-6 lg:px-40 py-3">
+        <div class="flex items-center gap-4 text-[#0d141b] dark:text-white">
+            <div class="size-8 text-primary">
+                <svg class="w-full h-full" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_6_319)">
+                        <path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor"></path>
+                    </g>
+                </svg>
+            </div>
+            <p class="text-[#0d141b] dark:text-white text-lg font-bold">Kryppt</p>
+        </div>
+        <div class="hidden md:flex items-center gap-8">
+            <a class="text-[#0d141b] dark:text-white hover:text-primary transition-colors text-sm font-medium" href="#">Home</a>
+            <a class="text-primary font-medium text-sm" href="#">Help</a>
+            <a class="text-[#0d141b] dark:text-white hover:text-primary transition-colors text-sm font-medium" href="#">Contact</a>
+        </div>
+        <button class="flex md:hidden items-center justify-center p-2 text-[#0d141b] dark:text-white">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="w-full px-6 lg:px-40 py-16 md:py-24 text-center">
+        <h1 class="text-4xl md:text-5xl font-black text-[#0d141b] dark:text-white mb-4">How can we help you?</h1>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Find answers to common questions, learn tips and tricks, and get support from our team.</p>
+        
+        <!-- Search Bar -->
+        <div class="max-w-2xl mx-auto mb-12">
+            <div class="relative">
+                <input type="text" placeholder="Search for help..." class="w-full px-6 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-[#1a2332] text-[#0d141b] dark:text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"/>
+                <span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+            </div>
+        </div>
+
+        <!-- Quick Categories -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
+            <button class="p-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#111a22] hover:bg-gray-50 dark:hover:bg-[#1a2332] transition-colors">
+                <span class="material-symbols-outlined text-primary text-2xl block mb-2 mx-auto">account_circle</span>
+                <p class="text-sm font-semibold text-[#0d141b] dark:text-white">Getting Started</p>
+            </button>
+            <button class="p-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#111a22] hover:bg-gray-50 dark:hover:bg-[#1a2332] transition-colors">
+                <span class="material-symbols-outlined text-primary text-2xl block mb-2 mx-auto">monetization_on</span>
+                <p class="text-sm font-semibold text-[#0d141b] dark:text-white">Billing</p>
+            </button>
+            <button class="p-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#111a22] hover:bg-gray-50 dark:hover:bg-[#1a2332] transition-colors">
+                <span class="material-symbols-outlined text-primary text-2xl block mb-2 mx-auto">security</span>
+                <p class="text-sm font-semibold text-[#0d141b] dark:text-white">Privacy & Security</p>
+            </button>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="w-full px-6 lg:px-40 py-16 md:py-24">
+        <h2 class="text-3xl font-bold text-[#0d141b] dark:text-white mb-12">Frequently Asked Questions</h2>
+        
+        <div class="max-w-3xl mx-auto space-y-4">
+            <!-- FAQ Item 1 -->
+            <div class="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+                <button class="w-full px-6 py-4 flex items-center justify-between bg-white dark:bg-[#111a22] hover:bg-gray-50 dark:hover:bg-[#1a2332] transition-colors">
+                    <span class="text-left font-semibold text-[#0d141b] dark:text-white">How do I get started with Kryppt?</span>
+                    <span class="material-symbols-outlined text-gray-400">expand_more</span>
+                </button>
+                <div class="hidden px-6 py-4 bg-gray-50 dark:bg-[#0d1419] border-t border-gray-200 dark:border-gray-700">
+                    <p class="text-gray-600 dark:text-gray-400">To get started with Kryppt, sign up for an account, complete your profile, and tell us about your goals or expertise. Mentees can then search for mentors, and mentors can start accepting mentees.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+                <button class="w-full px-6 py-4 flex items-center justify-between bg-white dark:bg-[#111a22] hover:bg-gray-50 dark:hover:bg-[#1a2332] transition-colors">
+                    <span class="text-left font-semibold text-[#0d141b] dark:text-white">How much does Kryppt cost?</span>
+                    <span class="material-symbols-outlined text-gray-400">expand_more</span>
+                </button>
+                <div class="hidden px-6 py-4 bg-gray-50 dark:bg-[#0d1419] border-t border-gray-200 dark:border-gray-700">
+                    <p class="text-gray-600 dark:text-gray-400">Kryppt offers a free tier for all users. Premium features include unlimited mentorship sessions, priority job recommendations, and AI-powered learning paths. Premium plans start at $9.99/month.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+                <button class="w-full px-6 py-4 flex items-center justify-between bg-white dark:bg-[#111a22] hover:bg-gray-50 dark:hover:bg-[#1a2332] transition-colors">
+                    <span class="text-left font-semibold text-[#0d141b] dark:text-white">Can I switch between being a mentee and mentor?</span>
+                    <span class="material-symbols-outlined text-gray-400">expand_more</span>
+                </button>
+                <div class="hidden px-6 py-4 bg-gray-50 dark:bg-[#0d1419] border-t border-gray-200 dark:border-gray-700">
+                    <p class="text-gray-600 dark:text-gray-400">Absolutely! You can have both a mentee and mentor profile. Many professionals use Kryppt to both receive guidance and give back by mentoring others. You can manage both roles in your settings.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+                <button class="w-full px-6 py-4 flex items-center justify-between bg-white dark:bg-[#111a22] hover:bg-gray-50 dark:hover:bg-[#1a2332] transition-colors">
+                    <span class="text-left font-semibold text-[#0d141b] dark:text-white">Is my data safe with Kryppt?</span>
+                    <span class="material-symbols-outlined text-gray-400">expand_more</span>
+                </button>
+                <div class="hidden px-6 py-4 bg-gray-50 dark:bg-[#0d1419] border-t border-gray-200 dark:border-gray-700">
+                    <p class="text-gray-600 dark:text-gray-400">Yes, we take security seriously. All data is encrypted in transit and at rest. We comply with GDPR, CCPA, and other privacy regulations. Read our full privacy policy for more details.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 5 -->
+            <div class="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+                <button class="w-full px-6 py-4 flex items-center justify-between bg-white dark:bg-[#111a22] hover:bg-gray-50 dark:hover:bg-[#1a2332] transition-colors">
+                    <span class="text-left font-semibold text-[#0d141b] dark:text-white">How do I cancel my subscription?</span>
+                    <span class="material-symbols-outlined text-gray-400">expand_more</span>
+                </button>
+                <div class="hidden px-6 py-4 bg-gray-50 dark:bg-[#0d1419] border-t border-gray-200 dark:border-gray-700">
+                    <p class="text-gray-600 dark:text-gray-400">You can cancel your subscription anytime from your settings. No cancellation fees apply. Your access will continue until the end of your billing period.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="w-full px-6 lg:px-40 py-16 md:py-24 bg-gray-50 dark:bg-[#0d1419]">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-3xl font-bold text-[#0d141b] dark:text-white mb-4">Still need help?</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-8">Can't find what you're looking for? Our support team is ready to help.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <a href="#" class="p-6 bg-white dark:bg-[#111a22] rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow">
+                    <span class="material-symbols-outlined text-primary text-3xl block mb-3 mx-auto">mail</span>
+                    <p class="font-semibold text-[#0d141b] dark:text-white mb-1">Email Support</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">support@kryppt.com</p>
+                </a>
+                <a href="#" class="p-6 bg-white dark:bg-[#111a22] rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow">
+                    <span class="material-symbols-outlined text-primary text-3xl block mb-3 mx-auto">chat</span>
+                    <p class="font-semibold text-[#0d141b] dark:text-white mb-1">Live Chat</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Chat with us now</p>
+                </a>
+                <a href="#" class="p-6 bg-white dark:bg-[#111a22] rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow">
+                    <span class="material-symbols-outlined text-primary text-3xl block mb-3 mx-auto">forum</span>
+                    <p class="font-semibold text-[#0d141b] dark:text-white mb-1">Community Forum</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Join our community</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full border-t border-gray-200 dark:border-gray-700 px-6 lg:px-40 py-12">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="font-bold text-[#0d141b] dark:text-white mb-4">Product</h3>
+                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                        <li><a href="#" class="hover:text-primary transition-colors">Features</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Pricing</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Security</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-[#0d141b] dark:text-white mb-4">Company</h3>
+                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                        <li><a href="#" class="hover:text-primary transition-colors">About</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-[#0d141b] dark:text-white mb-4">Legal</h3>
+                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                        <li><a href="#" class="hover:text-primary transition-colors">Privacy</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Terms</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Cookies</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-[#0d141b] dark:text-white mb-4">Connect</h3>
+                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                        <li><a href="#" class="hover:text-primary transition-colors">Twitter</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">LinkedIn</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 dark:border-gray-700 pt-8 text-center text-sm text-gray-600 dark:text-gray-400">
+                <p>&copy; 2026 Kryppt. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
