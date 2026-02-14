@@ -1,35 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react'
+import { Routes, Route, Link } from 'react-router-dom'
+import Auth from './pages/Auth'
+import Mentees from './pages/Mentees'
+import Mentors from './pages/Mentors'
+import AI from './pages/AI'
+import Messaging from './pages/Messaging'
+import Jobs from './pages/Jobs'
+import Goals from './pages/Goals'
+import Admin from './pages/Admin'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      <nav>
+        <Link to="/">Home</Link> | <Link to="/auth">Auth</Link> | <Link to="/mentees">Mentees</Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<h2>Welcome to Kryppt (React)</h2>} />
+        <Route path="/auth/*" element={<Auth />} />
+        <Route path="/mentees/*" element={<Mentees />} />
+        <Route path="/mentors/*" element={<Mentors />} />
+        <Route path="/ai/*" element={<AI />} />
+        <Route path="/messaging/*" element={<Messaging />} />
+        <Route path="/jobs/*" element={<Jobs />} />
+        <Route path="/goals/*" element={<Goals />} />
+        <Route path="/admin/*" element={<Admin />} />
+      </Routes>
+    </div>
   )
 }
-
-export default App
