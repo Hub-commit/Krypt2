@@ -1,13 +1,8 @@
-const express = require('express');
-const cors = require('cors');
-const dotenv = require('dotenv');
 const http = require('http');
 const socketIo = require('socket.io');
 
-// Load environment variables
-dotenv.config();
+const { app } = require('./app');
 
-const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
@@ -15,23 +10,6 @@ const io = socketIo(server, {
     methods: ['GET', 'POST']
   }
 });
-
-// Middleware
-app.use(cors({
-  origin: process.env.CORS_ORIGIN || 'http://localhost:3000'
-}));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-// Routes
-app.use('/api/auth', require('./routes/auth'));
-app.use('/api/mentees', require('./routes/mentees'));
-app.use('/api/mentors', require('./routes/mentors'));
-app.use('/api/ai', require('./routes/ai'));
-app.use('/api/messaging', require('./routes/messaging'));
-app.use('/api/jobs', require('./routes/jobs'));
-app.use('/api/goals', require('./routes/goals'));
-app.use('/api/admin', require('./routes/admin'));
 
 // Health check
 app.get('/api/health', (req, res) => {

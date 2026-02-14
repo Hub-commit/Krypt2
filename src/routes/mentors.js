@@ -1,0 +1,24 @@
+const express = require('express');
+const router = express.Router();
+const User = require('../../models/User');
+
+router.get('/:id', async (req, res) => {
+  try {
+    const mentor = await User.findById(req.params.id).select('-password');
+    if (!mentor) return res.status(404).json({ message: 'Mentor not found' });
+    res.json(mentor);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+router.put('/:id', async (req, res) => {
+  try {
+    const updatedMentor = await User.findByIdAndUpdate(req.params.id, req.body, { new: true }).select('-password');
+    res.json(updatedMentor);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+module.exports = router;
