@@ -49,7 +49,14 @@ app.get('/api/health', (req, res) => {
 });
 
 app.use('/public', express.static('public'));
-app.use('/', express.static('public'));
+
+// Root route - serve the landing page
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/public/kryppt_platform_landing_page/code.html');
+});
+
+// Serve all other static files
+app.use('/', express.static('public', { index: false }));
 
 // 404 handler
 app.use((req, res) => {
