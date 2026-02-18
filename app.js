@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
+const { globalErrorHandler } = require('./middleware/errorHandler');
 
 dotenv.config();
 
@@ -60,16 +61,14 @@ app.use('/', express.static('public', { index: false }));
 
 // 404 handler
 app.use((req, res) => {
-  res.status(404).json({ message: 'Route not found' });
-});
-
-// Global error handler
-app.use((err, req, res, next) => {
-  console.error('Error:', err);
-  res.status(500).json({ 
-    message: 'Internal server error',
-    error: process.env.NODE_ENV === 'development' ? err.message : undefined
+  res.status(404).json({ 
+    success: false,
+    message: 'Route not found',
+    path: req.originalUrl 
   });
 });
+
+// Global error handler (must be last)
+app.use(globalErrorHandler);
 
 module.exports = { app };
